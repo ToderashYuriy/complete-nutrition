@@ -1,0 +1,58 @@
+<section class="collection_top" style="background-image: url('{{ section.settings.bg_image | img_url: '' }}');">
+	<div class="container_collection_top">
+		<div class="relative_block">
+			<div class="results_count">
+				{% if collection.products.size > 1 %}
+					{{ collection.products.size }} Results
+				{% else %}
+					{{ collection.products.size }} Result
+				{% endif %}
+			</div>
+			{% if collection.title == 'Products' or collection.title == 'All' %}
+			<h5 class="title_text">
+				{{ section.settings.title }}
+			</h5>
+			{% else %}
+			<h5 class="title_text">
+				{{ collection.title }}
+			</h5>
+			{% endif %}
+			{% if collection.title == 'Products' or collection.title == 'All' or collection.description == blank %}
+				<p class="content_text">{{ section.settings.content }}</p>
+			{% else %}
+				<p class="content_text">{{ section.settings.content }}</p>
+			{% endif %}
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Collection Top Section",
+    "settings": [
+	    {
+	      "type": "image_picker",
+	      "id": "bg_image",
+	      "label": "Background Image"
+	    },
+	    {
+		   "type": "text",
+		   "id": "title",
+		   "label": "Collection Title"
+		},
+		{
+		   "type": "text",
+		   "id": "content",
+		   "label": "Collection Content"
+		}
+    ]
+}
+{% endschema %}

@@ -1,0 +1,295 @@
+<style type="text/css">
+    {% if section.settings.message_show %}
+    .announcement {
+        background-color: {{ section.settings.message_color_bg }};
+    }
+    .announcement__text,
+    .announcement__text.rte a {
+        color: {{ section.settings.message_color_text }};
+    }
+    .announcement__text.rte a {
+        border-color: {{ section.settings.message_color_text }};
+    }
+    {% endif %}
+    {% unless section.settings.header_bg == '#ffffff' or template == 'product' %}
+        .main { margin-top: 30px }
+        .main .shopify-section:first-child .section--full { margin-top: -30px }
+    {% endunless %}
+</style> 
+{% for link in linklists[section.settings.main_nav].links %}
+    {% if link.url == '/collections/all' and link.links != blank %}
+        {% assign shop_mega_menu = true %}
+    {% endif %}
+{% endfor %}
+{% if section.settings.message_show %}
+    {% if section.settings.home_page_only == false or template.name == 'index' %}
+        {% unless section.settings.message_link == blank %}
+        <a href="{{ section.settings.message_link }}" class="announcement__link">
+        {% endunless %}
+            {% if section.settings.show_message_blocks %}
+            <div class="announcement">
+                <div class="container">
+                    <div class="flex_inner_announcement">
+                        <div class="left_announcement">
+                            {% for block in section.blocks %}
+                                {% case block.type %}
+                                    {% when 'image' %}
+                                    {% if block.settings.link != blank or block.settings.image != blank %}
+                                    <a href="{{ block.settings.link }}" class="item_announcement">
+                                        <img src="{{ block.settings.image | img_url: '150x' }}" alt="" class="item_inner">
+                                    </a>
+                                    {% endif %}
+                                {% endcase %}
+                            {% endfor %}
+                        </div>
+                        <div class="right_announcement">
+                            <p class="announcement__text">{{ section.settings.message_text | escape }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="announcement">
+                <p class="announcement__text">{{ section.settings.message_text | escape }}</p>
+            </div>
+            {% endif %}
+        {% unless section.settings.message_link == blank %}
+        </a>
+        {% endunless %}
+    {% endif %}
+{% endif %}
+
+
+<header class="header-new">
+	<div class="container">
+		<div class="header_inner">
+			<div class="logo_section">
+                <a href="/">
+    				<img src="{{ section.settings.logo | img_url: '' }}" alt="">
+                </a>
+			</div>
+			<div class="menu_section">
+				<div class="menu_inner">
+					<nav class="primary-nav header-navs__items js-primary-nav" role="navigation">
+			            <ul class="primary-nav__items">
+			                {% for link in linklists[section.settings.main_nav].links %}
+			                    {% capture parentIndex %}{{ forloop.index }}{% endcapture %}
+			                    <li class="primary-nav__item{% if link.active %} primary-nav__item--active{% endif %}{% if link.links != blank %} primary-nav__item--sub js-header-sub-link{% endif %}"{% if link.links != blank %} aria-has-popup="true" aria-expanded="false" aria-controls="sub-{{ forloop.index }}"{% endif %}>
+			                        <a href="{{ link.url }}" class="primary-nav__link animsition-link"
+                                    {% if link.url == '/collections/all' %}
+                                    data-option="shop_menu"
+                                    {% endif %}
+                                    >{{ link.title }}</a>
+
+			                        {% if link.links != blank %}
+                                        {% if link.url == '/collections/all' %}
+                                             <div class="mega_menu_shop" data-option="shop_menu">
+                                                <div class="container">
+                                                    <div class="inner_mega_menu">
+                                                        {% for link in linklists[section.settings.main_nav].links %}
+                                                            {% if link.url == '/collections/all' %}
+                                                                {% for child_link in link.links %}
+                                                                    <div class="child_block_mega">
+                                                                        <div class="title_child_mega">
+                                                                            <p class="title_child_mega_text">{{ child_link.title }}</p>
+                                                                        </div>
+                                                                        {% if child_link.links != blank %}
+                                                                            <div class="delivery_mega"></div>
+                                                                            <div class="inner_sub_child_mega">
+                                                                                {% for sub_child_link in child_link.links %}
+                                                                                    <a href="{{sub_child_link.url}}" class="sub_child_link_inner">{{sub_child_link.title}}</a>
+                                                                                {% endfor %}
+                                                                            </div>
+                                                                        {% endif %}
+                                                                    </div>
+                                                                {% endfor %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% else %}
+        		                            <div class="nav__sub{% if section.settings.mega_image or section.settings.mega_title != blank or section.settings.mega_text != blank or section.settings.mega_link != blank %} nav__sub--cta{% endif %}" id="sub-{{ forloop.index }}">
+        		                                <div class="nav__sub-wrap">
+        		                                    
+        		                                    <ul class="nav__sub__items nav__sub__items--{{ link.links.size }}{% if link.levels == 1 %} nav__sub__items--single{% endif %} o-list-bare">
+
+        		                                        {% for sub_link in link.links %}
+        		                                            <li class="nav__sub__item{% if sub_link.active %} nav__sub__item--active{% endif %}{% if sub_link.links != blank %} nav__sub__item--sub js-header-sub-t-link{% endif %}"{% if link.links != blank %} aria-has-popup="true" aria-expanded="false" aria-controls="sub-t-{{ parentIndex }}-{{ forloop.index }}"{% endif %}>
+        		                                                <a href="{{ sub_link.url }}" class="nav__sub__link{% if sub_link.links != blank %} js-header-sub-t-a{% endif %}">{{ sub_link.title | escape }}</a>
+
+        		                                                {% if sub_link.links != blank %} 
+        		                                                    <div class="nav__sub-t js-nav-sub-t" id="sub-t-{{ parentIndex }}-{{ forloop.index }}">
+        		                                                        <div class="nav__sub-t-wrap"> 
+        		                                                            <ul class="nav__sub-t__items o-list-bare">
+
+        		                                                                {% for sub_sub_link in sub_link.links %}
+        		                                                                    <li class="nav__sub-t__item{% if sub_sub_link.active %} nav__sub-t__item--active{% endif %}">
+        		                                                                        <a href="{{ sub_sub_link.url }}" class="nav__sub-t__link">{{ sub_sub_link.title | escape }}</a>
+        		                                                                    </li>
+        		                                                                {% endfor %}
+
+        		                                                            </ul>
+        		                                                        </div>
+        		                                                    </div>
+        		                                                {% endif %}
+
+        		                                            </li>
+        		                                        {% endfor %}
+
+        		                                    </ul>
+
+        		                                </div>
+        		                            </div>
+                                        {% endif %}
+			                        {% endif %}
+
+			                    </li>
+			                {% endfor %}
+			            </ul>
+			        </nav>
+				</div>
+				{% if settings.search_enable %}
+		            <a href="/search" class="header-trigger__link header-trigger__link--search icon-fallback js-search-trigger js-no-transition">
+                        {% include 'search-icon' %}
+		                <span class="icon-fallback__text">{{ 'layout.navigation.search' | t }}</span>
+		            </a>
+			    {% endif %}
+			    <a href="/cart" class="header-trigger__link header-trigger__link--cart js-cart-trigger icon-fallback{% if cart.item_count > 0 %} js-cart-full{% endif %} js-no-transition">
+                    {% include 'cart-icon' %}
+		            <span id="CartCount">{{ cart.item_count }}</span>
+		        </a>
+			</div>
+		</div>
+        <div class="header_phone">
+            <div class="menu_item">
+                <a href="#" class="header-trigger__link header-trigger__link--mobile js-mobile-draw-trigger icon-fallback">
+                    {% include  'burger-icon' %}
+                    <span class="icon-fallback__text">{{ 'layout.navigation.menu' | t }}</span>
+                </a>
+            </div>
+            <div class="logo">
+                <a href="/">
+                    <img src="{{ section.settings.logo_phone | img_url: '' }}" alt="">
+                </a>
+            </div>
+            <div class="cart_search_btns">
+                {% if settings.search_enable %}
+                    <a href="/search" class="header-trigger__link header-trigger__link--search icon-fallback js-search-trigger js-no-transition">
+                        {% include 'search-icon' %}
+                        <span class="icon-fallback__text">{{ 'layout.navigation.search' | t }}</span>
+                    </a>
+                {% endif %}
+                <a href="/cart" class="header-trigger__link header-trigger__link--cart js-cart-trigger icon-fallback{% if cart.item_count > 0 %} js-cart-full{% endif %} js-no-transition">
+                    {% include 'cart-icon' %}
+                    <span id="CartCount">{{ cart.item_count }}</span>
+                </a>
+            </div>
+        </div>
+	</div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Header",
+    "class": "js-section__header",
+    "settings": [
+	    {
+		   "type": "checkbox",
+		   "id": "cart_enabled",
+		   "default": true,
+		   "label": "Icon Cart enabled?"
+		},
+    	{
+	      "type": "image_picker",
+	      "id": "logo",
+	      "label": "Logo image"
+	    },
+        {
+          "type": "image_picker",
+          "id": "logo_phone",
+          "label": "Logo image phone"
+        },
+	    {
+		   "type": "link_list",
+		   "id": "main_nav",
+		   "label": "Main navigation"
+		},
+        {
+            "type": "header",
+            "content": "Announcement bar"
+        },
+        {
+            "type": "checkbox",
+            "id": "message_show",
+            "label": "Enable announcement bar",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "home_page_only",
+            "label": "Home page only",
+            "default": false
+        },
+        {
+            "type": "textarea",
+            "id": "message_text",
+            "label": "Text",
+            "default": "Use this announcement bar to share some news and link to page or product."
+        },
+        {
+            "type": "url",
+            "id": "message_link",
+            "label": "Link"
+        },
+        {
+            "type": "color",
+            "id": "message_color_bg",
+            "label": "Background color",
+            "default": "#222"
+        },
+        {
+            "type": "color",
+            "id": "message_color_text",
+            "label": "Text color",
+            "default": "#fff"
+        },
+        {
+           "type": "checkbox",
+           "id": "show_message_blocks",
+           "default": true,
+           "label": "Show Message blocks ?"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Bar Image Block",
+            "settings": [
+                {
+                   "type": "text",
+                   "id": "link",
+                   "default": "#",
+                   "label": "Link to:"
+                },
+                {
+                   "type": "image_picker",
+                   "id": "image",
+                   "label": "Image"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

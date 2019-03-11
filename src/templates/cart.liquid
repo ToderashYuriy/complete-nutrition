@@ -1,0 +1,123 @@
+<section class="section section--cart cart">
+    <div class="container">
+        <div class="inner_cart">
+            <div class="section__title section__title--center">
+                <h1 class="section__title-text h2">{{ 'cart.general.title' | t }}</h1>
+            </div>
+
+            <div class="cart__content">
+                {% if cart.item_count > 0 %}
+                    <form action="/cart" method="post" novalidate class="cart-form">
+                        <div class="cart__products">
+                            {% for item in cart.items %}
+                                <div class="cart__product">
+                                    <div class="cart_flex">
+                                        <div class="cart_image_block">
+                                            <img src="{{ item | img_url: '' }}" alt="">
+                                        </div>
+                                        <div class="content_cart">
+                                            <a href="{{ item.url | within: collections.all }}"><h3 class="cart__product-name">{{ item.product.title }}</h3></a>
+                                            {% unless item.variant.title contains 'Default' %}
+                                                <p class="cart__product-meta">{{ item.variant.title }}</p>
+                                            {% endunless %}
+                                            {% assign property_size = item.properties | size %}
+                                            {% if property_size > 0 %}
+                                                {% for p in item.properties %}
+                                                    {% unless p.last == blank %}
+                                                        <p class="cart__product-meta">{{ p.first }}</p>
+                                                        {% if p.last contains '/uploads/' %}
+                                                            <p class="cart__product-meta"><a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a></p>
+                                                        {% else %}
+                                                            <p class="cart__product-meta">{{ p.last }}</p>
+                                                        {% endif %}
+                                                    {% endunless %}
+                                                {% endfor %}
+                                            {% endif %}
+
+                                            {% if settings.cart_vendor_enable %}
+                                                <p class="cart__product-meta">{{ item.vendor }}</p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="price_product_without_count">
+                                            <div class="cart-item__price_compare"><del>{{ item.variant.compare_at_price | money }}</del></div>
+                                            <div class="cart-item__price"><span class="money">{{ item.price | money }}</span></div>
+                                        </div>
+                                        <div class="quantity_cart_product">
+                                            <input type="number" name="updates[]" id="updates_{{ item.key }}" data-id="{{ item.key }}" value="{{ item.quantity }}" min="0">
+                                        </div>
+                                        <div class="price_quantity">
+                                            {% if item.variant.compare_at_price != blank %}
+                                            <div class="cart-item__price_compare"><del>{{ item.variant.compare_at_price | times: item.quantity | money }}</del></div>
+                                            {% endif %}
+                                            <div class="cart-item__price"><span class="money">{{ item.line_price | money }}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+
+                        {% if settings.cart_notes_enable %}
+                            <div class="cart__message">
+                                <label for="CartSpecialInstructions" class="cart__message-label">{{ 'cart.general.note' | t }}</label>
+                                <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ note }}</textarea>
+                            </div>
+                        {% endif %}
+
+                        <div class="cart__footer">
+                            <div class="left_block_flex">
+                                {% assign number_shiping = settings.cart_free_shiping  %}
+                                <p class="hidden cart_subtotal_price">{{ cart.total_price }}</p>
+                                <div class="cart_full_shipping hidden">
+                                    {% include 'check_green' %}
+                                    <p><span>Qualified</span> for Free Shipping</p>
+                                </div>
+                                <p class="cart_free_shipping"><span>Add $</span><span class="number_shipping">{{ number_shiping }}</span> & Get Free Shipping</p>
+                            </div>
+                            <div class="right_block_flex">
+                                <p class="cart__footer-message">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+                                <p class="cart__footer-total">{{ 'cart.general.subtotal' | t }} <span class="money">{{ cart.total_price | money }}</span></p>
+                                {% if cart.total_discounts > 0 %}
+                                    {% assign savings = cart.total_discounts | money %}
+                                    <p class="cart__savings"><em><span class="money">{{ 'cart.general.savings_html' | t: price: savings }}</span></em></p>
+                                {% endif %}
+                                <div class="cart__button">
+                                    <button type="submit" name="update" class="c-btn c-btn--light cart__button-update update-cart">{{ 'cart.general.update' | t }}</button>
+                                    <button type="submit" class="c-btn c-btn--full c-btn--arrow c-btn--primary cart__checkout" name="checkout">{{ 'cart.general.checkout' | t }}</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                {% else %}
+                    <div class="cart-empty">
+                        <h5 class="cart-empty__title">{{ 'cart.general.empty' | t }}</h5>
+                        <span class="emoji cart-empty__emoji">
+                            <i class="icon icon--sad"></i>
+                        </span>
+                        <a href="/collections/all" class="c-btn c-btn--primary c-btn--full">{{ 'cart.general.empty_link' | t }}</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded',function () {
+        var subtotal = parseInt($('.cart_subtotal_price').html())/100,
+        shipping_free = parseInt($('.cart_free_shipping span.number_shipping').html());
+
+        if(shipping_free > subtotal){
+            var add_money = shipping_free - subtotal;
+            console.log(add_money);
+            $('.cart_free_shipping span.number_shipping').html(add_money);
+            $('.cart_full_shipping').addClass('hidden');
+            $('.cart_free_shipping').removeClass('hidden');
+        }else{
+            $('.cart_free_shipping').addClass('hidden');
+            $('.cart_full_shipping').removeClass('hidden');
+            console.log(shipping_free);
+            console.log(subtotal);
+        }
+    });
+</script>

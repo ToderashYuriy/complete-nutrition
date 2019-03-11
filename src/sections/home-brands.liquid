@@ -1,0 +1,107 @@
+<section class="brands">
+  <div class="container">
+    {% if section.settings.title_content != blank or section.settings.after_title != blank %}
+    <div class="title_block">
+      {% if section.settings.title_content != blank %}
+        <h3 class="title">{{ section.settings.title_content }}</h3>
+      {% endif %}
+      {% if section.settings.after_title != blank %}
+        <p class="after_title">{{ section.settings.after_title }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if section.blocks.size > 0 %}
+    <div class="flex_inner">
+      {% for block in section.blocks %}
+      <div class="block_brand">
+        {% if block.settings.url != blank %}
+          <a href="{{ block.settings.url }}">
+        {% endif %}
+        {% if block.settings.logo != blank %}
+          {% if block.settings.logo_hover != blank %}
+            <img src="{{ block.settings.logo | img_url: '' }}" alt="">
+            <img src="{{ block.settings.logo_hover | img_url: '' }}" alt="" class="hover_image">
+          {% else %}
+            <img src="{{block.settings.logo | img_url: '' }}" alt="" class="hover_image_once">
+          {% endif %}
+        {% endif %}
+        {% if block.settings.url != blank %}
+          </a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if section.settings.btn_text != blank or section.settings.btn_url != blank %}
+    <div class="btn_brands">
+      <a href="{{ section.settings.btn_url }}">{{ section.settings.btn_text }}</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Brands Section",
+    "settings": [
+        {
+           "type": "text",
+           "id": "title_content",
+           "label": "Title content"
+        },
+        {
+           "type": "text",
+           "id": "after_title",
+           "label": "After Title Text"
+        },
+        {
+           "type": "text",
+           "id": "btn_text",
+           "label": "Button Text"
+        },
+        {
+           "type": "text",
+           "id": "btn_url",
+           "label": "Button Url"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Brand",
+            "settings": [
+                {
+                  "type": "image_picker",
+                  "id": "logo",
+                  "label": "Logo image"
+                },
+                {
+                  "type": "image_picker",
+                  "id": "logo_hover",
+                  "label": "Logo image Hover"
+                },
+                {
+                   "type": "text",
+                   "id": "url",
+                   "label": "Url brand"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Brands Section",
+            "category": "Image",
+            "settings": {
+            }
+        }
+    ]
+}
+{% endschema %}

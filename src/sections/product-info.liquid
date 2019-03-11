@@ -1,0 +1,115 @@
+{% if product.metafields.product_info.info_image != blank or product.description != blank or product.metafields.product_tab.questions_tab_title
+ != blank %}
+<section class="product_info">
+	<div class="container">
+		{% if product.metafields.product_info.info_image != blank %}
+		<div class="inner_product_info">
+			{% for value in product.metafields.product_info.info_image %}
+			<div class="block_info_product">
+				<div class="image_info">
+					<img src="{{ value }}" alt="">
+				</div>
+				<div class="title_info">
+					<h5 class="title_info_text">{{product.metafields.info_product.info_title[forloop.index0]}}</h5>
+				</div>
+				<div class="content_info">
+					<p class="content_info_text">{{product.metafields.product_info.info_content[forloop.index0]}}</p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+		{% if product.description != blank %}
+		<div class="description_block_product">
+			{{ product.description }}
+		</div>
+		{% endif %}
+		<div class="product_info_tabs">
+			{% if product.metafields.product_tab.questions_tab_title != blank %}
+			<div class="tab_product" data-type="questions">
+				<div class="border_tab">
+					<div class="title_tab_product">
+						<h3 class="title_tab">{{ product.metafields.product_tab.questions_tab_title }}</h3>
+						{% include 'plus_tab' %}
+						{% include 'minus_tab' %}
+					</div>
+					<div class="hidden content_tab questions_tab">
+						{% for value in product.metafields.product_tab.question_block_title %}
+							<div class="block_question">
+								<h5 class="title_question_block">{{value}}</h5>
+								<p class="content_question_block">{{product.metafields.product_tab.question_content_block[forloop.index0]}}</p>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			{% endif %}
+			{% if product.metafields.product_title.suggest_tab_title != blank %}
+			<div class="tab_product" data-type="suggest">
+				<div class="border_tab">
+					<div class="title_tab_product">
+						<h3 class="title_tab">{{ product.metafields.product_title.suggest_tab_title }}</h3>
+						{% include 'plus_tab' %}
+						{% include 'minus_tab' %}
+					</div>
+					<div class="hidden content_tab suggest_tab">
+						{{product.metafields.product_tab_content.suggest_content_tab}}
+					</div>
+				</div>
+			</div>
+			{% endif %}
+			{% if product.metafields.product_tab_title.nutrinion_tab_title != blank %}
+			<div class="tab_product" data-type="nutrinion">
+				<div class="border_tab">
+					<div class="title_tab_product">
+						<h3 class="title_tab">{{ product.metafields.product_tab_title.nutrinion_tab_title }}</h3>
+						{% include 'plus_tab' %}
+						{% include 'minus_tab' %}
+					</div>
+					<div class="hidden content_tab nutrinion_tab">
+						<div class="flex_nutrinion">
+							{% if product.metafields.product_tab_image.nutrinion_image_block != blank %}
+							<div class="image_block_nutrinion">
+								<img src="{{ product.metafields.product_tab_image.nutrinion_image_block }}" alt="">
+							</div>
+							{% endif %}
+							{% if product.metafields.product_tab_content.nutrinion_content_block != blank %}
+							<div class="content_nutrinion">
+								{{product.metafields.product_tab_content.nutrinion_content_block}}
+							</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+{% endif %}
+<section class="reviews">
+	<div class="container">
+		<div class="inner_reviews">
+			<div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Product info",
+    "settings": [
+    ]
+}
+{% endschema %}

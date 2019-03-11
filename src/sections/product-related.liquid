@@ -1,0 +1,167 @@
+{% if section.settings.show_related_products == true %} 
+    {% assign number_of_related_products_per_row = section.settings.related_grid_num %}
+    {% assign number_of_rows = section.settings.related_grid_row %}
+
+    {% comment %}
+        Set either or both to true, if you want to limit yourself to items with same vendor, and/or type.
+    {% endcomment %}
+    {% assign same_vendor = false %}
+    {% assign same_type = false %}
+
+    {% comment %}
+        Collections to ignore. Never pick related items from those.
+    {% endcomment %}
+    {% assign exclusions = 'frontpage,all' | split: ',' %}
+
+    {% comment %}
+        Looking for a relevant collection.
+    {% endcomment %}
+    {% if product.metafields.c_f['Related Products'] %}
+        {% assign collection = collections[product.metafields.c_f['Related Products']] %}
+    {% endif %}
+
+    {% assign found_a_collection = false %}
+    {% if collection and collection.all_products_count > 1 %}
+        {% unless exclusions contains collection.handle %}
+            {% assign found_a_collection = true %}
+        {% endunless %}
+    {% endif %}
+    {% unless found_a_collection %}
+        {% for c in product.collections %}
+            {% unless exclusions contains c.handle or c.all_products_count < 2 %}
+                {% assign found_a_collection = true %}
+                {% assign collection = c %}
+                {% break %}
+            {% endunless %}
+        {% endfor %}
+    {% endunless %}
+
+    {% comment %}
+        If we have a relevant collection.
+    {% endcomment %}
+    {% if found_a_collection %}
+
+        {% assign counter = 0 %}
+        {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
+        {% assign current_product = product %}
+
+        {% case number_of_related_products_per_row %}
+            {% when 2 %}
+                {% if section.settings.related_mobile_layout == 'carousel' %}
+                    {%- assign grid_item_width = 'u-1/2@tab' -%}
+                {% else %}
+                    {%- assign grid_item_width = 'u-1/1 u-1/2@phab' -%}
+                {% endif %}
+                {%- assign image_size = '800x' -%}
+            {% when 3 %}
+                {% if section.settings.related_mobile_layout == 'carousel' %}
+                    {%- assign grid_item_width = 'u-1/3@tab' -%}
+                {% else %}
+                    {%- assign grid_item_width = 'u-1/1 u-1/2@phab u-1/3@tab' -%}
+                {% endif %}
+                {%- assign image_size = '550x' -%}
+            {% when 4 %}
+                {% if section.settings.related_mobile_layout == 'carousel' %}
+                    {%- assign grid_item_width = 'u-1/3@tab u-1/4@desk' -%}
+                {% else %}
+                    {%- assign grid_item_width = 'u-1/2 u-1/3@tab u-1/4@desk' -%}
+                {% endif %}
+                {%- assign image_size = '400x' -%}
+        {% endcase %}
+
+        {% capture related_items %}
+        {% for product in collection.products %}
+            {% unless product.handle == current_product.handle %}
+                {% unless same_vendor and current_product.vendor != product.vendor %}
+                    {% unless same_type and current_product.type != product.type %}
+                        <div class="o-layout__item {{ grid_item_width }}">
+                            {% include 'product-grid-item', grid_image_width: image_size %}
+                        </div>
+                        {% assign counter = counter | plus: 1 %}
+                        {% if counter == break_at %}
+                            {% break %}
+                        {% endif %}
+                    {% endunless %}
+                {% endunless %}
+            {% endunless %}
+        {% endfor %}
+        {% endcapture %}
+
+        {% assign related_items = related_items | trim %}
+
+        {% unless related_items == blank %}
+            <section class="section_grid_related section section--related-products section--{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product-related">
+                <div class="container">
+                    <div class="container_product_grid_related">
+                        {% unless section.settings.related_title == blank %}
+                            <div class="section__title section__title--center">
+                                <h2 class="section__title-text">{{ section.settings.related_title | escape }}</h2>
+                            </div>
+                        {% endunless %}
+                        <div class="related-products js-related-products" data-section-id="{{ section.id }}">
+                            <div class="o-layout o-layout--center{% if settings.product_grid_masonry %} o-layout--masonry{% endif %}{% if section.settings.related_grid_num == 4 %} o-layout--small{% endif %}{% if section.settings.related_mobile_layout == 'carousel' %} layout-slider js-layout-slider js-layout-slider-{{ section.id }}{% endif %}">
+                                {{ related_items }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endunless %}
+     
+    {% endif %}
+{% endif %}
+
+{% schema %}
+{
+    "name": "Related products",
+    "class": "js-section__product-related",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_related_products",
+            "label": "Enable related products",
+            "default": false
+        },
+        {
+            "id": "related_title",
+            "type": "text",
+            "label": "Heading",
+            "default": "Related products"
+        },
+        {
+            "type": "select",
+            "id": "related_mobile_layout",
+            "label": "Mobile layout",
+            "default": "carousel",
+            "options": [
+                {
+                    "value": "carousel",
+                    "label": "Carousel"
+                },
+                {
+                    "value": "grid",
+                    "label": "Grid"
+                }
+            ]
+        },
+        {
+            "type": "range",
+            "id": "related_grid_num",
+            "label": "Products per row",
+            "min": 2,
+            "max": 4,
+            "step": 1,
+            "default": 3
+        },
+        {
+            "type": "range",
+            "id": "related_grid_row",
+            "label": "Rows",
+            "min": 1,
+            "max": 3,
+            "step": 1,
+            "default": 1
+        }
+    ]
+}
+{% endschema %}

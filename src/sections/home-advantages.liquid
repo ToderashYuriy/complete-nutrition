@@ -1,0 +1,72 @@
+<section class="advantages">
+    <div class="container">
+        <div class="title_content">
+            <p>{{ section.settings.title_content }}</p>
+        </div>
+        <div class="content_blocks">
+            {% if section.blocks.size > 0 %}
+                {% for block in section.blocks %}
+                    <div class="block_content">
+                        <div class="image_block">
+                            <img src="{{ block.settings.logo | img_url: '' }}" alt="">
+                        </div>
+                        <h5>{{ block.settings.title }}</h5>
+                        <p>{{ block.settings.content }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Advantages Section",
+    "settings": [
+        {
+           "type": "text",
+           "id": "title_content",
+           "label": "Title content"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Advantage",
+            "settings": [
+                {
+                  "type": "image_picker",
+                  "id": "logo",
+                  "label": "Logo image"
+                },
+                {
+                   "type": "text",
+                   "id": "title",
+                   "label": "Title"
+                },
+                {
+                   "type": "text",
+                   "id": "content",
+                   "label": "Content Text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Advantages Section",
+            "category": "Image",
+            "settings": {
+            }
+        }
+    ]
+}
+{% endschema %}

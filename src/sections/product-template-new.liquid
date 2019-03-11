@@ -1,0 +1,108 @@
+<section class="product-template">
+	<div class="container-full">
+		<div class="inner_flex_product">
+			<div class="images_section" style="background-color:{{ section.settings.background_image }};">
+				{% if settings.product_grid_label %}
+
+			        <!-- custom label -->
+			        {% assign custom_label = false %}
+			        {% for collection in product.collections %}
+			            {% if collection.title == collections[settings.product_grid_label_collection].title %}
+			                {% assign custom_label = true %}
+			            {% endif %}
+			        {% endfor %}
+
+			        <!-- new label -->
+			        {% assign new_label = false %}
+			        {% assign product_created_at = product.created_at | date: '%s' %}
+			        {% assign time_ago = 'now' | date: '%s' | minus: product_created_at | divided_by: 86400 %}
+			        {% if time_ago < settings.product_grid_label_new_days %}
+			           {% assign new_label = true %}
+			        {% endif %}
+
+			        {% if product.available == false %}
+			            <div class="product__label label_right label--light">
+			                <p class="product__label-text label__text">{{ 'products.product.sold_out' | t }}</p>
+			            </div>
+			        {% elsif custom_label %}
+			            <div class="product__label label_right label--brand">
+			                <p class="product__label-text label__text">{{ settings.product_grid_label_title }}</p>
+			            </div>
+			        {% elsif product.compare_at_price > product.price %}
+			            <div class="product__label label_right label--brand">
+			                {% if settings.product_grid_label_sale_style == 'text' %}
+			                    <p class="product__label-text label__text">{{ 'products.product.on_sale' | t }}</p>
+			                {% else %}
+			                    <p class="product__label-text label__text">-{{ product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}%</p>
+			                {% endif %}
+			            </div>
+			        {% elsif new_label and settings.product_grid_label_new %}
+			            <div class="product__label label_right label--brand">
+			                <p class="product__label-text label__text">{{ 'products.product.new' | t }}</p>
+			            </div>
+			        {% endif %}
+			        
+			    {% endif %}
+				<div class="relation_section_image">
+					<div class="hero_images">
+						 {% for image in product.images %}
+							 <div class="inner_hero_image">
+                                {% if section.settings.enable_zoom %}
+                                <a href="{{ image.src | img_url: '2048x2048' }}" class="product-single__photo-zoom js-product-zoom js-no-transition">
+                                {% endif %}
+                                    <img class="product-single__photo__img"
+                                        src="{{ image.src | img_url: '' }}" 
+                                        alt="{{ image.alt | escape }}">
+                                {% if section.settings.enable_zoom %}
+                                </a>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="content_section">
+				<div class="breadcrams_product">
+					<p class="inner_breadcrams">
+							<a href="/collections/all">All Products</a>
+						{% if product.collections.size > 0 %}
+							<span class="delivery_collections">/</span>
+							<a href="{{ product.collections[0].url }}">{{ product.collections[0].title }}</a>
+						{% endif %}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Product page",
+    "settings": [
+	    {
+            "type": "header",
+            "content": "Gallery settings"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_zoom",
+            "label": "Enable image zoom",
+            "default": true
+        },
+		{
+		   "type": "color",
+		   "id": "background_image",
+		   "label": "Background color Image block",
+		   "default": "#F7F7F7"
+		}
+    ]
+}
+{% endschema %}

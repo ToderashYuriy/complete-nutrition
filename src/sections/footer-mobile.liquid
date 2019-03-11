@@ -1,0 +1,172 @@
+<footer id="footer_mobile" style="background-color:{{ section.settings.background_color }};">
+	<div class="container">
+		<div class="parent_menu_block">
+			{% if section.blocks.size > 0 %}
+				{% for block in section.blocks %}
+		            {% if block.type == 'linklist' %}
+						<div class="menu_inner_block">
+			                {% for link in linklists[block.settings.linklist].links %}
+			                <div class="block_inner_menu">
+				                <h4 class="footer-nav__title h5">
+				                    <a href="{{ link.url }}">
+				                        {{ link.title }}
+				                    </a>
+				                </h4>
+				                {% if link.links != blank %}
+			                    <ul class="footer-nav__items o-list-bare">
+			                        {% for link in link.links %}
+			                            <li class="footer-nav__item{% if link.active %} footer-nav__item--active{% endif %}"><a href="{{ link.url }}" class="footer-nav__link">{{ link.title }}</a></li>
+			                        {% endfor %}
+			                    </ul>
+			                    {% endif %}
+				            </div>
+			                {% endfor %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="social_footer_mobile">
+            <div class="footer-nav__social-wrapper">
+                <ul class="footer-nav__social-items o-list-bare">
+                    {% unless settings.social_facebook_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_facebook_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--facebook" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">Facebook</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                    {% unless settings.social_twitter_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_twitter_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--twitter" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">Twitter</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                    {% unless settings.social_pinterest_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_pinterest_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--pinterest" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">Pinterest</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                    {% unless settings.social_instagram_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_instagram_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--instagram" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">Instagram</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                    {% unless settings.social_tumblr_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_tumblr_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--tumblr" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">Tumblr</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                    {% unless settings.social_snapchat_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_snapchat_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--snapchat" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">Snapchat</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                    {% unless settings.social_youtube_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_youtube_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--youtube" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">YouTube</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                    {% unless settings.social_vimeo_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_vimeo_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--vimeo" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">Vimeo</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                    {% unless settings.social_fancy_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_fancy_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--fancy" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">Fancy</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                    {% unless settings.social_untappd_link == blank %}
+                        <li class="footer-nav__social-item">
+                            <a href="{{ settings.social_untappd_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                <i class="icon icon--untappd" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">Untappd</span>
+                            </a>
+                        </li>
+                    {% endunless %}
+                </ul>
+            </div>
+		</div>
+		<div class="copyright_footer_mobile">
+			<div class="footer-copyright__text">
+                <p class="footer-copyright__span footer-copyright__span--shop">Complete Nutrition © {{ 'now' | date: "%Y" }}. All Rights Reserved</p>
+                <div class="footer-copyright__span footer-copyright__span--powered">
+                    {% for link in linklists['privacy-menu'].links %}
+                        <a href="{{ link.url }}" class="privacy_policy_item">{{ link.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+		</div>
+	</div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "Footer Mobile",
+    "class": "js-section__footer",
+    "max_blocks": 4,
+    "settings": [
+	    {
+		   "type": "color",
+		   "id": "background_color",
+		   "label": "Background color",
+		   "default": "#343434"
+		},
+    	{
+            "type": "checkbox",
+            "id": "show_social_links",
+            "label": "Show social links",
+            "default": true
+        }
+    ],
+     "blocks": [
+        {
+            "type": "linklist",
+            "name": "Menu",
+            "settings": [
+                {
+                    "type": "link_list",
+                    "id": "linklist",
+                    "label": "Menu",
+                    "default": "footer",
+                    "info": "This menu won't show dropdown items"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
