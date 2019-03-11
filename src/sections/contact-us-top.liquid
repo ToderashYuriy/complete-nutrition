@@ -1,0 +1,40 @@
+<section class="contact_us_top" style="background-image: url('{{ section.settings.bg_image | img_url: '' }}');">
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="top-content">
+        <h1 class="title">{{ section.settings.title }}</h1>
+        <p class="title-p">{{ section.settings.after_title }}</p>
+      </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Contact Us Top",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Contact Us",
+        "label": "Title text"
+      },
+      {
+        "type": "text",
+        "id": "after_title",
+        "default": "Fill out the form below to ask a question or send us your feedback.",
+        "label": "After Title text"
+      },
+      {
+        "type": "text",
+        "id": "form_title",
+        "default": "Send us a Message",
+        "label": "Form Title text"
+      }
+    ]
+}
+{% endschema %}

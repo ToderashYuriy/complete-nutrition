@@ -1,0 +1,120 @@
+<section class="contact_us_top">
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="main-content">
+        <div class="form">
+          <h2 class="form-title">{{ section.settings.form_title }}</h2>
+          <div class="custom-form">
+            {% form 'contact' %}
+              {% if form.posted_successfully? %}
+                  <h4 class="page__contact-form__note form-success">{{ 'contact.form.post_success' | t }}</h4>
+              {% endif %}
+
+              {{ form.errors | default_errors }}
+
+              <div class="o-layout">
+                  <div class="o-layout__item u-1/1 u-1/2@tab">
+                      <label for="ContactFormName"></label>
+                      <input type="text" placeholder="Full Name" id="ContactFormName" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                  </div>
+                  <div class="o-layout__item u-1/1 u-1/2@tab">
+                      <label for="ContactFormEmail" class="{% if form.errors contains 'email' %}label--error{% endif %}"></label>
+                      <input type="email" placeholder="Email" id="ContactFormEmail" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}">
+                  </div>
+                  <div class="o-layout__item u-1/1 u-1/2@tab">
+                      <label for="ContactFormPhone"></label>
+                      <!-- <input type="text" placeholder="Full Name" id="ContactFormPhone" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}"> -->
+                      <input type="tel" placeholder="Phone (Optional)" id="ContactFormPhone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+                  </div>
+                  <div class="o-layout__item u-1/1 u-1/2@tab">
+                      <label for="ContactFormZip" class="{% if form.errors contains 'email' %}label--error{% endif %}"></label>
+                      <input type="text" placeholder="Zip code" id="ContactFormZip" name="contact[zip]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}">
+                  </div>
+              </div>
+
+              <label for="ContactFormSubject"></label>
+              <input type="tel" placeholder="Subject" id="ContactFormSubject" name="contact[subject]"value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+
+              <label for="ContactFormMessage"></label>
+              <textarea rows="10" placeholder="Write Message" id="ContactFormMessage" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+              <input type="submit" class="c-btn c-btn--primary c-btn--center c-btn--full u-mt u-mb-" value="{{ section.settings.form_button }}">
+            {% endform %}
+          </div>
+        </div>
+        <div class="aside">
+          <h2 class="aside-title">{{ section.settings.aside_title }}</h2>
+          <p class="">{{ section.settings.after_title_text }}</p>
+          <h2 class="aside-address-title">{{ section.settings.aside_address_title }}</h2>
+          <div class="custom-block-wrapper">
+            {% if section.blocks.size > 0 %}
+              {% for block in section.blocks %}
+                <h3 class="block-custom-title">{{ block.settings.custom_title }}</h3>
+                {{ block.settings.html_area }}
+              {% endfor %}
+            {% endif %}
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Contact Us Main",
+    "settings": [
+      {
+        "type": "text",
+        "id": "form_title",
+        "default": "Send us a Message",
+        "label": "Form Title text"
+      },
+      {
+        "type": "text",
+        "id": "aside_title",
+        "default": "About Complete Nutrition",
+        "label": "Aside Title text"
+      },
+      {
+        "type": "text",
+        "id": "after_title_text",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in urna libero. Proin auctor auctor volutpat. Nulla vestibulum vehicula elementum.",
+        "label": "Aside After Title text"
+      },
+      {
+        "type": "text",
+        "id": "aside_address_title",
+        "default": "Headquarters",
+        "label": "Aside Address Title"
+      },
+      {
+        "type": "text",
+        "id": "form_button",
+        "default": "Send Message",
+        "label": "Send Form Button"
+      }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Contact Address",
+            "settings": [
+                {
+                  "type": "text",
+                  "id": "custom_title",
+                  "label": "Custom title"
+                },
+                {
+                  "type": "html",
+                  "id": "html_area",
+                  "label": "Custom HTML",
+                  "default": "<div><p>Some HTML<br> content</p></div>"
+               }
+            ]
+        }
+    ]
+}
+{% endschema %}
+
+
+
