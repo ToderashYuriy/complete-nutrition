@@ -42,8 +42,9 @@
 	{% include 'css-include' %}
 
 	<!-- JS after CSSOM=================================================== -->
+	<script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
   	<script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
-  	<script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+  
 
   	{% if settings.anim_load %}
 		<script src="{{ 'scrollreveal.min.js' | asset_url }}"></script>
