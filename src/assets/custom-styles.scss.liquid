@@ -1129,6 +1129,8 @@ a.quick_shop_btn {
 	    z-index: 5;
 	    display: flex;
 	    align-items: center;
+	    max-width: 850px;
+	    border: 1px solid #707070;
 		a.close_quick_btn.js-no-transition {
 		    position: absolute;
 		    right: 35px;
@@ -1140,6 +1142,7 @@ a.quick_shop_btn {
 		    width: 100%;
 		    position: relative;
 		    height: 100%;
+		    align-items: center;
 		    .quick_image_content {
 			    width: 100%;
 			}
@@ -1891,9 +1894,176 @@ section.section.section--cart.cart {
 /******* END CART PAGE *********/
 
 
+/******* QUICK SHOP *********/
+.quick_content{
+	.product-quick_image {
+	    width: 100%;
+	    padding-right: 25px;
+	}
+
+	.product-quick_content {
+	    width: 100%;
+	}
+	.selector-wrapper select {
+	    padding-left: 65px;
+	    color: #332b29;
+		font-family: "Open Sans";
+		font-size: 13px;
+		font-weight: 400;
+	}
+	.product-single__price.js-product-price {
+	    position: static;
+	    background-color: #fff;
+	}
+
+	.product-single__qty {
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+	}
+	span.spr-badge-caption {
+	    color: #332b29;
+	    font-family: "Open Sans";
+	    font-size: 12px;
+	    font-weight: 400;
+	}
+
+	.spr-badge-starrating .spr-icon {
+	    font-size: 12px;
+	}
+
+	.spr-badge {
+	    margin-bottom: 12px;
+	}
+
+	.section__title-text {
+	    color: #332b29;
+	    font-family: Lato;
+	    font-size: 24px;
+	    font-weight: 900;
+	    line-height: 1.1;
+	    margin-bottom: 12px;
+	}
+
+	.section__title-text:after {
+	    display: none;
+	}
+
+	.product-single__box {
+	    border: none;
+	}
+
+	.product-single__form {
+	    padding: 0;
+	}
+
+	span.product-product-single__variant-select__price-number {
+	    color: #332b29;
+	    font-family: Lato;
+	    font-size: 22px;
+	    font-weight: 900;
+	}
+
+	.product-single__add-btn {
+	    background-color: #e65525;
+	    border: solid 1px #e65525;
+	    color: #ffffff;
+	    font-family: Lato;
+	    font-size: 15px;
+	    font-weight: 900;
+	    text-transform: uppercase;
+	}
+
+	.product-single__add-btn:hover {
+	    background-color: #fff;
+	    color: #e65525;
+	}
+	.c-btn--plus:after {
+	    display: none;
+	}
+	.view_details_product a {
+	    color: #272727;
+	    font-family: "Open Sans";
+	    font-size: 14px;
+	    font-weight: 400;
+	    text-decoration: underline;
+	}
+	s.product-product-single__variant-select__price-compare {
+	    opacity: 0.4;
+	    color: #332b29;
+	    font-family: Lato;
+	    font-size: 22px;
+	    font-weight: 900;
+	}
+}
 
 
 
+
+
+/******* END QUICK SHOP ********/
+
+/******* COLLECTION NEW TEMPLATE *********/
+.collection-main-new{
+	div.snize-collection-mode div.snize-main-panel{
+		margin-bottom: 37px;
+	}
+	div.snize div.snize-horizontal-filters{
+		display: none;
+	}
+	div.snize div.snize-main-panel-dropdown a {
+	    width: 350px;
+	    margin: 0;
+	    border: 1px solid #bebebe;
+	    background-color: #ffffff;
+	    display: flex;
+	    justify-content: flex-start;
+	    align-items: center;
+	    padding: 15px 25px;
+	    color: #332b29;
+	    font-family: "Open Sans";
+	    font-size: 13px;
+	    font-weight: 400;
+	    max-width: 100%;
+	}
+
+	div.snize div.snize-main-panel-dropdown ul.snize-main-panel-dropdown-content {
+	    width: calc(100% - 3px);
+	    margin: 0;
+	    padding: 0;
+	}
+
+	div.snize-search-results ul li {
+	    max-width: 100%;
+	}
+
+	div.snize div.snize-main-panel-dropdown ul.snize-main-panel-dropdown-content a:first-child {
+	    width: auto;
+	    border: none;
+	    border-bottom: solid 1px #c6c5c6;
+	    padding-bottom: 5px;
+	}
+	div.snize-collection-mode div.snize-main-panel-collection-results-found{
+		display: none;
+	}
+	div.snize div.snize-main-panel-view-mode{
+		display: none;
+	}
+	.snize-horizontal-filters.snize-product-filters.clearfix{
+		display: none;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/******** END COLLECTION NEW TEMPLATE **********/
 
 
 

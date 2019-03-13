@@ -1,0 +1,155 @@
+<style>
+.collection-sidebar,
+.collection-sidebar .mfp-close {
+    background-color: {{ settings.color_drawer_bg }};
+}
+</style>
+{%- assign limit = section.settings.grid | times: section.settings.rows -%}
+{% paginate collection.products by limit %}
+<section class="section" data-section-id="{{ section.id }}" data-section-type="collection-template">
+
+    <div class="collection{% if collection.image and section.settings.show_collection_image %} collection--img{% endif %}{% if section.settings.center_title %} collection--center{% endif %}">
+
+        <div class="container">
+            <div class="collection-main-new" id="collection-main">
+                <div class="collection-products">
+                    {% include 'searchanise-navigation' %}
+                </div>
+            </div>
+        </div>
+
+    </div>    
+</section>
+
+{% endpaginate %}
+
+{% schema %}
+{
+    "name": "Collection page",
+    "class": "js-section__collection",
+    "max_blocks": 6,
+    "settings": [
+        {
+            "type": "range",
+            "id": "grid",
+            "label": "Products per row",
+            "min": 2,
+            "max": 4,
+            "step": 1,
+            "default": 3
+        },
+        {
+            "type": "range",
+            "id": "rows",
+            "label": "Rows",
+            "min": 3,
+            "max": 12,
+            "step": 1,
+            "default": 6
+        },
+        {
+            "type": "checkbox",
+            "id": "center_title",
+            "label": "Center heading and text",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "sort_enable",
+            "label": "Enable sorting",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Collection image"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_collection_image",
+            "label": "Show image",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "collection_image_height",
+            "label": "Image height",
+            "default": "3:1",
+            "options": [
+                {
+                    "label": "Small",
+                    "value": "4:1"
+                },
+                {
+                    "label": "Medium",
+                    "value": "3:1"
+                },
+                {
+                    "label": "Large",
+                    "value": "5:2"
+                }
+            ]
+        },
+        { 
+            "type": "select",
+            "id": "image_alignment",
+            "label": "Image alignment",
+            "default": "center",
+            "options": [
+                {
+                    "value": "top",
+                    "label": "Top"
+                },
+                {
+                    "value": "center",
+                    "label": "Middle"
+                },
+                {
+                    "value": "bottom",
+                    "label": "Bottom"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Sidebar filter"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_sidebar",
+            "label": "Enable sidebar",
+            "default": false
+        },
+        {
+            "type": "paragraph",
+            "content": "Use content below to add sidebar filters."
+        }
+    ],
+    "blocks": [
+        {
+            "type": "linklist",
+            "name": "Menu",
+            "settings": [
+                {
+                    "type": "link_list",
+                    "id": "linklist",
+                    "label": "Menu",
+                    "info": "This menu won't show dropdown items"
+                }
+            ]
+        },
+        {
+            "type": "tags",
+            "name": "Tags filter",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Heading",
+                    "default": "Filter"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

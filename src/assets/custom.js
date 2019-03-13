@@ -28,22 +28,19 @@ $(document).ready(function(){
 	$('a.quick_shop_btn').on('click',function(e){
 		e.preventDefault();
 		var that = $(this),
-			href = that.attr('href'),
+			href_product = that.attr('href'),
+			href = href_product+'?view=quick_view',
 			quickParent = $('.quick-view-parent'),
-			body = $('body'),
-			quickImage = quickParent.find('.quick_image_content'),
-			quickContent = quickParent.find('.quick_content_inner');
+			body = $('body');
 
 		$.get(href, function(data){
-			var content_block = $(data).find('.content_block_product'),
-				image_block = $(data).find('.product-single__photo__img')[1];
-			quickImage.append(image_block);
-			quickContent.append(content_block);
+			var content = quickParent.find('.quick_content');
 			quickParent.addClass('show');
 			body.addClass('quick_shop');
-			console.log(content_block);
-			console.log(image_block);
-
+			content.append(data);
+			theme.productSelect('1','product-single__variant-select',true);
+			SPR.initDomEls();
+			SPR.loadBadges();
 		});
 	});
 	$('.quick-view-parent .quick_inner a.close_quick_btn.js-no-transition').on('click',function(e){
@@ -51,23 +48,21 @@ $(document).ready(function(){
 		var that = $(this),
 			parent = that.parent().parent(),
 			body = $('body'),
-			image_block = that.parent().find('.quick_content').find('.quick_image_content'),
-			content_block = that.parent().find('.quick_content').find('.quick_content_inner');
+			quickParent = $('.quick-view-parent'),
+			content = quickParent.find('.quick_content');
 		body.removeClass('quick_shop');
 		parent.removeClass('show');
-		image_block.html('');
-		content_block.html('');
+		content.html('');
 	});
 	$('.quick-view-parent .quick-view-overlay').on('click',function(){
 		var that = $(this),
 			parent = that.parent(),
 			body = $('body'),
-			image_block = that.parent().find('.quick_content').find('.quick_image_content'),
-			content_block = that.parent().find('.quick_content').find('.quick_content_inner');
+			quickParent = $('.quick-view-parent'),
+			content = quickParent.find('.quick_content');
 		body.removeClass('quick_shop');
 		parent.removeClass('show');
-		image_block.html('');
-		content_block.html('');
+		content.html('');
 	});
 });
 

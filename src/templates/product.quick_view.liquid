@@ -1,0 +1,87 @@
+{%- layout none -%}
+<!-- Purchasing permissions -->
+{% assign current_variant = product.selected_or_first_available_variant %}
+<div class="product-quick_image">
+	<div class="image_inner_product-quick">
+	    <img src="{{ product | img_url: '' }}" alt="">
+    </div>
+</div>
+<div class="product-quick_content">
+	<div class="js-product-{{product.id}}">
+		<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+	    <div class="">
+	        <h1 itemprop="name" class="section__title-text product-single__title-text">{{ product.title }}</h1>
+	    </div>
+	    <div class="product-single__box js-product-single-box">
+
+	        {% capture 'product_id_attr' %}js-product-form--{{ product.id }}{% endcapture %}
+	        {% form 'product', product, class: "product-single__form js-product-form", id:product_id_attr %}
+
+	            
+
+	            <div class="product-single__variant">
+	                <select name="id" id="productSelect-1" class="product-single__variant-select">
+	                    {% for variant in product.variants %}
+	                        {% if variant.available %}
+	                            <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}</option>
+	                        {% else %}
+	                            <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+	                        {% endif %}
+	                    {% endfor %}
+	                </select>
+	            </div>
+	            <div class="product-single__qty">
+	                <div class="product-single__qty-input">
+					    <div class="js-qty">
+					        <button type="button" class="js-qty__adjust js-qty__adjust--minus icon-fallback-text" data-id="" data-qty="0">
+					            <span aria-hidden="true">−</span>
+					            <span class="u-hidden-visually">Reduce item quantity by one</span>
+					        </button>
+					        <input type="text" class="js-qty__num" value="1" min="1" data-id="" aria-label="quantity" pattern="[0-9]*" name="quantity" id="Quantity">
+					        <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">
+					            <span aria-hidden="true">+</span>
+					            <span class="u-hidden-visually">Increase item quantity by one</span>
+					        </button>
+					    </div>
+                    </div>
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product-single__price js-product-price">
+			            <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+			            {% if product.available %}
+			                <link itemprop="availability" href="http://schema.org/InStock" />
+			            {% else %}
+			                <link itemprop="availability" href="http://schema.org/OutOfStock" />
+			            {% endif %}
+
+			            <h3 class="product-single__price-text js-product-price-text">
+			                {% if product.compare_at_price_max > product.price %}
+			                    <span class="u-hidden-visually">{{ 'products.general.sale_price' | t }}</span>
+			                    <span class="js-product-price-compare">
+			                        <s class="product-single__price-compare"><span class="money">{{ current_variant.compare_at_price | money }}</span></s>
+			                    </span>
+			                {% endif %}
+			                <span class="u-hidden-visually">{{ 'products.general.regular_price' | t }}</span>
+			                <span class="js-product-price-number">
+			                    <span class="product-single__price-number{% if product.compare_at_price_max > product.price %} product-single__price-number--sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}"><span class="money">{{ current_variant.price | money }}</span></span>
+			                </span>
+			            </h3>
+			        </div>
+	            </div>
+
+	            <div class="product-single__add js-product-buttons{% unless product.available %} product-single__add--sold{% endunless %}">
+
+	                <button type="submit" name="add" class="c-btn c-btn--full c-btn--plus c-btn--primary product-single__add-btn js-product-add">
+	                    <span class="js-product-add-text">{{ 'products.product.add_to_cart' | t }}</span>
+	                </button>
+
+	            </div>
+	        
+	        {% endform %}
+	        <div class="view_details_product">
+	        	<a href="{{ product.url }}">View Details</a>
+	        </div>
+	    </div>
+    </div>
+</div>
+<script type="application/json" id="ProductJson-1">
+    {{ product | json }}
+</script>
