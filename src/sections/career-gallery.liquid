@@ -1,0 +1,41 @@
+<section class="career-gallery">
+    <div class="gallery-wrapper">
+      <div class="img-1"><img src="{{ section.settings.gallery_img_1 | img_url: '' }}" alt="Gallery Image 1"></div>
+      <div class="img-2"><img src="{{ section.settings.gallery_img_2 | img_url: '' }}" alt="Gallery Image 2"></div>
+      <div class="img-3"><img src="{{ section.settings.gallery_img_3 | img_url: '' }}" alt="Gallery Image 3"></div>
+      <div class="img-4"><img src="{{ section.settings.gallery_img_4 | img_url: '' }}" alt="Gallery Image 4"></div>
+      <div class="img-5"><img src="{{ section.settings.gallery_img_5 | img_url: '' }}" alt="Gallery Image 5"></div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Career Gallery Section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "gallery_img_1",
+        "label": "Gallery Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "gallery_img_2",
+        "label": "Gallery Image 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "gallery_img_3",
+        "label": "Gallery Image 3"
+      },
+      {
+        "type": "image_picker",
+        "id": "gallery_img_4",
+        "label": "Gallery Image 4"
+      },
+      {
+        "type": "image_picker",
+        "id": "gallery_img_5",
+        "label": "Gallery Image 5"
+      }
+    ]
+  }
+{% endschema %}

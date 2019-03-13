@@ -1,0 +1,26 @@
+<section class="career-background-img" style="background-image: url('{{ section.settings.bg_image | img_url: '' }}');">
+  <div class="container">
+    <div class="career-content-wrapper">
+      <h1 class="career-title">{{ section.settings.title}} </h1>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Career Opportunities Top",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Career Opportunities",
+        "label": "Career Opportunities Title"
+      }
+    ]
+  }
+{% endschema %}

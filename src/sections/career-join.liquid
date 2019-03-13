@@ -1,0 +1,55 @@
+<section class="career-join">
+  <div class="container">
+    <div class="career-join-wrapper">
+      <div class="join-content-wrapper">
+        <h2 class="join-title"> {{ section.settings.join_title}} </h2>
+        <p class="join-text"> {{ section.settings.join_after_title}} </p>
+        <div class="button-wrapper">
+          <a href="{{ section.settings.submit_button}}" class="submit-button" name="submit-resume"> {{ section.settings.submit_title }} </a>
+          <a href="{{ section.settings.download_button}}" class="download-button" name="download-resume"> {{ section.settings.download_title }} </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Join Career",
+    "settings": [
+      {
+        "type": "text",
+        "id": "join_title",
+        "label": "Join Career Title",
+        "default": "Interested in joining the Complete Nutrition team?"
+      },
+      {
+        "type": "text",
+        "id": "join_after_title",
+        "label": "After Title Text"
+      },
+      {
+        "type": "text",
+        "id": "submit_title",
+        "label": "Submit Button Title",
+        "default": "SUBMIT RESUME"
+      },
+      {
+        "type": "url",
+        "id": "submit_button",
+        "label": "Submit Button"
+      },
+      {
+        "type": "text",
+        "id": "download_title",
+        "label": "Download Button Title",
+        "default": "DOWNLOAD APPLICATION"
+      },
+      {
+        "type": "url",
+        "id": "download_button",
+        "label": "Download Button"
+      }
+    ]
+  }
+{% endschema %}
