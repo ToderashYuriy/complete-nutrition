@@ -376,7 +376,6 @@ var ajaxCart = (function(module, $) {
       if (isUpdating) {
         return;
       }
-
       var $el = $(this),
           line = $el.data('line'),
           $qtySelector = $el.siblings('.ajaxcart__qty-num'),
@@ -457,6 +456,7 @@ var ajaxCart = (function(module, $) {
       // Update the cart note in case they don't click update/checkout
       ShopifyAPI.updateCartNote(newNote, function(cart) {});
     });
+    
   };
 
   adjustCartCallback = function (cart) {

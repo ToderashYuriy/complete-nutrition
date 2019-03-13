@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
 	$('.border_tab .title_tab_product').on('click',function(){
 		var that = $(this),
 			type = that.parent().parent('.tab_product').data('type'),
