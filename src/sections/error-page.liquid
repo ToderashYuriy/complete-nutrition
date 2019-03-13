@@ -1,0 +1,46 @@
+<section class="error_page_top" style="background-image: url('{{ section.settings.bg_image | img_url: '' }}');">
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="content">
+        <h1 class="error-page-title"> {{ section.settings.title}} </h1>
+        <h2 class="after-title-text"> {{ section.settings.after_title}} </h2>
+        <a href="{{ section.settings.button_link }}" class="button"> {{ section.settings.shop_button_title}}</a>
+      </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Error 404 Page",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "404",
+      "label": "Error Page Title"
+    },
+    {
+      "type": "text",
+      "id": "after_title",
+      "default": "The page you requested does not exist…",
+      "label": "After Title Text"
+    },
+    {
+      "type": "text",
+      "id": "shop_button_title",
+      "default": "CONTINUE SHOPPING",
+      "label": "Shop Button"
+    },
+    {
+      "id": "button_link",
+      "type": "url",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}

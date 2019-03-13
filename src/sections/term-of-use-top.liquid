@@ -1,0 +1,26 @@
+<section class="privacy-background-img" style="background-image: url('{{ section.settings.bg_image | img_url: '' }}');">
+  <div class="container">
+    <div class="privacy-content-wrapper">
+      <h1 class="privacy-title">{{ section.settings.title}} </h1>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Term of Use Top",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Legal Policies",
+        "label": "Legal Privacy Title"
+      }
+    ]
+  }
+{% endschema %}

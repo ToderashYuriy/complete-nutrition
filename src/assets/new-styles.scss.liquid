@@ -1,4 +1,4 @@
-.content-wrapper {
+.contact-content-wrapper {
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ p.title-p {
   font-family: Lato;
   font-weight: 400;
 }
-.main-content {
+.contact-main-content {
   display: flex;
   max-width: 100%;
   justify-content: space-between;
@@ -78,6 +78,170 @@ h4.page__contact-form__note.form-success {
 input.c-btn {
   background-color: #E65525;
 }
+.contact_us_top {
+  background-size: cover;
+}
+body.template-page .newsletter.newsletter--light {
+  display: none;
+}
+div.aside p {
+  line-height: 25px;
+}
+.error_page_top {
+  height: 650px;
+  background-size: cover;
+}
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  height: 650px;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 85%;
+  height: 100%;
+}
+h1.error-page-title {
+  font-size: 220px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 900;
+}
+h2.after-title-text {
+  font-size: 42px;
+  color: #fff;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 400;
+  text-transform: initial;
+}
+a.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 225px;
+  height: 47px;
+  background-color: #E65525;
+  font-size: 15px;
+  color: #fff;
+}
+body.template-404 section.section.section--footer {
+  display: none;
+}
+.privacy-background-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+  height: 285px;
+}
+.privacy-content-wrapper {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 1080px;
+  margin: 0 auto;
+}
+.privacy-title {
+  font-size: 50px;
+  color: #fff;
+  font-family: Lato;
+  font-weight: 900;
+  text-transform: initial;
+}
+.privacy-main-content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 65px;
+}
+.privacy-main-aside {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+}
+.privacy-main {
+  width: 80%;
+}
+.privacy-first-link, .privacy-second-link {
+  font-size: 15px;
+  text-align: left;
+}
+span.privacy-second-link {
+  font-weight: 900;
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+}
+span.privacy-second-link:after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background-color: #ffd161;
+  left: 0px;
+  right: 0px;
+  bottom: 0;
+}
+span.privacy-first-link {
+  font-weight: 900;
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+}
+span.privacy-first-link:after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background-color: #ffd161;
+  left: 0px;
+  right: 0px;
+  bottom: 0;
+}
+h2.initial {
+  text-transform: initial;
+  font-size: 18px;
+  font-family: Lato;
+  font-weight: 900;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  line-height: 22px;
+}
+h2.initial.first {
+  margin-top: 0;
+}
+p.privacy-p {
+  line-height: 30px;
+  font-size: 15px;
+  font-family: Lato;
+  font-weight: 400;
+}
+ul.li-color-marker {
+  margin-left: 0;
+  li {
+    list-style-type: none;
+    position: relative;
+    padding-left: 25px;
+    &:before {
+      color: #E65525;
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background-color: #e65525;
+      border-radius: 50%;
+      top: 12px;
+    }
+  }
+}
+
 @media screen and (max-width: 1199px){
   .contact_us_top {
     background-size: cover;
@@ -97,7 +261,7 @@ input.c-btn {
   h1.title, p.title-p {
     margin-left: 50px;
   }
-  .main-content {
+  .contact-main-content {
     flex-direction: column;
   }
   .form, .aside {
@@ -107,6 +271,16 @@ input.c-btn {
   .form-title {
     margin-top: 30px;
   }
+  h1.error-page-title {
+    font-size: 160px;
+    margin-bottom: 15px;
+  }
+  h2.after-title-text {
+    font-size: 36px;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 20px;
+  }
 }
 @media screen and (max-width: 575px){
   .form, .aside {
@@ -114,12 +288,10 @@ input.c-btn {
   }
   .aside-title {
     margin-top: 35px;
+    margin-bottom: 17px;
   }
   .aside-address-title {
     margin-top: 30px;
-  }
-  .aside-title {
-    margin-bottom: 0;
   }
   .main-content {
     margin-bottom: 20px;
@@ -134,14 +306,32 @@ input.c-btn {
   h1.title, p.title-p {
     margin-left: 10px;
   }
+  div.aside {
+    margin-bottom: 45px;
+  }
 }
 @media screen and (max-width: 375px){
   .form, .aside {
     width: 100%;
   }
+  .content-wrapper {
+    height: 575px;
+  }
+  h1.error-page-title {
+    margin-bottom: 25px;
+  }
 }
 @media screen and (max-width: 320px){
 	.form, .aside {
     width: 100%;
+  }
+  h1.error-page-title {
+    font-size: 120px;
+  }
+  h2.after-title-text {
+    font-size: 28px;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 20px;
   }
 }
