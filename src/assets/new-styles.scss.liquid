@@ -1,3 +1,11 @@
+@mixin LatoBlack {
+  font-family: Lato;
+  font-weight: 900;
+}
+@mixin LatoRegular {
+  font-family: Lato;
+  font-weight: 400;
+}
 .contact-content-wrapper {
   max-width: 100%;
   display: flex;
@@ -20,14 +28,12 @@ h1.title, p.title-p {
 h1.title {
   font-size: 42px;
   text-align: left;
-  font-family: Lato;
-  font-weight: 900;
+  @include LatoBlack;
 }
 p.title-p {
   font-size: 18px;
   text-align: left;
-  font-family: Lato;
-  font-weight: 400;
+  @include LatoRegular;
 }
 .contact-main-content {
   display: flex;
@@ -52,8 +58,7 @@ p.title-p {
   flex-direction: column;
 }
 .form-title, .aside-title, .aside-address-title {
-  font-family: Lato;
-  font-weight: 900;
+  @include LatoBlack;
   font-size: 22px;
   text-transform: none;
 }
@@ -61,8 +66,8 @@ p.title-p {
   margin-bottom: 0;
 }
 .block-custom-title {
-  font-family: Lato;
-  font-weight: 900;
+  
+  @include LatoBlack;
   font-size: 15px;
   text-transform: none;
   margin-bottom: 0;
@@ -72,8 +77,7 @@ p.title-p {
 }
 h4.page__contact-form__note.form-success {
   font-size: 18px;
-  font-family: Lato;
-  font-weight: 400;
+  @include LatoRegular;
 }
 input.c-btn {
   background-color: #E65525;
@@ -111,15 +115,13 @@ h1.error-page-title {
   padding: 0;
   color: #fff;
   text-align: left;
-  font-family: Lato;
-  font-weight: 900;
+  @include LatoBlack;
 }
 h2.after-title-text {
   font-size: 42px;
   color: #fff;
   text-align: left;
-  font-family: Lato;
-  font-weight: 400;
+  @include LatoRegular;
   text-transform: initial;
 }
 a.button {
@@ -152,8 +154,7 @@ body.template-404 section.section.section--footer {
 .privacy-title {
   font-size: 50px;
   color: #fff;
-  font-family: Lato;
-  font-weight: 900;
+  @include LatoBlack;
   text-transform: initial;
 }
 .privacy-main-content {
@@ -174,7 +175,7 @@ body.template-404 section.section.section--footer {
   text-align: left;
 }
 span.privacy-second-link {
-  font-weight: 900;
+  @include LatoBlack;
   position: relative;
   width: max-content;
   max-width: 100%;
@@ -189,7 +190,7 @@ span.privacy-second-link:after {
   bottom: 0;
 }
 span.privacy-first-link {
-  font-weight: 900;
+  @include LatoBlack;
   position: relative;
   width: max-content;
   max-width: 100%;
@@ -206,8 +207,7 @@ span.privacy-first-link:after {
 h2.initial {
   text-transform: initial;
   font-size: 18px;
-  font-family: Lato;
-  font-weight: 900;
+  @include LatoBlack;
   margin-top: 40px;
   margin-bottom: 25px;
   line-height: 22px;
@@ -218,8 +218,7 @@ h2.initial.first {
 p.privacy-p {
   line-height: 30px;
   font-size: 15px;
-  font-family: Lato;
-  font-weight: 400;
+  @include LatoRegular;
 }
 ul.li-color-marker {
   margin-left: 0;
@@ -258,8 +257,7 @@ ul.li-color-marker {
     .career-title {
         font-size: 50px;
         color: #fff;
-        font-family: Lato;
-        font-weight: 900;
+        @include LatoBlack;
         text-transform: initial;
     }
     h1.career-title {
@@ -294,8 +292,7 @@ ul.li-color-marker {
 
         th {
           font-size: 16px;
-          font-family: Lato;
-          font-weight: 900;
+          @include LatoBlack;
           text-transform: initial;
           line-height: 25px;
           background-color: #fff;
@@ -305,8 +302,7 @@ ul.li-color-marker {
         tbody {
           tr {
             height: 61px;
-            font-family: Lato;
-            font-weight: 400;
+            @include LatoRegular;
 
             &:nth-child(even) td {
               background-color: #fff;
@@ -315,7 +311,7 @@ ul.li-color-marker {
               background-color: #FAFAFA;
             }
             &:hover td {
-              font-weight: 900;
+              @include LatoBlack;
               border-bottom: 2px solid #FFC331;
               min-height: 61px;
             }
@@ -349,8 +345,7 @@ ul.li-color-marker {
         h2.join-title {
           font-size: 32px;
           line-height: 32px;
-          font-family: Lato;
-          font-weight: 900;
+          @include LatoBlack;
           text-transform: initial;
           margin-bottom: 20px;
           
@@ -377,8 +372,7 @@ ul.li-color-marker {
     width: 255px;
     height: 47px;
     font-size: 15px;
-    font-family: Lato;
-    font-weight: 900;
+    @include LatoBlack;
   }
   .submit-button {
     background-color: #E65525;
@@ -417,8 +411,7 @@ ul.li-color-marker {
 .career-form-title {
   text-transform: initial;
   margin-bottom: 25px;
-  font-family: Lato;
-  font-weight: 900;
+  @include LatoBlack;
 }
 
 .upload-wrapper {
@@ -431,8 +424,7 @@ ul.li-color-marker {
     background-color: #FFC331;
     color: #fff;
     font-size: 13px;
-    font-family: Lato;
-    font-weight: 900;
+    @include LatoBlack;
     width: 173px;
     height: 47px;
     margin: 20px 0;
@@ -452,8 +444,7 @@ ul.li-color-marker {
 }
   .career-form-submit {
     font-size: 15px;
-    font-family: Lato;
-    font-weight: 900;
+    @include LatoBlack;
     line-height: 18px;
     margin: 0;
     padding: 15px 0;
@@ -477,14 +468,217 @@ ul.li-color-marker {
   }
 }
 
-.login-page {
-  .login-wrapper {
+.section.section--account {
     display: flex;
+    margin: 0;
 
-    .login-form-wrapper, .image-wrapper {
+    .container--tiny, .login-side-image {
       width: 50%;
+      margin: 0;
+      padding: 0;
+    }
+    .login-side-image img, .register-side-image img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .container--tiny {
+      display: flex;
+    }
+}
+.customer-login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  margin: 0 auto;
+  
+  h1.section__title-text {
+    text-transform: none;
+  }
+  h1.section__title-text.h2::after {
+    display: none;
+  }
+  .email-input, .password-input {
+    margin-bottom: 16px;
+  }
+  .login-submit-button {
+    width: 100%;
+    font-size: 15px;
+    line-height: 18px;
+    @include LatoBlack;
+    margin: 0 0 13px;
+    height: 47px;
+  }
+  .account__reset-link {
+    text-align: left;
+    margin-bottom: 44px;
+    
+    .forgot-password-link {
+      font-size: 15px;
+      line-height: 20px;
+      text-decoration: underline;
     }
   }
+  .not-member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 20px;
+
+    &::before {
+      content: "";
+      width: calc(50% - 72px);
+      height: 1px;
+      background-color: #D8D8D8;
+      top: 5px;
+      margin-right: 10px;
+    }
+    &::after {
+      content: "";
+      width: calc(50% - 72px);
+      height: 1px;
+      background-color: #D8D8D8;
+      top: 5px;
+      margin-left: 10px;
+    }
+  }
+  .create-account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 47px;
+    border: 1px solid #E65525;
+    width: 100%;
+    color: #E65525;
+    @include LatoBlack;
+
+    &:hover {
+      color: #fff;
+      background-color: #E65525;
+      border: none;
+    }
+  }
+  
+}
+body.template-customers-login section.section.section--footer,
+body.template-customers-register section.section.section--footer {
+  display: none;
+}
+.reset-password-form, .create-account-form {
+  width: 70%;
+  margin: 0 auto;
+
+  h1.section__title-text {
+    text-transform: none;
+    margin-top: 20%;
+  }
+  h1.section__title-text.h2::after {
+    display: none;
+  }
+  .login-submit-button {
+    width: 100%;
+    font-size: 15px;
+    line-height: 18px;
+    @include LatoBlack;
+    margin: 0 0 13px;
+    height: 47px;
+  }
+  .not-member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 20px;
+
+    &::before {
+      content: "";
+      width: calc(50% - 72px);
+      height: 1px;
+      background-color: #D8D8D8;
+      top: 5px;
+      margin-right: 10px;
+    }
+    &::after {
+      content: "";
+      width: calc(50% - 72px);
+      height: 1px;
+      background-color: #D8D8D8;
+      top: 5px;
+      margin-left: 10px;
+    }
+  }
+  .create-account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 47px;
+    border: 1px solid #E65525;
+    width: 100%;
+    color: #E65525;
+    @include LatoBlack;
+    margin-bottom: 20px;
+
+    &:hover {
+      color: #fff;
+      background-color: #E65525;
+      border: none;
+    }
+  }
+}
+.section.account--register {
+  display: flex;
+  margin: 0;
+
+  .container--tiny, .register-side-image {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+  }
+  .container--tiny {
+    display: flex;
+    flex-direction: column;
+  }
+  h1.section__title-text {
+    text-transform: initial;
+  }
+  h1.section__title-text::after {
+    display: none;
+  }
+  // .not-member {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   margin: 0 auto;
+  //   font-size: 14px;
+  //   line-height: 19px;
+  //   margin-bottom: 20px;
+
+  //   &::before {
+  //     content: "";
+  //     width: calc(50% - 72px);
+  //     height: 1px;
+  //     background-color: #D8D8D8;
+  //     top: 5px;
+  //     margin-right: 10px;
+  //   }
+  //   &::after {
+  //     content: "";
+  //     width: calc(50% - 72px);
+  //     height: 1px;
+  //     background-color: #D8D8D8;
+  //     top: 5px;
+  //     margin-left: 10px;
+  //   }
+  // }
+
 }
 
 @media screen and (max-width: 1199px){
@@ -504,6 +698,36 @@ ul.li-color-marker {
   .career-form-wrapper {
     .career-form {
       width: 70%;
+    }
+  }
+}
+@media screen and (max-width: 945px){
+  .customer-login-form {
+    .section__title {
+      margin-bottom: 10px;
+    }
+    .account__reset-link {
+      margin-bottom: 10px;
+    }
+    .create-account {
+      margin-bottom: 30px;
+    }
+    h1.section__title-text {
+      margin-top: 20px;
+    }
+  }
+  .reset-password-form {
+    .section__title {
+      margin-bottom: 10px;
+    }
+    .account__reset-link {
+      margin-bottom: 10px;
+    }
+    .create-account {
+      margin-bottom: 30px;
+    }
+    h1.section__title-text {
+      margin-top: 20px;
     }
   }
 }
@@ -587,6 +811,38 @@ ul.li-color-marker {
   div.career-form-input div.career-input {
     width: 100% !important;
   }
+  div.login-side-image {
+    display: none;
+  }
+  .section.section--account {
+    .container--tiny {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .customer-login-form {
+    h1.section__title-text {
+      margin: 50px 0 30px 0;
+    }
+    .account__reset-link {
+      margin-bottom: 44px;
+    }
+    .create-account {
+      margin-bottom: 120px;
+    }
+  }
+  .reset-password-form {
+    h1.section__title-text {
+      margin: 50px 0 30px 0;
+    }
+    .account__reset-link {
+      margin-bottom: 44px;
+    }
+    .create-account {
+      margin-bottom: 120px;
+    }
+  }
+  
 }
 @media screen and (max-width: 676px){
   .career-join {
@@ -602,6 +858,12 @@ ul.li-color-marker {
     .career-form {
       width: 90%;
     }
+  }
+  .customer-login-form {
+    width: 90%;
+  }
+  .reset-password-form {
+    width: 90%;
   }
 }
 @media screen and (max-width: 575px){

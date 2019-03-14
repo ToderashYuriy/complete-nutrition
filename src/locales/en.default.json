@@ -227,11 +227,12 @@
       "delete": "Delete"
     },
     "login": {
-      "title": "Login",
+      "title": "Customer Login",
       "email": "Email",
-      "password": "Password",
-      "forgot_password": "Forgot your password?",
+      "password": "Enter Password",
+      "forgot_password": "Forgot password?",
       "sign_in": "Sign In",
+      "login": "Login",
       "cancel": "Return to Store",
       "guest_title": "Continue as a guest",
       "guest_continue": "Continue"
@@ -266,10 +267,10 @@
       "subtotal": "Subtotal"
     },
     "recover_password": {
-      "title": "Reset your password",
+      "title": "Recover your Password",
       "email": "Email",
-      "submit": "Submit",
-      "cancel": "Cancel",
+      "submit": "SEND INSTRUCTIONS",
+      "cancel": "CREATE ACCOUNT",
       "subtext": "We will send you an email to reset your password.",
       "success": "We've sent you an email with a link to update your password."
     },
@@ -285,9 +286,10 @@
       "first_name": "First Name",
       "last_name": "Last Name",
       "email": "Email",
-      "password": "Password",
-      "submit": "Create",
-      "cancel": "Return to Store"
+      "password": "Create Password",
+      "submit": "CREATE ACCOUNT",
+      "cancel": "Return to Store",
+      "login": "LOG IN"
     }
   },
   "date_formats": {
