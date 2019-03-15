@@ -706,10 +706,13 @@ theme.layoutSlider = function(slider) {
     .resize();
 };
 
-theme.productSelect = function(sectionId, cssClass, historyState) {
-  var productObj = JSON.parse(
-    document.getElementById("ProductJson-" + sectionId).innerHTML
-  );
+theme.productSelect = function(sectionId, cssClass, historyState, productObj = null) {
+  if (productObj == null) {
+    var productObj = JSON.parse(
+      document.getElementById("ProductJson-" + sectionId).innerHTML
+    );
+  }
+  console.log(productObj);
   var sectionClass = cssClass;
 
   var selectCallback = function(variant, selector) {
@@ -722,12 +725,18 @@ theme.productSelect = function(sectionId, cssClass, historyState) {
         detail: { product: productObj, variant: variant, cssClass: cssClass }
       })
     );
-
     //Price functions
     if (variant) {
       // Selected a valid variant that is available.
-      if (variant.available) {
+      if (variant.inventory_quantity > 0) {
+        if (variant.inventory_quantity <= 10){
+          $('.js-product-' + productId + ' .stock_block span.inner_stock').html('Low Stock');
+          $('.js-product-' + productId + ' .stock_block').css('display','flex').removeClass('red');
+        }else{
+          $('.js-product-' + productId + ' .stock_block').css('display','none').removeClass('red');
+        }
         // Enabling add to cart button.
+        console.log(variant);
         $(".js-product-" + productId + " .js-product-add")
           .removeClass("disabled")
           .addClass("c-btn--plus")
@@ -769,6 +778,8 @@ theme.productSelect = function(sectionId, cssClass, historyState) {
           $(".js-product-" + productId + " .js-product-price-compare").empty();
         }
       } else {
+        $('.js-product-' + productId + ' .stock_block span.inner_stock').html('Out of Stock');
+        $('.js-product-' + productId + ' .stock_block').css('display','flex').addClass('red');
         // Variant is sold out.
         $(".js-product-" + productId + " .js-product-add")
           .addClass("disabled")
@@ -2855,9 +2866,10 @@ $(document)
         theme.accordion();
         theme.ajaxCartInit();
         theme.productZoom();
-
-        theme.productSelect("1", "single", true);
-        theme.selectWrapper();
+        setTimeout(function () {
+          theme.productSelect("1", "single", true, productObj ? productObj : null);
+          theme.selectWrapper();
+        });
 
         //slider images smooth loading
         $(".js-product-slider").imagesLoaded(function() {

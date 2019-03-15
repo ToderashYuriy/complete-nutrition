@@ -100,7 +100,9 @@
                                                         </div>
                                                     </div>
                                                 {% endif %}
-
+                                                <div class="stock_block">
+                                                    <span class="inner_stock"></span>
+                                                </div>
                                                 <div class="product-single__add js-product-buttons{% unless product.available %} product-single__add--sold{% endunless %}">
 
                                                     <button type="submit" name="add" class="c-btn c-btn--full c-btn--plus c-btn--{% if section.settings.enable_payment_button %}light{% else %}primary{% endif %} product-single__add-btn js-product-add">
@@ -297,7 +299,9 @@
                                     </div>
                                 </div>
                             {% endif %}
-
+                            <div class="stock_block">
+                                <span class="inner_stock"></span>
+                            </div>
                             <div class="product-single__add js-product-buttons{% unless product.available %} product-single__add--sold{% endunless %}">
 
                                 <button type="submit" name="add" class="c-btn c-btn--full c-btn--plus c-btn--{% if section.settings.enable_payment_button %}light{% else %}primary{% endif %} product-single__add-btn js-product-add">

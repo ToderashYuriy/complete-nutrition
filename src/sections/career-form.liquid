@@ -26,9 +26,10 @@
 
           <label for="ContactFormMessage"></label>
           <textarea rows="10" placeholder="Write Message" id="ContactFormMessage" class="ContactFormMessage" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
-
+              <input required id="custom_photo" type="file" name="properties[Reume]" class="product-form__input hidden">
           <div class="upload-wrapper">
-            <a href=" {{ section.settings.choose_button }} " class="choose-button"><svg xmlns="http://www.w3.org/2000/svg" width="12.753" height="16.126" viewBox="0 0 12.753 16.126"><defs><style>.a,.b{fill:none;stroke:#fff;stroke-linecap:round;stroke-width:1.3px;}.a{stroke-linejoin:round;}</style></defs><g transform="translate(-14831.488 -6965.033)"><path class="a" d="M14838.311,6980.509h-6.172v-14.826h8.043"/><path class="a" d="M14857.153,6974.45v-5.361l-3.178-3.442" transform="translate(-13.604 0.036)"/><path class="a" d="M14850.1,6993.876l2.457-2.48,2.316,2.48" transform="translate(-11.285 -16.152)"/><path class="b" d="M14856.521,6997.023v-5.05" transform="translate(-15.316 -16.515)"/><path class="a" d="M14839.109,6965.683v4.024h4.013" transform="translate(0.453)"/></g></svg> {{ section.settings.choose_button_title }} </a>
+            <a href="#" class="choose-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12.753" height="16.126" viewBox="0 0 12.753 16.126"><defs><style>.a,.b{fill:none;  stroke:#fff;stroke-linecap:round;stroke-width:1.3px;}.a{stroke-linejoin:round;}</style></defs><g transform="translate(-14831.488 -6965.033)"><path class="a" d="M14838.311,6980.509h-6.172v-14.826h8.043"/><path class="a" d="M14857.153,6974.45v-5.361l-3.178-3.442" transform="translate(-13.604 0.036)"/><path class="a" d="M14850.1,6993.876l2.457-2.48,2.316,2.48" transform="translate(-11.285 -16.152)"/><path class="b" d="M14856.521,6997.023v-5.05" transform="translate(-15.316 -16.515)"/><path class="a" d="M14839.109,6965.683v4.024h4.013" transform="translate(0.453)"/></g></svg> {{ section.settings.choose_button_title }} </a>
             <p class="upload-text">Max file size for upload is:<b> 5MB</b> <br> Accepted file extensions: <b> .doc, .docx, .pdf, .txt </b></p>
           </div>
           
@@ -54,11 +55,6 @@
         "id": "choose_button_title",
         "label": "Submit Button Title",
         "default": "CHOOSE FILE"
-      },
-      {
-        "type": "url",
-        "id": "choose_button",
-        "label": "Choose Button Url"
       },
       {
         "type": "text",

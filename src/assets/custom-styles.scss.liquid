@@ -1996,13 +1996,31 @@ section.section.section--cart.cart {
 	    font-weight: 900;
 	}
 }
-
+.career-form-wrapper .career-form-submit {
+    border: solid 1px #E65525;
+    &::hover {
+	    background-color: #fff;
+	    color: #E65525;
+	}
+}
 
 
 
 
 /******* END QUICK SHOP ********/
-
+.image_tag {
+    position: relative;
+}
+.stock_block {
+    background: #ffcb38;
+    width: max-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #fff;
+    &.red{
+		background: #ff646b;
+    }
+}
 /******* COLLECTION NEW TEMPLATE *********/
 .collection-main-new{
 	#snize-search-results-grid-mode span.snize-description {
@@ -2014,6 +2032,8 @@ section.section.section--cart.cart {
 	    font-family: "Open Sans";
 	    font-size: 15px;
 	    font-weight: 700;
+        max-height: 24px !important;
+	    overflow: hidden;
 	}
 
 	#snize-search-results-grid-mode .snize-price-list {

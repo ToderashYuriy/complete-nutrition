@@ -3,6 +3,34 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 <div class="product-quick_image">
 	<div class="image_inner_product-quick">
+		<div class="image_tag">
+			{% if product.available == false %}
+	            <div class="product__label label label--light">
+	                <p class="product__label-text label__text">{{ 'products.product.sold_out' | t }}</p>
+	            </div>
+	        {% elsif product.tags contains 'Tag-CustomerFavorite' %}
+	            <div class="product__label label label--brand label-yellow">
+	                <p class="product__label-text label__text">Customer Favorite</p>
+	            </div>
+	        {% elsif product.tags contains 'Tag-New' %}
+	            <div class="product__label label label--brand label--red">
+	                <p class="product__label-text label__text">New</p>
+	            </div>
+	        {% elsif product.tags contains 'Tag-BestSeller' %}
+	            <div class="product__label label label--brand label-yellow">
+	                <p class="product__label-text label__text">BEST SELLER</p>
+	            </div>
+			{% elsif product.compare_at_price > product.price %}
+	            <div class="product__label label label--brand label--red">
+	                {% if settings.product_grid_label_sale_style == 'text' %}
+	                    <p class="product__label-text label__text">Sale</p>
+	                {% else %}
+	                    <p class="product__label-text label__text">-{{ product.compare_at_price_max | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}%</p>
+	                {% endif %}
+	            </div>
+            {% endif %}
+            </div>
+		</div>
 	    <img src="{{ product | img_url: '' }}" alt="">
     </div>
 </div>
@@ -20,7 +48,7 @@
 	            
 
 	            <div class="product-single__variant">
-	                <select name="id" id="productSelect-1" class="product-single__variant-select">
+	                <select name="id" id="productSelect-2" class="product-single__variant-select">
 	                    {% for variant in product.variants %}
 	                        {% if variant.available %}
 	                            <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}</option>
@@ -66,7 +94,9 @@
 			            </h3>
 			        </div>
 	            </div>
-
+				<div class="stock_block">
+					<span class="inner_stock"></span>
+				</div>
 	            <div class="product-single__add js-product-buttons{% unless product.available %} product-single__add--sold{% endunless %}">
 
 	                <button type="submit" name="add" class="c-btn c-btn--full c-btn--plus c-btn--primary product-single__add-btn js-product-add">
@@ -82,6 +112,13 @@
 	    </div>
     </div>
 </div>
-<script type="application/json" id="ProductJson-1">
+
+<script type="application/json" id="ProductJson-2">
     {{ product | json }}
+</script>
+<script>
+	var productObj = {{ product | json }};
+	{% for variant in product.variants %}
+		productObj.variants[{{forloop.index0}}].inventory_quantity = {{ variant.inventory_quantity }};
+	{% endfor %}
 </script>
