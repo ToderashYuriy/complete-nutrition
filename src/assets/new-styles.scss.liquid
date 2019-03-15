@@ -486,7 +486,7 @@ ul.li-color-marker {
       display: flex;
     }
 }
-.customer-login-form {
+.customer-login-form, .create-account-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -509,6 +509,12 @@ ul.li-color-marker {
     @include LatoBlack;
     margin: 0 0 13px;
     height: 47px;
+
+    &:hover {
+      background: transparent;
+      border: 1px solid #E65525;
+      color: #E65525;
+    }
   }
   .account__reset-link {
     text-align: left;
@@ -569,7 +575,7 @@ body.template-customers-login section.section.section--footer,
 body.template-customers-register section.section.section--footer {
   display: none;
 }
-.reset-password-form, .create-account-form {
+.reset-password-form {
   width: 70%;
   margin: 0 auto;
 
@@ -645,6 +651,7 @@ body.template-customers-register section.section.section--footer {
   .container--tiny {
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
   h1.section__title-text {
     text-transform: initial;
@@ -652,33 +659,152 @@ body.template-customers-register section.section.section--footer {
   h1.section__title-text::after {
     display: none;
   }
-  // .not-member {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   margin: 0 auto;
-  //   font-size: 14px;
-  //   line-height: 19px;
-  //   margin-bottom: 20px;
+}
 
-  //   &::before {
-  //     content: "";
-  //     width: calc(50% - 72px);
-  //     height: 1px;
-  //     background-color: #D8D8D8;
-  //     top: 5px;
-  //     margin-right: 10px;
-  //   }
-  //   &::after {
-  //     content: "";
-  //     width: calc(50% - 72px);
-  //     height: 1px;
-  //     background-color: #D8D8D8;
-  //     top: 5px;
-  //     margin-left: 10px;
-  //   }
-  // }
+// FAQs Page
 
+section.faq-background-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+  height: 285px;
+}
+.faq-top {
+  .faq-title {
+    font-size: 50px;
+    line-height: 50px;
+    width: 45%;
+    color: #fff;
+    @include LatoBlack;
+    text-transform: initial;
+  }
+}
+.faq-content-wrapper {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 1080px;
+  margin: 0 auto;
+
+  .faq-main-aside, .faq-main {
+    margin-top: 80px;
+  }
+  .faq-main-aside {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+  }
+  .faq-main {
+    width: 80%;
+  }
+}
+.faq-main-aside {
+  .faq-link {
+    @include LatoRegular;
+    position: relative;
+    width: max-content;
+    max-width: 100%;
+    line-height: 40px;
+  }
+  .faq-link.current {
+    @include LatoBlack;
+  }
+  .faq-link.current:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background-color: #ffd161;
+    left: 0px;
+    right: 0px;
+    bottom: 0;
+  }
+}
+.faq-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+
+  .faq__search {
+    margin: 0;
+  }
+  i.icon.icon--search {
+    border-top: 1px solid #BEBEBE;
+    border-left: 1px solid #BEBEBE;
+    border-right: none;
+    border-bottom: 1px solid #BEBEBE;
+    transform: scale(-1, 1);
+  }
+  input.faq__search-input {
+    border: 1px solid #BEBEBE;
+  }
+  .faq__search-input {
+    @include LatoRegular;
+    font-size: 18px;
+    line-height: 22px;
+    color: #332B29;
+  }
+  .section__title.faq__category__title {
+    margin-bottom: 60px;
+  }
+  h4.section__title-text.faq__category__title-text::after {
+    display: none;
+  }
+  h4.section__title-text.faq__category__title-text {
+    @include LatoBlack;
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: initial;
+  }
+  .faq__accordion__title-text {
+    margin: 10px;
+  }
+  .faq__accordion__title-icon {
+    color: #413E3E;
+  }
+  .faq__accordion__title {
+    // padding-bottom: 1px;
+  }
+  .faq__accordion__item .js-accordion-info {
+  }
+  div.article-wrapper {
+    border-bottom: 1px solid #E6E6E6;
+  }
+  p.faq__accordion__title-text {
+    @include LatoBlack;
+    font-size: 18px;
+    line-height: 42px;
+  }
+  .rte p:last-child {
+    margin-bottom: 25px;
+  }
+  .faq__accordion__title-text {
+    margin-left: 0;
+  }
+}
+div.faq-galerry-wrapper {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 60px;
+    min-height: 421px;
+
+  .left-image, .right-image {
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .left-image {
+    margin: 15px 7px 15px 15px;
+  }
+  .right-image {
+    margin: 15px 15px 15px 7px;
+  }
+  .left-image, .right-image {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 1199px){
@@ -702,7 +828,7 @@ body.template-customers-register section.section.section--footer {
   }
 }
 @media screen and (max-width: 945px){
-  .customer-login-form {
+  .customer-login-form, .account--register {
     .section__title {
       margin-bottom: 10px;
     }
@@ -808,10 +934,11 @@ body.template-customers-register section.section.section--footer {
       }
     }
   }
-  div.career-form-input div.career-input {
+  div.career-form-input div.career-input,
+  div.register-form-input div.register-input {
     width: 100% !important;
   }
-  div.login-side-image {
+  div.login-side-image, div.register-side-image {
     display: none;
   }
   .section.section--account {
@@ -820,7 +947,7 @@ body.template-customers-register section.section.section--footer {
       flex-wrap: wrap;
     }
   }
-  .customer-login-form {
+  .customer-login-form, .create-account-form {
     h1.section__title-text {
       margin: 50px 0 30px 0;
     }
@@ -842,7 +969,11 @@ body.template-customers-register section.section.section--footer {
       margin-bottom: 120px;
     }
   }
-  
+  section.account--register {
+    div.container.container--tiny {
+      margin: 0 auto;
+    }
+  }
 }
 @media screen and (max-width: 676px){
   .career-join {
@@ -859,7 +990,7 @@ body.template-customers-register section.section.section--footer {
       width: 90%;
     }
   }
-  .customer-login-form {
+  .customer-login-form, .create-account-form {
     width: 90%;
   }
   .reset-password-form {
