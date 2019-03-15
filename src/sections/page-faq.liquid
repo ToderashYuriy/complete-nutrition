@@ -1,82 +1,113 @@
-<section class="section section--page page page--faq faq js-faq-page">
-    <div class="container container--tiny">
-        <div class="section__title section__title--center">
-            <h1 class="section__title-text h2">{{ page.title }}</h1>
+<section class="faq-top faq-background-image" style="background-image: url('{{ section.settings.fq_bg_image | img_url: '' }}');">
+    <div class="container" >
+        <div class="faq-content-wrapper">
+            <h1 class="faq-title">{{ section.settings.title }}</h1>
         </div>
     </div>
+</section>
 
-    <div class="container container--tiny">
-        <div class="faq__wrapper">
-
-            {% if section.settings.enable_sidebar %}
-                <div class="faq__categories js-faq-categories u-hidden@desk-down">
-                    <h4 class="faq__categories-title h5">Categories</h4>
-                    <ul class="faq__categories-items o-list-bare">
-                        {% for block in section.blocks %}
-                            {% if block.type == 'category' %}
-                                <li class="faq__categories-item"><a href="#cat-{{ forloop.index }}" class="faq__categories-link js-faq-category-link js-scroll-id">{{ block.settings.title }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-
-            {% if page.content.size > 0 %}
-                <div class="faq__content page__content rte">
-                    {{ page.content }}
-                </div>
-            {% endif %}
-
-            {% if section.settings.enable_search %}
-                <div class="faq__search">
-                    <input type="text" name="faq" class="faq__search-input js-faq-autocomplete" placeholder="Start typing..." autocomplete="off">
-                    <i class="icon icon--search" aria-hidden="true"></i>
-                </div>
-            {% endif %}
-
-            <div class="faq__accordion js-accordion">
-                {% for block in section.blocks %}
-                    {% if block.type == 'article' %}
-                        <a href="#faq-{{ forloop.index }}" class="faq__accordion__title js-accordion-trigger">
-                            <p class="faq__accordion__title-text">{{ block.settings.title }}</p>
-                            <span class="faq__accordion__title-icon icon-fallback">
-                                <i class="icon icon--plus" aria-hidden="true"></i>
-                                <span class="icon-fallback__text">{{ 'products.layout.tab_label' | t }}</span>
-                            </span>
-                        </a>
-                        <div id="faq-{{ forloop.index }}" class="faq__accordion__item js-accordion-info">
-                            {% unless block.settings.text == blank %}
-                                <div class="faq__accordion__item-wrap rte">
-                                    {{ block.settings.text }}
-                                </div>
-                            {% endunless %}
-                            {% if block.settings.image %}
-                                <img src="{{ block.settings.image | img_url: '1200x' }}" class="faq__accordion__item__image" alt="{{ block.settings.image.alt }}">
-                            {% endif %}
-                        </div>
-                    {% endif %}
-                    {% if block.type == 'category' %}
-                        <div class="faq__category js-faq-category" id="cat-{{ forloop.index }}">
-                            <div class="section__title faq__category__title">
-                                <h4 class="section__title-text faq__category__title-text">{{ block.settings.title }}</h1>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+<section class="faq-main-content">
+    <div class="container">
+        <div class="faq-content-wrapper">
+            <div class="faq-main-aside">
+                <a class="faq-link" href="{{ section.settings.side_link_1 }}"> {{ section.settings.side_title_1 }} </a>
+                <a class="faq-link" href="{{ section.settings.side_link_2 }}"> {{ section.settings.side_title_2 }} </a>
+                <span class="faq-link current"> {{ section.settings.side_title_3 }} </span>
+                <a class="faq-link" href="{{ section.settings.side_link_4 }}"> {{ section.settings.side_title_4 }} </a>
             </div>
 
-            {% unless section.settings.cta_link == blank %}
-                <div class="faq__cta u-text-center"> 
-                    <div class="faq__cta-btn">
-                        <a href="{{ section.settings.cta_link }}" class="faq__cta-btn__btn c-btn c-btn--primary c-btn--arrow">{{ section.settings.cta_link_title | escape }}</a>
-                    </div>
-                </div>
-            {% endunless %}
+            <div class="faq-main">
+                <div class="faq-main-wrapper">
 
+                    {% if section.settings.enable_sidebar %}
+                        <div class="faq__categories js-faq-categories u-hidden@desk-down">
+                            <h4 class="faq__categories-title h5">Categories</h4>
+                            <ul class="faq__categories-items o-list-bare">
+                                {% for block in section.blocks %}
+                                    {% if block.type == 'category' %}
+                                        <li class="faq__categories-item"><a href="#cat-{{ forloop.index }}" class="faq__categories-link js-faq-category-link js-scroll-id">{{ block.settings.title }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
+                    {% if page.content.size > 0 %}
+                        <div class="faq__content page__content rte">
+                            {{ page.content }}
+                        </div>
+                    {% endif %}
+
+                    {% if section.settings.enable_search %}
+                        <div class="faq__search">
+                            <input type="text" name="faq" class="faq__search-input js-faq-autocomplete" placeholder="Type to search…" autocomplete="off">
+                            <i class="icon icon--search" aria-hidden="true"></i>
+                        </div>
+                    {% endif %}
+
+                    <div class="faq__accordion js-accordion">
+                        {% for block in section.blocks %}
+                            {% if block.type == 'category' %}
+                                <div class="faq__category js-faq-category" id="cat-{{ forloop.index }}">
+                                    <div class="section__title faq__category__title">
+                                        <h4 class="section__title-text faq__category__title-text">{{ block.settings.title }}</h1>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if block.type == 'article' %}
+                                <div class="article-wrapper">
+                                    <a href="#faq-{{ forloop.index }}" class="faq__accordion__title js-accordion-trigger">
+                                        <p class="faq__accordion__title-text">{{ block.settings.title }}</p>
+                                        <span class="faq__accordion__title-icon icon-fallback">
+                                            <i class="icon icon--plus" aria-hidden="true"></i>
+                                            <span class="icon-fallback__text">{{ 'products.layout.tab_label' | t }}</span>
+                                        </span>
+                                    </a>
+                                    <div id="faq-{{ forloop.index }}" class="faq__accordion__item js-accordion-info">
+                                        {% unless block.settings.text == blank %}
+                                            <div class="faq__accordion__item-wrap rte">
+                                                {{ block.settings.text }}
+                                            </div>
+                                        {% endunless %}
+                                        {% if block.settings.image %}
+                                            <img src="{{ block.settings.image | img_url: '1200x' }}" class="faq__accordion__item__image" alt="{{ block.settings.image.alt }}">
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            
+                        {% endfor %}
+                    </div>
+
+                    {% unless section.settings.cta_link == blank %}
+                        <div class="faq__cta u-text-center"> 
+                            <div class="faq__cta-btn">
+                                <a href="{{ section.settings.cta_link }}" class="faq__cta-btn__btn c-btn c-btn--primary c-btn--arrow">{{ section.settings.cta_link_title | escape }}</a>
+                            </div>
+                        </div>
+                    {% endunless %}
+
+                </div>
+            </div>
         </div>
     </div>
-
 </section>
+<div class="faq-galerry-wrapper">
+    <div class="left-image" style="background-image: url('{{ section.settings.bottom-left-img | img_url: '' }}');">
+        <div class="gallery-content">
+            <h3> {{ section.settings.left_gallery_title }} </h3>
+            <p> {{ section.settings.left_gallery_p }} </p>
+        </div>
+    </div>
+    <div class="right-image" style="background-image: url('{{ section.settings.bottom-right-img | img_url: '' }}');">
+    <div class="gallery-content">
+            <h3> {{ section.settings.right_gallery_title }} </h3>
+            <p> {{ section.settings.right_gallery_p }} </p>
+        </div>
+    </div>
+</div>
+
 
 <script type="text/javascript">
     var faq_items = [
@@ -93,6 +124,61 @@
     "name": "FAQ page",
     "class": "js-section__faq-page",
     "settings": [
+        {
+            "type": "image_picker",
+            "id": "fq_bg_image",
+            "label": "FAQs Background Image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Frequenty Asked Questions",
+            "label": "FAQs Title"
+        },
+        {
+            "type": "text",
+            "id": "side_title_1",
+            "default": "Company",
+            "label": "Side Title 1"
+        },
+        {
+            "id": "side_link_1",
+            "type": "url",
+            "label": "Side Link 1"
+        },
+        {
+            "type": "text",
+            "id": "side_title_2",
+            "default": "Product Related",
+            "label": "Side Title 2"
+        },
+        {
+            "id": "side_link_2",
+            "type": "url",
+            "label": "Side Link 2"
+        },
+        {
+            "type": "text",
+            "id": "side_title_3",
+            "default": "Shipping & Returns",
+            "label": "Side Title 3"
+        },
+        {
+            "id": "side_link_3",
+            "type": "url",
+            "label": "Side Link 3"
+        },
+        {
+            "type": "text",
+            "id": "side_title_4",
+            "default": "Other Questions",
+            "label": "Side Title 4"
+        },
+        {
+            "id": "side_link_4",
+            "type": "url",
+            "label": "Side Link 4"
+        },
         {
             "type": "checkbox",
             "id": "enable_search",
@@ -119,9 +205,55 @@
             "type": "url",
             "id": "cta_link",
             "label": "Link"
+        },
+        {
+            "type": "image_picker",
+            "id": "bottom-left-img",
+            "label": "Bottom Left Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "bottom-right-img",
+            "label": "Bottom Right Image"
+        },
+        {
+            "type": "text",
+            "id": "left_gallery_title",
+            "label": "Left Gallery Title",
+            "default": "About Us"
+        },
+        {
+            "type": "text",
+            "id": "left_gallery_p",
+            "label": "Left Gallery Text",
+            "default": "About Us"
+        },
+        {
+            "type": "text",
+            "id": "right_gallery_title",
+            "label": "Right Gallery Title",
+            "default": "About Us"
+        },
+        {
+            "type": "text",
+            "id": "right_gallery_p",
+            "label": "Right Gallery Text",
+            "default": "About Us"
         }
     ],
     "blocks": [
+        {
+            "type": "category",
+            "name": "Category",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Heading",
+                    "default": "Category"
+                }
+            ]
+        },
         {
             "type": "article",
             "name": "Article",
@@ -142,18 +274,6 @@
                     "type": "image_picker",
                     "id": "image",
                     "label": "Image"
-                }
-            ]
-        },
-        {
-            "type": "category",
-            "name": "Category",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "title",
-                    "label": "Heading",
-                    "default": "Category"
                 }
             ]
         }
