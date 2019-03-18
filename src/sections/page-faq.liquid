@@ -93,17 +93,18 @@
         </div>
     </div>
 </section>
-<div class="faq-galerry-wrapper">
+<div class="faq-gallery-wrapper">
     <div class="left-image" style="background-image: url('{{ section.settings.bottom-left-img | img_url: '' }}');">
         <div class="gallery-content">
             <h3> {{ section.settings.left_gallery_title }} </h3>
             <p> {{ section.settings.left_gallery_p }} </p>
+            <a href=" {{ section.settings.gallery_button_link_left }} " class="faq-gallery-btn hidden"> {{ section.settings.gallery_button_title_left }} </a>
         </div>
     </div>
     <div class="right-image" style="background-image: url('{{ section.settings.bottom-right-img | img_url: '' }}');">
-    <div class="gallery-content">
+        <div class="gallery-content">
             <h3> {{ section.settings.right_gallery_title }} </h3>
-            <p> {{ section.settings.right_gallery_p }} </p>
+            <a href=" {{ section.settings.gallery_button_link_right }} " class="faq-gallery-btn"> {{ section.settings.gallery_button_title_right }} </a>
         </div>
     </div>
 </div>
@@ -226,19 +227,35 @@
             "type": "text",
             "id": "left_gallery_p",
             "label": "Left Gallery Text",
-            "default": "About Us"
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum."
         },
         {
             "type": "text",
             "id": "right_gallery_title",
             "label": "Right Gallery Title",
-            "default": "About Us"
+            "default": "Watch Nancy’s incredible Transformation Video."
         },
         {
             "type": "text",
-            "id": "right_gallery_p",
-            "label": "Right Gallery Text",
-            "default": "About Us"
+            "id": "gallery_button_title_left",
+            "default": "READ MORE",
+            "label": "Gallery Button Title Left"
+        },
+        {
+            "id": "gallery_button_link_left",
+            "type": "url",
+            "label": "Gallery Button Link Left"
+        },
+        {
+            "type": "text",
+            "id": "gallery_button_title_right",
+            "default": "PLAY VIDEO",
+            "label": "Gallery Button Title Right"
+        },
+        {
+            "id": "gallery_button_link_right",
+            "type": "url",
+            "label": "Gallery Button Link Right"
         }
     ],
     "blocks": [
