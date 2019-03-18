@@ -1,0 +1,32 @@
+<section class="about-advantages-first">
+	<div class="chess first-benefit">
+		<h2>{{section.settings.benefit_title_one}}</h2>
+		<p>{{section.settings.benefit_one}}</p>
+	</div>
+	<div class="chess first-benefit-img">
+		<img src="{{section.settings.benefit_img_one | img_url:''}}" alt="">
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Advantages block first",
+  "settings": [
+		{
+		   "type": "text",
+		   "id": "benefit_title_one",
+		   "label": "Benefit title one"
+		},
+		{
+		   "type": "text",
+		   "id": "benefit_one",
+		   "label": "Benefit one"
+		},
+		{
+		  "type": "image_picker",
+		  "id": "benefit_img_one",
+		  "label": "Benefit image one"
+		}
+	]
+}
+{% endschema %}

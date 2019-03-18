@@ -1,0 +1,214 @@
+.about-top{
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.bg-top{
+	height: 500px;
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.text-top{
+	width: 500px;
+	max-width: 100%;
+
+	h1{
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 50px;
+		line-height: 50px;
+		color: #fff;
+		text-transform: none;
+	}
+}
+
+.second-block{
+	p{
+		text-align: center;
+		padding: 25px;
+		font-size: 15px;
+		line-height: 30px;
+		margin-bottom: 140px;
+	}
+}
+
+.info{
+	display: flex;
+	background-color: #F7F5F3;
+
+	img{
+		position: absolute;
+		height: 678px;
+		width: 663px;
+		max-width: 100%;
+	}
+}
+
+.box-img{
+	flex-basis: 60%;
+	margin-top: -130px;
+}
+
+.box-description{
+	flex-basis: 30%;
+	padding-top: 128px;
+	padding-bottom: 148px;
+	
+	p{
+		text-align: left;
+		margin: 0;
+		padding: 0;
+	}
+
+	h2{
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 24px;
+		text-align: left;
+		text-transform: none;
+		letter-spacing: 0;
+	}
+}
+
+.about-advantages-first,.about-advantages-second,.about-advantages-third{
+	display: flex;
+}
+
+.chess{
+	flex-basis: 50%;
+}
+
+.first-benefit,.second-benefit, .third-benefit{
+	padding: 125px;
+
+	h2{
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 24px;
+		text-transform: none;
+		letter-spacing: 0;
+	}
+
+	p{
+		font-size: 15px;
+	}
+}
+
+
+.values{
+	background-color: #F7F5F3;
+	text-align: center;
+	padding-bottom: 75px;
+
+	h1{
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 32px;
+		text-transform: none;
+		padding-top: 70px;
+	}
+}
+
+.value-collection{
+	display: flex;
+	justify-content: center;
+
+	h2{
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 18px;
+		text-transform: none;
+		padding-top: 25px;
+	}
+
+	p{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		font-size: 15px;
+	}
+}
+
+.value-description{
+	flex-basis: 30%;
+}
+
+.contact{
+	background: #F2EFEC;
+	text-align: center;
+
+	h1{
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 32px;
+		text-transform: none;
+	}
+
+	p{
+		font-family: 'Lato', sans-serif;
+		font-weight: 400;
+		font-size: 18px;
+	}
+}
+
+
+@media screen and (max-width: 767px){
+	.bg-top{
+		height: 289px;
+		display: flex;
+	    justify-content: flex-start;
+	    align-items: center;
+	}
+	.text-top{
+		width: 500px;
+		max-width: 100%;
+
+		h1{
+			font-size: 36px;
+			line-height: 36px;
+			}
+	}
+
+	/*ABOUT SECOND*/
+
+	.box-img{
+		margin-left: 50px;
+	}
+	.box-description{
+		height: 545px;
+
+		p,h2{
+			display: none;
+		}
+	}
+
+	/*ABOUT ADVANTAGES */
+
+	.about-advantages-first,.about-advantages-second,.about-advantages-third{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.second-benefit-img{
+		order: 2;
+	}
+
+	.first-benefit,.second-benefit, .third-benefit{
+		justify-content: center;
+		padding: 20px;
+	}
+
+	.first-benefit-img,.second-benefit-img, .third-benefit-img{
+		justify-content: center;
+	}
+
+	.value-collection{
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+

@@ -1,0 +1,32 @@
+<section class="about-advantages-second">
+		<div class="chess second-benefit-img">
+		<img src="{{section.settings.benefit_img_two | img_url:''}}" alt="">
+	</div>
+	<div class="chess second-benefit">
+		<h2>{{section.settings.benefit_title_two}}</h2>
+		<p>{{section.settings.benefit_two}}</p>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Advantages block second",
+  "settings": [
+	    {
+		   "type": "text",
+		   "id": "benefit_title_two",
+		   "label": "Benefit title two"
+		},
+		{
+		   "type": "text",
+		   "id": "benefit_two",
+		   "label": "Benefit two"
+		},
+		{
+	      "type": "image_picker",
+	      "id": "benefit_img_two",
+	      "label": "Benefit image two"
+	    }
+  	]
+}
+{% endschema %}

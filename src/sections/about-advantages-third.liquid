@@ -1,0 +1,32 @@
+<section class="about-advantages-third">
+	<div class="chess third-benefit">
+		<h2>{{section.settings.benefit_title_third}}</h2>
+		<p>{{section.settings.benefit_third}}</p>
+	</div>
+		<div class="chess third-benefit-img">
+		<img src="{{section.settings.benefit_img_third | img_url:''}}" alt="">
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Advantages block third",
+  "settings": [
+	    {
+		   "type": "text",
+		   "id": "benefit_title_third",
+		   "label": "Benefit title third"
+		},
+		{
+		   "type": "text",
+		   "id": "benefit_third",
+		   "label": "Benefit third"
+		},
+		{
+	      "type": "image_picker",
+	      "id": "benefit_img_third",
+	      "label": "Benefit image third"
+	    }
+  	]
+}
+{% endschema %}

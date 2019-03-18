@@ -1,0 +1,36 @@
+
+<section class="about-top" style="background-image: url('{{ section.settings.logo | img_url: '' }}');">
+  <div class="container">
+	<div class="row">
+		<div class="bg-top container">
+			<div class="text-top">
+		  	<h1> {{ section.settings.top-text }}</h1>
+		  </div>
+		</div>
+	</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Top",
+  "settings": [
+		{
+		   "type": "text",
+		   "id": "title_block",
+		   "default": "Taste whisky from world famous brands",
+		   "label": "Title block"
+		},
+		{
+	      "type": "image_picker",
+	      "id": "logo",
+	      "label": "Logo image"
+	    },
+		{
+		   "type": "text",
+		   "id": "top-text",
+		   "label": "Text top"
+		}
+  	]
+}
+{% endschema %}

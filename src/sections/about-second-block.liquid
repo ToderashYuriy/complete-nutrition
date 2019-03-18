@@ -1,0 +1,43 @@
+
+<section class="second-block">
+	<div class="container">
+		<p>{{section.settings.text_info}}</p>
+	</div>
+	<div class="info">
+		<div class="box box-img">
+			<img src="{{section.settings.man_img | img_url:''}}" alt=""> 
+		</div>
+		<div class="box box-description">
+			<h2>{{section.settings.title}}</h2>
+			<p>{{section.settings.description}}</p>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Second block",
+  "settings": [
+		{
+		   "type": "text",
+		   "id": "text_info",
+		   "label": "Text info"
+		},
+		{
+	      "type": "image_picker",
+	      "id": "man_img",
+	      "label": "Logo image"
+	    },
+		{
+		   "type": "text",
+		   "id": "title",
+		   "label": "Title"
+		},
+		{
+		   "type": "text",
+		   "id": "description",
+		   "label": "Description"
+		}
+  	]
+}
+{% endschema %}

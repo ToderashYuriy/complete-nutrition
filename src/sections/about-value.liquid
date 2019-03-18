@@ -1,0 +1,84 @@
+<section class="values">
+	<h1>{{section.settings.header_value}}</h1>
+	<div class="container">
+	<div class="value-collection">
+		<div class="value-description">
+			<img src="{{section.settings.value_img_one | img_url:''}}" alt="">
+			<h2>{{section.settings.title_value_one}}</h2>
+			<p>{{section.settings.info_value_one}}</p>
+		</div>
+		<div class="value-description">
+			<img src="{{section.settings.value_img_two | img_url:''}}" alt="">
+			<h2>{{section.settings.title_value_two}}</h2>
+			<p>{{section.settings.info_value_two}}</p>
+		</div>
+		<div class="value-description">
+			<img src="{{section.settings.value_img_three | img_url:''}}" alt="">
+			<h2>{{section.settings.title_value_three}}</h2>
+			<p>{{section.settings.info_value_three}}</p>
+		</div>
+	</div>
+</div>
+</section>
+
+
+
+
+
+{% schema %}
+{
+  "name": "Values",
+  "settings": [
+	    {
+		   "type": "text",
+		   "id": "header_value",
+		   "label": "Header value"
+		},
+		{
+	      "type": "image_picker",
+	      "id": "value_img_one",
+	      "label": "Value image one"
+	    },
+	    {
+		   "type": "text",
+		   "id": "title_value_one",
+		   "label": "Title value"
+		},
+		{
+		   "type": "text",
+		   "id": "info_value_one",
+		   "label": "Info value"
+		},
+		{
+	      "type": "image_picker",
+	      "id": "value_img_two",
+	      "label": "Value image two"
+	    },
+	    {
+		   "type": "text",
+		   "id": "title_value_two",
+		   "label": "Title value"
+		},
+		{
+		   "type": "text",
+		   "id": "info_value_two",
+		   "label": "Info value"
+		},
+						{
+	      "type": "image_picker",
+	      "id": "value_img_three",
+	      "label": "Value image three"
+	    },
+	    {
+		   "type": "text",
+		   "id": "title_value_three",
+		   "label": "Title value"
+		},
+		{
+		   "type": "text",
+		   "id": "info_value_three",
+		   "label": "Info value"
+		}
+  	]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+<section class="contact">
+	<div class="container">
+		<h1>{{section.settings.header_contact}}</h1>
+		<p>{{section.settings.text_contact}}</p>
+		<button> <a href="section.settings.info_value_one"></a></button>
+	</div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Contact",
+  "settings": [
+	    {
+		   "type": "text",
+		   "id": "header_contact",
+		   "label": "Header contact"
+		},
+	    {
+		   "type": "text",
+		   "id": "text_contact",
+		   "label": "Text contact"
+		},
+		{
+		   "type": "text",
+		   "id": "info_value_one",
+		   "label": "Info value"
+		}
+  	]
+}
+{% endschema %}

@@ -54,9 +54,11 @@ Thumbs.db
 
 # Custom #
 ######################
-*.sass-cache*
+.sass-cache
 _site
 /.idea
 secrets.json
 .jekyll-metadata
 .ruby-version
+
+
