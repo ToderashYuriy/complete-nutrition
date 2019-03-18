@@ -1,0 +1,72 @@
+<section class="brand-page">
+
+  {% for block in section.blocks %}
+
+    <div class="brand-page-slider">
+      <div class="slider-image" style="background-image: url('{{ block.settings.slider_image | img_url: '' }}');">
+        <div class="slider-wrapper">
+          <div class="slider-logo"> <img src="{{ block.settings.slider_logo_image | img_url: '' }}" alt="Slider Logo"> </div>
+          <h1 class="slider-title"> {{ block.settings.slider_title }} </h1>
+          <a href="{{ block.settings.button_link }}" class="slider-btn"> {{ block.settings.btn_title }} </a>
+        </div>
+      </div>
+    </div>
+
+  {% endfor %}
+
+</section>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function(){
+    $('.brand-page').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        cssEase: 'linear',
+        arrows: true
+      });
+    });
+</script>
+
+{% schema %}
+    {
+      "name": "Header Slider",
+      "settings": [
+
+      ],
+      "blocks": [
+        {
+          "type": "text",
+          "name": "Custom Slider",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "slider_image",
+              "label": "Main Slider Image"
+            },
+            {
+              "type": "image_picker",
+              "id": "slider_logo_image",
+              "label": "Logo Image"
+            },
+            {
+              "type": "text",
+              "id": "slider_title",
+              "label": "Main Slider Title"
+            },
+            {
+              "id": "button_link",
+              "type": "url",
+              "label": "Button link"
+            },
+            {
+              "type": "text",
+              "id": "btn_title",
+              "label": "Button Title",
+              "default": "SHOP NOW"
+            }
+          ]
+        }
+      ]
+    }
+{% endschema %}
