@@ -1,0 +1,50 @@
+
+<section class="about-top" style="background-image: url('{{ section.settings.top_bg_img | img_url: '' }}');">
+	<div class="bg-top">
+		<div class="text-top">
+			<h1> {{ section.settings.top-header }}</h1>
+			<p>{{ section.settings.top-text-one }}</p>
+			<p>{{ section.settings.top-text-two }}</p>
+		</div>
+	</div>
+</section>
+
+
+
+{% schema %}
+{
+    "name": "Top Section",
+    "settings": [
+        {
+	      "type": "image_picker",
+	      "id": "top_bg_img",
+	      "label": "Logo image"
+	    },
+        {
+           "type": "text",
+           "id": "top-header",
+           "label": "Title content"
+        },
+        {
+           "type": "text",
+           "id": "top-header",
+           "label": "Title content"
+        },
+        {
+           "type": "text",
+           "id": "top-header",
+           "label": "Title content"
+        }
+    ],
+
+    "presets": [
+        {
+            "name": "Top section",
+            "category": "Image",
+            "settings": {
+            }
+        }
+    ]
+}
+
+{% endschema %}
