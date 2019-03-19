@@ -1,16 +1,26 @@
+/*ABOUT TOP*/
+
 .about-top{
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+	height: 100%;
 }
 
 .bg-top{
 	height: 500px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
 	display: flex;
-    justify-content: flex-start;
-    align-items: center;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .text-top{
@@ -27,31 +37,42 @@
 	}
 }
 
+/*SECOND BLOCK*/
+
 .second-block{
 	p{
 		text-align: center;
 		padding: 25px;
 		font-size: 15px;
 		line-height: 30px;
-		margin-bottom: 140px;
+		margin-bottom: 170px;
 	}
 }
 
 .info{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
 	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
 	background-color: #F7F5F3;
-
-	img{
-		position: absolute;
-		height: 678px;
-		width: 663px;
-		max-width: 100%;
-	}
 }
 
 .box-img{
 	flex-basis: 60%;
 	margin-top: -130px;
+
+	img{
+		position: absolute;	
+  		height: 678px;
+		width: 663px;
+		object-fit: cover;
+	}
 }
 
 .box-description{
@@ -75,7 +96,13 @@
 	}
 }
 
+/*ABOUT ADVANTAGES */
+
 .about-advantages-first,.about-advantages-second,.about-advantages-third{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
 	display: flex;
 }
 
@@ -99,6 +126,7 @@
 	}
 }
 
+/*VALUE*/
 
 .values{
 	background-color: #F7F5F3;
@@ -115,6 +143,10 @@
 }
 
 .value-collection{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
 	display: flex;
 	justify-content: center;
 
@@ -137,9 +169,19 @@
 	flex-basis: 30%;
 }
 
+/*CONTACT*/
+
 .contact{
 	background: #F2EFEC;
 	text-align: center;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	justify-content: center;
 
 	h1{
 		font-family: 'Lato', sans-serif;
@@ -155,10 +197,71 @@
 	}
 }
 
+.shop-now-link{
+	width: 200px;
+	height: 50px;
+	background-color: #E65525;
+	justify-content: center;
+	margin-left: 41%;
+
+	h2{
+		color: #fff;
+		font-size: 18px;
+		padding-top: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 991px){
+
+	/*SECOND BLOCK*/
+
+	.box-img{
+		margin-left: -90px;
+		margin-top: -70px;
+		height: 545px;
+		width: 600px;
+	}
+}
+
+@media screen and (max-width: 900px){
+
+	/*SECOND BLOCK*/
+
+	.box-img{
+		flex-basis: 100%;
+		
+		img{
+			margin-left: 200px;	
+		}
+	}
+	.box-description{
+		flex-basis: 100%;
+		justify-content: center;
+		padding-top: 200px;
+		padding-bottom: 80px;
+	}
+}
+
 
 @media screen and (max-width: 767px){
+
+	/*ABOUT TOP*/
+
 	.bg-top{
 		height: 289px;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
 		display: flex;
 	    justify-content: flex-start;
 	    align-items: center;
@@ -170,27 +273,31 @@
 		h1{
 			font-size: 36px;
 			line-height: 36px;
-			}
+		}
 	}
 
 	/*ABOUT SECOND*/
 
 	.box-img{
-		margin-left: 50px;
-	}
-	.box-description{
-		height: 545px;
 
-		p,h2{
-			display: none;
+		img{
+			margin-left: 110px;	
 		}
 	}
 
 	/*ABOUT ADVANTAGES */
 
 	.about-advantages-first,.about-advantages-second,.about-advantages-third{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
 		display: flex;
 		flex-direction: column;
+		-webkit-flex-direction: column;
+		-moz-flex-direction: column;
+		-ms-flex-direction: column;
+		-o-flex-direction: column;
 	}
 
 	.second-benefit-img{
@@ -207,8 +314,31 @@
 	}
 
 	.value-collection{
+		-webkit-flex-direction: column;
+		-moz-flex-direction: column;
+		-ms-flex-direction: column;
+		-o-flex-direction: column;
 		flex-direction: column;
 		justify-content: center;
 	}
 }
+
+@media screen and (max-width: 576px){
+	
+	/*ABOUT SECOND*/
+	
+	.box-img{
+
+		img{
+			transform: scale(0.7);
+			margin-top: -100px;	
+		}
+	}
+	.box-description{
+		padding-top: 0px;
+		padding-bottom: 40px;
+	}
+}
+
+
 

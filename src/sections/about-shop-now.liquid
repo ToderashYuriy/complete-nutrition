@@ -1,8 +1,14 @@
 <section class="contact">
 	<div class="container">
-		<h1>{{section.settings.header_contact}}</h1>
-		<p>{{section.settings.text_contact}}</p>
-		<button> <a href="section.settings.info_value_one"></a></button>
+		<div class="shop-now-info">
+			<h1>{{section.settings.header_contact}}</h1>
+			<p>{{section.settings.text_contact}}</p>
+		</div>
+		<div class="shop-now-link">
+			<a href="{{ section.settings.shop_now }}"></a>
+			<h2>{{section.settings.info_value_one}}
+			</h2>
+		</div>
 	</div>
 </section>
 
@@ -23,6 +29,11 @@
 		   "label": "Text contact"
 		},
 		{
+			"type": "url",
+			"id": "shop_now",
+			"label": "Info value"
+		},
+				{
 		   "type": "text",
 		   "id": "info_value_one",
 		   "label": "Info value"
