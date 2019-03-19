@@ -980,7 +980,75 @@ section.brand-page ul.slick-dots {
   display: none !important;
 }
 
-// Brand Page
+// Brand Page Section About
+.brand-about-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+
+  .brand-about-title {
+    @include LatoBlack;
+    color: #050708;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+    text-transform: initial;
+    margin-top: 53px;
+    margin-bottom: 19px;
+  }
+  .brand-after-title {
+    @include LatoRegular;
+    color: #292929;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 19px;
+    margin-bottom: 75px;
+  }
+  .brand-advantages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 61px;
+
+    .advantage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 249px;
+      margin: 15px;
+    }
+  }
+  .advantage {
+    .advantage-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include LatoBlack;
+      font-size: 18px;
+      line-height: 42px;
+      text-align: center;
+      text-transform: initial;
+    }
+    .advantage-text {
+      @include LatoRegular;
+      font-size: 15px;
+      line-height: 30px;
+      text-align: center;
+      color: #332B29;
+    }
+  }
+  .advantage-ico {
+    max-height: 100px;
+  }
+
+  .advantage-ico img {
+      height: 100%;
+  }
+}
+
 // Brand Page
 // Brand Page
 // Brand Page
@@ -992,6 +1060,13 @@ section.brand-page ul.slick-dots {
 @media screen and (max-width: 1199px){
   .contact_us_top {
     background-size: cover;
+  }
+  .brand-about-title, .brand-after-title {
+    margin: 0 auto;
+    width: 80%;
+  }
+  .brand-about-wrapper {
+    width: 90%;
   }
 }
 
@@ -1009,6 +1084,9 @@ section.brand-page ul.slick-dots {
     .career-form {
       width: 70%;
     }
+  }
+  .brand-about-wrapper {
+    width: 100%;
   }
 }
 
@@ -1206,9 +1284,12 @@ section.brand-page ul.slick-dots {
     }
     .slider-image {
       background-position: center;
+      min-height: 375px;
     }
     .slider-title {
-      width: 100%
+      width: 80%;
+      font-size: 36px;
+      line-height: 36px;
     }
     .slider-wrapper {
       width: 90%;
@@ -1233,6 +1314,21 @@ section.brand-page ul.slick-dots {
   section.brand-page ul.slick-dots {
     display: block !important;
   }
+  .brand-about-wrapper {
+    .brand-about-title {
+      margin-top: 19px;
+      font-size: 26px;
+      line-height: 42px;
+      margin-bottom: 18px;
+    }
+    .brand-after-title {
+      margin-bottom: 44px;
+    }
+    .brand-advantages {
+      mask-border: 44px;
+    }
+  }
+  
 }
 
 @media screen and (max-width: 676px){
@@ -1284,6 +1380,22 @@ section.brand-page ul.slick-dots {
   .career-form-wrapper {
     margin-top: 45px;
   }
+  .brand-page {
+    .slider-title {
+      width: 90%;
+    }
+  }
+  .brand-about-wrapper {
+    .brand-advantages {
+      width: 90%;
+      margin: 0 auto;
+
+      .advantage {
+        width: 152px;
+        margin: 10px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 479px){
@@ -1299,6 +1411,21 @@ section.brand-page ul.slick-dots {
   div.aside {
     margin-bottom: 45px;
   }
+  .brand-about-wrapper {
+    .brand-advantages {
+      width: 100%;
+    }
+    .advantage {
+      .advantage-title {
+        font-size: 16px;
+        line-height: 42px;
+      }
+      .advantage-text {
+        font-size: 13px;
+        line-height: 20px;
+      }
+    }
+  } 
 }
 
 @media screen and (max-width: 375px){
@@ -1315,6 +1442,13 @@ section.brand-page ul.slick-dots {
     .career-content-wrapper {
       h1.career-title {
         font-size: 40px;
+      }
+    }
+  }
+  .brand-about-wrapper {
+    .brand-advantages {
+      .advantage {
+        width: 140px;
       }
     }
   }

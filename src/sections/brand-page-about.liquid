@@ -1,0 +1,65 @@
+<section class="brand-about-wrapper">
+  <div class="about-wrapper">
+    <h2 class="brand-about-title"> {{ section.settings.about_title }} </h2>
+    <p class="brand-after-title"> {{ section.settings.about_after_title }} </p>
+
+  <div class="brand-advantages">
+    {% for block in section.blocks %}
+
+        <div class="advantage">
+          <div class="advantage-ico"><img src=" {{ block.settings.advantage_ico | img_url: '' }} "></div>
+          {% comment %} <div class="advantage-text-wrapper"> {% endcomment %}
+            <h4 class="advantage-title"> {{ block.settings.advantage_title }} </h4>
+            <p class="advantage-text"> {{ block.settings.advantage_text }} </p>
+          {% comment %} </div> {% endcomment %}
+        </div>
+      
+    {% endfor %}
+  </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "About Brand",
+    "settings": [
+      {
+        "type": "text",
+        "id": "about_title",
+        "label": "About Title",
+        "default": "What is Green’d?"
+      },
+      {
+        "type": "text",
+        "id": "about_after_title",
+        "label": "About After Title",
+        "default": "A line of plant-based nutritionals that provide your body with a potent blend of proteins, phytonutrients, healthy fats, probiotics, antioxidants, vitamins, and minerals to help you lose weight and support optimal health."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Advantage Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "advantage_ico",
+            "label": "Advantage Ico"
+          },
+          {
+            "type": "text",
+            "id": "advantage_title",
+            "label": "Advantage Title",
+            "default": "Default Title"
+          },
+          {
+            "type": "text",
+            "id": "advantage_text",
+            "label": "Advantage Text",
+            "default": "Naturally flavored and sweetened with stevia and monk fruit."
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
