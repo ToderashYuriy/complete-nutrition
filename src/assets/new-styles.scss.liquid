@@ -763,9 +763,6 @@ section.faq-background-image {
   .faq__accordion__title-icon {
     color: #413E3E;
   }
-  .faq__accordion__title {
-    // padding-bottom: 1px;
-  }
   .faq__accordion__item .js-accordion-info {
   }
   div.article-wrapper {
@@ -846,16 +843,164 @@ div.faq-gallery-wrapper {
   }
 }
 
+// Brand Page
+
+.brand-page {
+  .brang-page-slider {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    position: relative;
+  }
+  .slider-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .slider-title {
+    @include LatoBlack;
+    font-size: 72px;
+    line-height: 72px;
+    text-align: left;
+    color: #FFFFFF;
+    margin-top: 5px;
+    width: 80%;
+  }
+  .slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .slider-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 23px;
+    @include LatoBlack;
+    width: 165px;
+    height: 47px;
+    color: #FFFFFF;
+    background-color: #6BB42F;
+
+    &:hover {
+      color: #6BB42F;
+      background-color: #FFFFFF;
+      border: 1px solid #6BB42F;
+    }
+  }
+  button.slick-prev.slick-arrow {
+    display: flex;
+    width: 32px;
+    height: 71px;
+    background-color: #e1dfde;
+    border: none;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 0;
+    outline: none;
+    &::placeholder {
+      color: red;
+    }
+  }
+  button.slick-prev.slick-arrow {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 1px;
+      top: 32px;
+      left: 10px;
+      background-color: #4D4D4D;
+      transform: rotate(-45deg);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 39px;
+      left: 10px;
+      width: 10px;
+      height: 1px;
+      background-color: #4D4D4D;
+      transform: rotate(+45deg);
+    }
+    &:hover::before, &:hover::after {
+      background-color: #e1dfde;
+    }
+    &:hover {
+      background-color: #959595;
+    }
+  }
+  button.slick-next.slick-arrow {
+    display: flex;
+    width: 32px;
+    height: 71px;
+    background-color: #e1dfde;
+    border: none;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 0;
+    outline: none;
+  }
+  button.slick-next.slick-arrow {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 1px;
+      top: 32px;
+      right: 8px;
+      background-color: #4D4D4D;
+      transform: rotate(45deg);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 39px;
+      right: 8px;
+      width: 10px;
+      height: 1px;
+      background-color: #4D4D4D;
+      transform: rotate(-45deg);
+    }
+    &:hover::before, &:hover::after {
+      background-color: #e1dfde;
+    }
+    &:hover {
+      background-color: #959595;
+    }
+  }
+}
+section.brand-page ul.slick-dots {
+  display: none !important;
+}
+
+// Brand Page
+// Brand Page
+// Brand Page
+// Brand Page
+// Brand Page
+// Brand Page
+// Brand Page
+
+
 @media screen and (max-width: 1199px){
   .contact_us_top {
     background-size: cover;
   }
 }
+
 @media screen and (max-width: 1024px){
   .contact_us_top {
     background-size: cover;
   }
 }
+
 @media screen and (max-width: 991px){
   .contact_us_top {
     background-size: cover;
@@ -866,6 +1011,7 @@ div.faq-gallery-wrapper {
     }
   }
 }
+
 @media screen and (max-width: 945px){
   .customer-login-form, .account--register {
     .section__title {
@@ -896,6 +1042,7 @@ div.faq-gallery-wrapper {
     }
   }
 }
+
 @media screen and (max-width: 780px){
   .upload-wrapper {
     flex-direction: column;
@@ -1050,7 +1197,44 @@ div.faq-gallery-wrapper {
   a.faq-gallery-btn.hidden {
     display: none;
   }
+
+  .brand-page {
+    position: relative;
+
+    .slider-wrapper {
+      width: 95%;
+    }
+    .slider-image {
+      background-position: center;
+    }
+    .slider-title {
+      width: 100%
+    }
+    .slider-wrapper {
+      width: 90%;
+    }
+    li.slick-active button:before {
+      color: #5D5D5E !important;
+      font-size: 15px;
+    }
+    .slick-dots li button:before {
+      color: #CBCBCB;
+      font-size: 15px;
+    }
+    ul.slick-dots {
+      position: absolute;
+      bottom: 10px;
+    }
+  }
+  section.brand-page button.slick-prev.slick-arrow,
+  section.brand-page button.slick-next.slick-arrow {
+    display: none !important;
+  }
+  section.brand-page ul.slick-dots {
+    display: block !important;
+  }
 }
+
 @media screen and (max-width: 676px){
   .career-join {
     .container {
@@ -1073,6 +1257,7 @@ div.faq-gallery-wrapper {
     width: 90%;
   }
 }
+
 @media screen and (max-width: 575px){
   .form, .aside {
     width: 95%;
@@ -1100,11 +1285,13 @@ div.faq-gallery-wrapper {
     margin-top: 45px;
   }
 }
+
 @media screen and (max-width: 479px){
   h1.title, p.title-p {
     margin-left: 20px;
   }
 }
+
 @media screen and (max-width: 425px){
   h1.title, p.title-p {
     margin-left: 10px;
@@ -1113,6 +1300,7 @@ div.faq-gallery-wrapper {
     margin-bottom: 45px;
   }
 }
+
 @media screen and (max-width: 375px){
   .form, .aside {
     width: 100%;
@@ -1131,6 +1319,7 @@ div.faq-gallery-wrapper {
     }
   }
 }
+
 @media screen and (max-width: 321px){
 	.form, .aside {
     width: 100%;
