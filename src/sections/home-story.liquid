@@ -1,0 +1,58 @@
+<section class="home-story">
+	<div class="story-bg-img" style="background-image: url('{{ section.settings.story_img | img_url: '' }}');"></div>
+	<div class="story-description">
+		<div class="inner-story-description">
+			<h1>{{ section.settings.story_header }}</h1>
+			<p>{{ section.settings.story_text }}</p>
+			<button class="btn-story">
+				<a href="{{ section.settings.link_btn }}">
+					<h2>{{section.settings.text_btn}}</h2>
+				</a>
+			</button>
+		</div>
+	</div>
+</section>
+
+
+
+{% schema %}
+{
+    "name": "Story Section",
+    "settings": [
+        {
+	      "type": "image_picker",
+	      "id": "story_img",
+	      "label": "Story image"
+	    },
+        {
+           "type": "text",
+           "id": "story_header",
+           "label": "Story header"
+        },
+        {
+           "type": "text",
+           "id": "story_text",
+           "label": "Story text"
+        },
+        {
+          "type": "url",
+          "id": "link_btn",
+          "label": "Link button"
+        },
+        {
+           "type": "text",
+           "id": "text_btn",
+           "label": "Text button"
+        }
+    ],
+
+    "presets": [
+        {
+            "name": "Story section",
+            "category": "Image",
+            "settings": {
+            }
+        }
+    ]
+}
+{% endschema %}
