@@ -1,0 +1,82 @@
+<section class="benefit-one">
+  <div class="home-first-benefit" style="background-image: url('{{ section.settings.first_benefit_bg_img| img_url: '' }}');">
+    <h1>{{section.settings.first_benefit_header}}</h1>
+    <p>{{section.settings.first_benefit_text}}</p>
+    <button class="btn-home-product-one">
+      <a href="{{ section.settings.first_benefit_link_btn }}">
+        <h2>{{section.settings.first_benefit_text_btn}}</h2>
+      </a>
+    </button>
+  </div>
+  <div class="home-second-benefit">
+    <h1>{{section.settings.second_benefit_header}}</h1>
+    <p>{{section.settings.second_benefit_text}}</p>
+    <button class="btn-home-product-two">
+      <a href="{{ section.settings.second_benefit_link_btn }}">
+        <h2>{{section.settings.second_benefit_text_btn}}</h2>
+      </a>
+    </button>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Benefits one section",
+    "settings": [
+        {
+        "type": "image_picker",
+        "id": "first_benefit_bg_img",
+        "label": "Benefit story image"
+        },
+        {
+           "type": "text",
+           "id": "first_benefit_header",
+           "label": "First benefit header"
+        },
+        {
+           "type": "text",
+           "id": "first_benefit_text",
+           "label": "First benefit story text"
+        },
+        {
+          "type": "url",
+          "id": "first_benefit_link_btn",
+          "label": "First benefit link button"
+        },
+        {
+           "type": "text",
+           "id": "first_benefit_text_btn",
+           "label": "First benefit text button"
+        },
+        {
+           "type": "text",
+           "id": "second_benefit_header",
+           "label": "Second benefit header"
+        },
+        {
+           "type": "text",
+           "id": "second_benefit_text",
+           "label": "Second product story text"
+        },
+        {
+          "type": "url",
+          "id": "second_benefit_link_btn",
+          "label": "Second product link button"
+        },
+        {
+           "type": "text",
+           "id": "second_benefit_text_btn",
+           "label": "Second product text button"
+        }
+    ],
+
+    "presets": [
+        {
+            "name": "Benefits one section",
+            "category": "Image",
+            "settings": {
+            }
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,60 @@
+<section class="home-product-two">
+  <div class="product-bg-img-two" style="background-image: url('{{ section.settings.product_img_two | img_url: '' }}');"></div>
+  <div class="product-description-two">
+    <div class="inner-product-description-two">
+      <h1>{{ section.settings.product_header_two }}</h1>
+      <p>{{ section.settings.product_text_two }}</p>
+      <button class="btn-home-product-two">
+        <a href="{{ section.settings.product_link_btn }}">
+          <h2>{{section.settings.product_text_btn}}</h2>
+        </a>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+{% schema %}
+{
+    "name": "Product two section",
+    "settings": [
+        {
+        "type": "image_picker",
+        "id": "product_img_two",
+        "label": "Product story image"
+      },
+        {
+           "type": "text",
+           "id": "product_header_two",
+           "label": "Product story header"
+        },
+        {
+           "type": "text",
+           "id": "product_text_two",
+           "label": "Product story text"
+        },
+        {
+          "type": "url",
+          "id": "product_link_btn",
+          "label": "Product link button"
+        },
+        {
+           "type": "text",
+           "id": "product_text_btn",
+           "label": "Product text button"
+        }
+    ],
+
+    "presets": [
+        {
+            "name": "Product two section",
+            "category": "Image",
+            "settings": {
+            }
+        }
+    ]
+}
+{% endschema %}
