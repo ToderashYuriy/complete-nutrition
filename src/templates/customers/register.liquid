@@ -24,14 +24,15 @@
                 <label for="Email" class="hidden-label"></label>
                 <input type="email" name="customer[email]" placeholder="{{ 'customer.register.email' | t }}" id="Email" class="{% if form.errors contains 'email' %} error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
 
-                <label for="CreatePassword" class="hidden-label"></label>
-                <input type="password" name="customer[password]" placeholder="{{ 'customer.register.password' | t }}" id="CreatePassword" class="{% if form.errors contains 'password' %} error{% endif %}">
+                <label for="CreatePassword" class="hidden-label"><span class="title" title="Password must be 6+ characters long."></span></label>
                 
-                <div class="account__form-buttons">                    
+                <input type="password" name="customer[password]" minlength="6" placeholder="{{ 'customer.register.password' | t }}" id="CreatePassword" class="{% if form.errors contains 'password' %} error{% endif %}">
+                
+                <div class="account__form-buttons">
                     <input type="submit" class="c-btn c-btn--primary account__form-submit login-submit-button" value="{{ 'customer.register.submit' | t }}">
                     <span class="not-member"> Already a member? </span>
                 </div>
-                <div class="account__form-buttons">                    
+                <div class="account__form-buttons">
                     <a href="https://complete-nutrition-inc.myshopify.com/account/login" class="link account__form-secondary-btn create-account">{{ 'customer.register.login' | t }}</a>
                 </div>
 

@@ -94,6 +94,28 @@ div.aside p {
 .error_page_top {
   height: 650px;
   background-size: cover;
+
+  a.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 225px;
+    height: 47px;
+    @include LatoBlack;
+    background-color: #E65525;
+    font-size: 15px;
+    color: #fff;
+
+    &:hover {
+      color: #E65525;
+      background-color: #fff;
+      border: 1px solid #E65525;
+    }
+  }
+  .after-title-text {
+    line-height: 36px;
+  }
+
 }
 .content-wrapper {
   display: flex;
@@ -123,16 +145,6 @@ h2.after-title-text {
   text-align: left;
   @include LatoRegular;
   text-transform: initial;
-}
-a.button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 225px;
-  height: 47px;
-  background-color: #E65525;
-  font-size: 15px;
-  color: #fff;
 }
 body.template-404 section.section.section--footer {
   display: none;
@@ -470,6 +482,7 @@ ul.li-color-marker {
 
 .section.section--account {
     display: flex;
+    justify-content: space-between;
     margin: 0;
 
     .container--tiny, .login-side-image {
@@ -486,6 +499,51 @@ ul.li-color-marker {
       display: flex;
     }
 }
+.create-account-form {
+  input#Email {
+    margin: 0;
+  }
+  input#CreatePassword {
+    margin-top: -13px;
+  }
+  label.icon-lable {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  .title {
+    display: block;
+    position: relative;
+    background-image: url(https://cdn.shopify.com/s/files/1/0108/9572/0548/files/370079-24.png?60717);
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    top: 24px;
+    left: 90%;
+  }
+  .title:hover:after {
+      background: #333;
+      background: #333;
+      border-radius: 5px;
+      bottom: 30px;
+      color: #fff;
+      content: attr(title);
+      right: -5px;
+      padding: 5px 15px;
+      position: absolute;
+      width: 280px;
+  }
+  .title:hover:before {
+      border: solid;
+      border-color: #333 transparent;
+      border-width: 6px 6px 0 6px;
+      bottom: 25px;
+      content: "";
+      left: 50%;
+      position: absolute;
+  }
+}
+
 .customer-login-form, .create-account-form {
   display: flex;
   flex-direction: column;
@@ -495,6 +553,10 @@ ul.li-color-marker {
   
   h1.section__title-text {
     text-transform: none;
+    @include LatoBlack;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: left;
   }
   h1.section__title-text.h2::after {
     display: none;
@@ -641,6 +703,7 @@ body.template-customers-register section.section.section--footer {
 }
 .section.account--register {
   display: flex;
+  justify-content: space-between;
   margin: 0;
 
   .container--tiny, .register-side-image {
@@ -655,6 +718,10 @@ body.template-customers-register section.section.section--footer {
   }
   h1.section__title-text {
     text-transform: initial;
+    @include LatoBlack;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: left;
   }
   h1.section__title-text::after {
     display: none;
@@ -746,7 +813,7 @@ section.faq-background-image {
     color: #332B29;
   }
   .section__title.faq__category__title {
-    margin-bottom: 60px;
+    margin: 60px 0 40px 0;
   }
   h4.section__title-text.faq__category__title-text::after {
     display: none;
@@ -762,8 +829,6 @@ section.faq-background-image {
   }
   .faq__accordion__title-icon {
     color: #413E3E;
-  }
-  .faq__accordion__item .js-accordion-info {
   }
   div.article-wrapper {
     border-bottom: 1px solid #E6E6E6;

@@ -17,15 +17,11 @@
                 <label for="RecoverEmail" class="label--hidden">{{ 'customer.recover_password.email' | t }}</label>
                 <input type="email" value="" name="email" class="email-input" id="RecoverEmail" autocorrect="off" autocapitalize="off">
 
-                {% comment %} <p>{{ 'customer.recover_password.subtext' | t }}</p> {% endcomment %}
-
                 <div class="account__form-buttons">
                     <input type="submit" class="c-btn c-btn--primary account__form-submit login-submit-button" value="{{ 'customer.recover_password.submit' | t }}">
                     <span class="not-member"> Not a member yet? </span>
-                    {% comment %} <a href="#" onclick="hideRecoverPasswordForm();return false;" class="link account__form-secondary-btn">{{ 'customer.recover_password.cancel' | t }}</a> {% endcomment %}
                 </div>
                 <div class="account__form-buttons">
-                    {% comment %} <input type="submit" class="c-btn c-btn--primary account__form-submit login-submit-button" value="{{ 'customer.recover_password.submit' | t }}"> {% endcomment %}
                     <a href="/account/register" onclick="hideRecoverPasswordForm();return false;" class="link account__form-secondary-btn create-account">{{ 'customer.recover_password.cancel' | t }}</a>
                 </div>
 
