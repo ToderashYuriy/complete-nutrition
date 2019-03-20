@@ -76,12 +76,12 @@
                                             </div>
 
                                             {% capture 'product_id_attr' %}js-product-form--{{ product.id }}{% endcapture %}
-                                            {% form 'product', product, class: "product-single__form js-product-form", id:product_id_attr %}
-
+                                            {% form 'product', product, class: "product-single__form js-product-form", id:product_id_attr , data-productid: product.id %}
+                                                {% if product.available %}{% include 'subscription-product' %}{% endif %}
                                                 
 
                                                 <div class="product-single__variant">
-                                                    <select name="id" id="productSelect-1" class="product-single__variant-select">
+                                                    <select name="id" id="productSelect-1" class="product-single__variant-select" data-productid = "{{product.id}}">
                                                         {% for variant in product.variants %}
                                                             {% if variant.available %}
                                                                 <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}</option>
@@ -275,12 +275,13 @@
                         </div>
 
                         {% capture 'product_id_attr' %}js-product-form--{{ product.id }}{% endcapture %}
-                        {% form 'product', product, class: "product-single__form js-product-form", id:product_id_attr %}
+                        {% form 'product', product, class: "product-single__form js-product-form", id:product_id_attr , data-productid: product.id %}
+                        {% if product.available %}{% include 'subscription-product' %}{% endif %}
 
                             
 
                             <div class="product-single__variant">
-                                <select name="id" id="productSelect-1" class="product-single__variant-select">
+                                <select name="id" id="productSelect-1" class="product-single__variant-select" data-productid = "{{product.id}}">
                                     {% for variant in product.variants %}
                                         {% if variant.available %}
                                             <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}</option>

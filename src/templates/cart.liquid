@@ -22,6 +22,8 @@
                                             {% endunless %}
                                             {% assign property_size = item.properties | size %}
                                             {% if property_size > 0 %}
+                                            <p class="cart__product-meta">{{ item.properties.first }}</p>
+                                            {% comment %}
                                                 {% for p in item.properties %}
                                                     {% unless p.last == blank %}
                                                         <p class="cart__product-meta">{{ p.first }}</p>
@@ -32,11 +34,13 @@
                                                         {% endif %}
                                                     {% endunless %}
                                                 {% endfor %}
+                                                {% endcomment %}
                                             {% endif %}
 
                                             {% if settings.cart_vendor_enable %}
                                                 <p class="cart__product-meta">{{ item.vendor }}</p>
                                             {% endif %}
+                                            
                                         </div>
                                         <div class="price_product_without_count">
                                             <div class="cart-item__price_compare"><del>{{ item.variant.compare_at_price | money }}</del></div>
