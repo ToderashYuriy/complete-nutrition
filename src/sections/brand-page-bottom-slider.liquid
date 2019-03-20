@@ -1,0 +1,63 @@
+<section class="brand-page-bottom-slider">
+
+  {% for block in section.blocks %}
+
+    <div class="brand-bottom-slider">
+      <div class="slider-background">
+        <div class="slider-wrapper">
+          <div class="slider-article-image"> <img src="{{ block.settings.slider_article_image | img_url: '' }}" alt="Article Image"> </div>
+          <p class="slider-article-text"> {{ block.settings.slider_article_text }} </p>
+          <h4 class="slider-article-author"> {{ block.settings.slider_article_author }} </h4>
+        </div>
+      </div>
+    </div>
+
+  {% endfor %}
+
+</section>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function(){
+    $('.brand-page-bottom-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        cssEase: 'linear',
+        arrows: true
+      });
+    });
+</script>
+
+{% schema %}
+    {
+      "name": "Bottom Slider",
+      "settings": [
+
+      ],
+      "blocks": [
+        {
+          "type": "text",
+          "name": "Custom Bottom Slider",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "slider_article_image",
+              "label": "Article Image"
+            },
+            {
+              "type": "text",
+              "id": "slider_article_text",
+              "label": "Slider Article Text",
+              "default": "“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in urna libero. Proin auctor auctor volutpat. Nulla vestibulum vehicula elementum. Nullam posuere, odio id convallis”"
+            },
+            {
+              "type": "text",
+              "id": "slider_article_author",
+              "label": "Slider Article Author",
+              "default": "-Anna Pelign"
+            }
+          ]
+        }
+      ]
+    }
+{% endschema %}
