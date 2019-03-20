@@ -1049,7 +1049,60 @@ section.brand-page ul.slick-dots {
   }
 }
 
-// Brand Page
+// Brand Page Section Articles
+.brand-article-wrapper {
+  .article-wrapper {
+    display: flex;
+    padding: 20px;
+  }
+  .article-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 421px;
+    padding: 49px;
+  }
+  .article-date {
+    @include LatoBlack;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: left;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  .article-title {
+    @include LatoBlack;
+    font-size: 26px;
+    line-height: 26px;
+    text-align: left;
+    color: #FFFFFF;
+    text-transform: initial;
+    margin-bottom: 21px;
+    width: 80%;
+  }
+  .article-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 167px;
+    height: 47px;
+    background-color: #FFFFFF;
+    color: #383838;
+    @include LatoBlack;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: left;
+  }
+  .left {
+    margin-right: 10px;
+  }
+  .right {
+    margin-left: 10px;
+  }
+}
 // Brand Page
 // Brand Page
 // Brand Page
@@ -1073,6 +1126,11 @@ section.brand-page ul.slick-dots {
 @media screen and (max-width: 1024px){
   .contact_us_top {
     background-size: cover;
+  }
+  .brand-article-wrapper {
+    .article-title {
+      width: 95%;
+    }
   }
 }
 
@@ -1328,7 +1386,32 @@ section.brand-page ul.slick-dots {
       mask-border: 44px;
     }
   }
-  
+  .article-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .article-block {
+      width: 100%;
+      margin: 0 auto;
+      padding: 25px;
+      height: 236px;
+    }
+    .left {
+      margin-bottom: 15px;
+    }
+    .article-btn {
+      display: none;
+    }
+  }
+  .brand-article-wrapper {
+    .article-title {
+      margin-bottom: 0;
+      width: 70%;
+    }
+    .article-wrapper {
+      padding: 15px;
+    }
+  }
 }
 
 @media screen and (max-width: 676px){
@@ -1425,7 +1508,12 @@ section.brand-page ul.slick-dots {
         line-height: 20px;
       }
     }
-  } 
+  }
+  .brand-article-wrapper {
+    .article-title {
+      width: 80%;
+    }
+  }
 }
 
 @media screen and (max-width: 375px){
@@ -1450,6 +1538,11 @@ section.brand-page ul.slick-dots {
       .advantage {
         width: 140px;
       }
+    }
+  }
+  .brand-article-wrapper {
+    .article-title {
+      width: 95%;
     }
   }
 }

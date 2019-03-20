@@ -1,0 +1,82 @@
+<section class="brand-article-wrapper">
+
+  <div class="article-wrapper">
+
+    <div class="article-block left" style="background-image: url('{{ section.settings.left_img | img_url: '' }}');">
+      <p class="article-date"> {{ section.settings.date_left }} </p>
+      <h3 class="article-title"> {{ section.settings.article_title_left }} </h3>
+      <a href=" {{ section.settings.btn-left-link }} " class="article-btn"> {{ section.settings.btn_left }} </a>
+    </div>
+    <div class="article-block right" style="background-image: url('{{ section.settings.right_img | img_url: '' }}');">
+      <p class="article-date"> {{ section.settings.date_right }} </p>
+      <h3 class="article-title"> {{ section.settings.article_title_right }} </h3>
+      <a href=" {{ section.settings.btn-right-link }} " class="article-btn"> {{ section.settings.btn_right }} </a>
+    </div>
+    
+  </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Articles Section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "left_img",
+        "label": "Left image"
+      },
+      {
+        "type": "text",
+        "id": "date_left",
+        "label": "Left date",
+        "default": "10 June 2019"
+      },
+      {
+        "type": "text",
+        "id": "article_title_left",
+        "label": "Left title",
+        "default": "Almond Butter & Banana Protein Smoothie"
+      },
+      {
+        "type": "text",
+        "id": "btn_left",
+        "label": "Left Button Title",
+        "default": "VIEW RECIPE"
+      },
+      {
+        "id": "btn-left-link",
+        "type": "url",
+        "label": "Button link left"
+      },
+      {
+        "type": "image_picker",
+        "id": "right_img",
+        "label": "Right image"
+      },
+      {
+        "type": "text",
+        "id": "date_right",
+        "label": "Right date",
+        "default": "10 June 2019"
+      },
+      {
+        "type": "text",
+        "id": "article_title_right",
+        "label": "Right title",
+        "default": "Gingerbread Protein Shake Recipe"
+      },
+      {
+        "type": "text",
+        "id": "btn_right",
+        "label": "Right Button Title",
+        "default": "VIEW RECIPE"
+      },
+      {
+        "id": "btn-right-link",
+        "type": "url",
+        "label": "Button link right"
+      }
+    ]
+  }
+{% endschema %}

@@ -15,11 +15,11 @@
               <div class="o-layout">
                   <div class="o-layout__item u-1/1 u-1/2@tab">
                       <label for="ContactFormName"></label>
-                      <input type="text" placeholder="Full Name" id="ContactFormName" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                      <input required type="text" placeholder="Full Name" id="ContactFormName" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
                   </div>
                   <div class="o-layout__item u-1/1 u-1/2@tab">
                       <label for="ContactFormEmail" class="{% if form.errors contains 'email' %}label--error{% endif %}"></label>
-                      <input type="email" placeholder="Email" id="ContactFormEmail" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}">
+                      <input required type="email" placeholder="Email" id="ContactFormEmail" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}">
                   </div>
                   <div class="o-layout__item u-1/1 u-1/2@tab">
                       <label for="ContactFormPhone"></label>
