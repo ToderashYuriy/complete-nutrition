@@ -1,13 +1,22 @@
-
-<section class="about-top" style="background-image: url('{{ section.settings.top_bg_img | img_url: '' }}');">
-	<div class="bg-top">
-		<div class="text-top">
-			<h1> {{ section.settings.top-header }}</h1>
-			<p>{{ section.settings.top-text-one }}</p>
-			<p>{{ section.settings.top-text-two }}</p>
-		</div>
-	</div>
+<section class="home-top" style="background-image: url('{{ section.settings.top_bg_img | img_url: '' }}');">
+  <div class="header-home-top">
+    <h1> {{ section.settings.top_header }} </h1>
+  </div>
+  <div class="text-home-top">
+    <p> {{ section.settings.top_text_one }} </p>
+    <select>
+      <option>Пункт 1</option>
+      <option>Пункт 2</option>
+    </select>
+    <div class="link-home-top">
+      <p> {{ section.settings.top_text_two }} 
+        <a href="{{ section.settings.shop_now_home }}"><span>{{ section.settings.link_name_home }}</span>
+        </a>
+      </p>
+    </div>
+  </div>
 </section>
+
 
 
 
@@ -18,22 +27,32 @@
         {
 	      "type": "image_picker",
 	      "id": "top_bg_img",
-	      "label": "Logo image"
+	      "label": "Top background image"
 	    },
         {
            "type": "text",
-           "id": "top-header",
-           "label": "Title content"
+           "id": "top_header",
+           "label": "Top header"
         },
         {
            "type": "text",
-           "id": "top-header",
-           "label": "Title content"
+           "id": "top_text_one",
+           "label": "Top text one"
         },
         {
            "type": "text",
-           "id": "top-header",
-           "label": "Title content"
+           "id": "top_text_two",
+           "label": "Top text two"
+        },
+        {
+          "type": "url",
+          "id": "shop_now_home",
+          "label": "Link"
+        },
+        {
+           "type": "text",
+           "id": "link_name_home",
+           "label": "Link name"
         }
     ],
 
@@ -46,5 +65,4 @@
         }
     ]
 }
-
 {% endschema %}
