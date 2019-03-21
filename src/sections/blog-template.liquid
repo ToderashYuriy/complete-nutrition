@@ -63,7 +63,7 @@
             <div class="blog__items">
                 <div class="o-layout o-layout--masonry">
                     {% for article in blog.articles %}
-                        <div class="o-layout__item u-1/1 {{ grid_item_width }}">
+                        <div class="o-layout__item u-1/1 {{ grid_item_width }} parent_block_blog_items">
                             {% include 'blog-grid-item', page: true, section: false %}
                         </div>
                     {% endfor %}
