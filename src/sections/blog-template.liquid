@@ -9,9 +9,9 @@
 {% assign paginate_number = 12 %}
 
 {% paginate blog.articles by paginate_number %}
-<section class="section section--blog blog-page section--{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="blog">
+<section class="section section--blog blog-page section--{{ section.id }} blog-page-top" data-section-id="{{ section.id }}" data-section-type="blog">
     <div class="container">
-        <div class="section__title section__title--center">
+        <div class="section__title section__title--center blog-background-image" style=" background-image: url('{{ section.settings.bg_image | img_url: '' }}')">
             <h1 class="section__title-text h2">
                 {% if current_tags %}{{ current_tags.first }}{% else %}{{ blog.title }}{% endif %} 
                 {% if show_blog_rss %}
@@ -150,6 +150,11 @@
     "name": "Blog",
     "class": "js-section__blog",
     "settings": [
+        {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Top Background Image"
+        },
         {
             "type": "header",
             "content": "Page settings"

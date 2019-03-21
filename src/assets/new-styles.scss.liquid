@@ -1214,8 +1214,6 @@ section.brand-page ul.slick-dots {
       background-color: #292929;
       transform: rotate(45deg);
     }
-    &:hover::before, &:hover::after {
-    }
   }
   button.slick-next.slick-arrow {
     display: flex;
@@ -1248,8 +1246,6 @@ section.brand-page ul.slick-dots {
       height: 2px;
       background-color: #292929;
       transform: rotate(-45deg);
-    }
-    &:hover::before, &:hover::after {
     }
   }
   .slider-wrapper {
@@ -1305,6 +1301,34 @@ section.brand-page-bottom-slider.slick-initialized.slick-slider.slick-dotted {
 }
 
 // Brand Page
+
+
+// Blog Page
+
+.blog-page-top {
+  width: 100%;
+  margin-top: 0;
+  .container {
+    padding: 0;
+    margin: 0;
+  }
+
+  .blog-background-image {
+    height: 410px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .section__title-text h2 {
+    @include LatoBlack;
+  }
+}
+
+// Blog Page
+
 
 
 @media screen and (max-width: 1199px){
