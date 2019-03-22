@@ -5,11 +5,27 @@
     {% if section.settings.show_img %}
         {% if article.image %}
             <div class="container container--mob-0">
-                <div class="article__featured-media" style="background-image: url('{{ article.image.src | img_url: '1x1' }}')">
+                <div class="article__featured-media">
                     <div class="article__featured-media__img img-lazyload u-bg-cover lazyload js"
                         data-bgset="{% include 'bgset', image: article.image.src %}"
                         data-sizes="auto"
-                        data-parent-fit="cover"></div>
+                        data-parent-fit="cover">
+
+                        {% if section.settings.show_tags %}
+                            {% if article.tags.size > 0 %}
+                                <div class="article-tag">
+                                    <ul class="article-tag-list">
+                                        {% for tag in article.tags %}
+                                            <li class="article-tags-item">{{ tag | link_to_tag: tag }}{% unless forloop.last == true %} /   {% endunless %}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+
+                        <h1 class="section__title-text h2">{{ article.title }}</h1>
+                    </div>
+                    
                     <noscript>
                         <div class="article__featured-media__img u-bg-cover"
                             style="background-image: url('{{ article.image.src | img_url: '1400x' }});"></div>
@@ -21,21 +37,22 @@
     {% endif %}
 
     <div class="container container--tiny">
-        <div class="article__title">
-            <div class="section__title section__title--center">
-                <h1 class="section__title-text h2">{{ article.title }}</h1>
+        <div class="article-wrapper">
+            <div class="article-content">
+                {% if section.settings.show_date %}
+                    <div class="article-date">
+                        <p class="article-date-text label-text">{{ article.published_at | time_tag: '%B %e, %Y' }}</p>
+                    </div>
+                {% endif %}
             </div>
-            {% if section.settings.show_date %}
-                <div class="article__date label label--brand">
-                    <p class="article__date-text label__text">{{ article.published_at | time_tag: '%d %b, %Y' }}</p>
-                </div>
-            {% endif %}
-        </div>
 
-        <div class="article__content rte" itemprop="articleBody">
-            {{ article.content }}
-        </div>
+            <div class="article__content rte" itemprop="articleBody">
 
+                
+
+                {{ article.content }}
+            </div>
+        </div>
         <div class="article__meta">
             <div class="article__meta-wrapper">
                 {% if section.settings.show_author %}

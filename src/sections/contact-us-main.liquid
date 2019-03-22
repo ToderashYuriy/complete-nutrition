@@ -15,11 +15,13 @@
               <div class="o-layout">
                   <div class="o-layout__item u-1/1 u-1/2@tab">
                       <label for="ContactFormName"></label>
-                      <input required type="text" placeholder="Full Name" id="ContactFormName" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                      <input  type="text" placeholder="Full Name*" id="ContactFormName" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                      <label class="contact-error-label-style" id="name_error"></label>
                   </div>
                   <div class="o-layout__item u-1/1 u-1/2@tab">
                       <label for="ContactFormEmail" class="{% if form.errors contains 'email' %}label--error{% endif %}"></label>
-                      <input required type="email" placeholder="Email" id="ContactFormEmail" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}">
+                      <input  required type="email" placeholder="Email*" id="ContactFormEmail" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}">
+                      <label class="contact-error-label-style" id="email_error"></label>
                   </div>
                   <div class="o-layout__item u-1/1 u-1/2@tab">
                       <label for="ContactFormPhone"></label>
@@ -28,17 +30,20 @@
                   </div>
                   <div class="o-layout__item u-1/1 u-1/2@tab">
                       <label for="ContactFormZip" class="{% if form.errors contains 'email' %}label--error{% endif %}"></label>
-                      <input type="text" placeholder="Zip code" id="ContactFormZip" name="contact[zip]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}">
+                      <input type="text" placeholder="Zip code*" id="ContactFormZip" name="contact[zip]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}">
+                      <label class="contact-error-label-style" id="zip_error"></label>
                   </div>
               </div>
 
               <label for="ContactFormSubject"></label>
-              <input type="tel" placeholder="Subject" id="ContactFormSubject" name="contact[subject]"value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+              <input type="tel" placeholder="Subject*" id="ContactFormSubject" name="contact[subject]"value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+              <label class="contact-error-label-style" id="subject_error"></label>
 
               <label for="ContactFormMessage"></label>
-              <textarea rows="10" placeholder="Write Message" id="ContactFormMessage" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+              <textarea rows="10" placeholder="Write Message*" id="ContactFormMessage" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+              <label class="contact-error-label-style" id="message_error"></label>
 
-              <input type="submit" class="c-btn c-btn--primary c-btn--center c-btn--full u-mt u-mb-" value="{{ section.settings.form_button }}">
+              <input type="submit" class="c-btn c-btn--primary c-btn--center c-btn--full u-mt u-mb- submit-btn" value="{{ section.settings.form_button }}">
             {% endform %}
           </div>
         </div>
@@ -58,6 +63,73 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded",function(){
+    console.log('test');
+    $('#contact_form').attr('novalidate', 'novalidate');
+    $('#contact_form').on('submit', function(e){
+      var that = $(this),
+      fullNameVal = $('input#ContactFormName').val(),
+      fullName = $('input#ContactFormName'),
+      fullName_error = $('label#name_error'),
+
+      contactFormEmailVal = $('input#ContactFormEmail').val(),
+      contactFormEmail = $('input#ContactFormEmail'),
+      email_error = $('label#email_error'),
+
+
+      zipCodeVal = $('input#ContactFormZip').val(),
+      zipCode = $('input#ContactFormZip'),
+      zip_error = $('label#zip_error'),
+
+      contactFormSubjectVal = $('input#ContactFormSubject').val(),
+      contactFormSubject = $('input#ContactFormSubject'),
+      subject_error = $('label#subject_error');
+
+      var contactFormMessageVal = $('textarea#ContactFormMessage').val(),
+      contactFormMessage  = $('textarea#ContactFormMessage'),
+      message_error = $('label#message_error'),
+      error = true;
+
+      if(fullNameVal == ''){
+        fullName_error.html('Full Name is invalid');
+        fullName.css('border-color', 'red');
+        error = false;
+      }
+
+      if(contactFormEmailVal == ''){
+        email_error.html("Email is invalid");
+        contactFormEmail.css('border-color', 'red');
+        error = false;
+      }
+
+      if(zipCodeVal == ""){
+        zip_error.html('Zip code is invalid');
+        zipCode.css('border-color', 'red');
+        error = false;
+      }
+
+      if(contactFormSubjectVal == ""){
+        subject_error.html("Subject is invalid");
+        contactFormSubject.css('border-color', 'red');
+        error = false;
+      }
+
+      if(contactFormMessage.val() == ""){
+        message_error.html("Message is invalid");
+        contactFormMessage.css('border-color', 'red');
+        error = false;
+      }
+
+      if(!error){
+        e.preventDefault();
+      }
+
+    });
+  });
+</script>
+
 
 {% schema %}
 {

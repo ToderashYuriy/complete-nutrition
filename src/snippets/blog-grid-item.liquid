@@ -53,18 +53,16 @@
         </a>
         {% if show_date %}
             <div class="blog__date label label--brand">
-                <p class="blog__date-text label__text">{{ article.published_at | time_tag: '%B %e, %Y' }}</p>
+                <p class="blog__date-text label__text">{{ article.published_at | time_tag: '%B %e, %Y' }}
+                {% if article.comments_enabled? and show_comments %}
+                    <a href="{{ article.comment_post_url }}">
+                        <span class="comments-count">{{ article.comments_count }} COMMENTS</span>
+                    </a>
+                {% endif %} 
+                </p>
             </div>
-        {% endif %}
 
-                    <div class="blog__meta-comment blog__meta__item">
-                        <a href="{{ article.comment_post_url }}" class="blog__meta-comment__link">
-                            <div class="blog__meta-comment__icon">
-                                <i class="fa fa-comment" aria-hidden="true"></i>
-                            </div>
-                            <span class="blog__meta-comment__link-text">{{ article.comments_count }}</span>
-                        </a>
-                    </div>
+        {% endif %}
 
 
         {% if show_author %}
@@ -79,18 +77,9 @@
                 {{ article.content | strip_html | truncate: 200 }}
             {% endif %}
         </div>
-        <a href="" class="blog-article-btn">READ MORE</a>
+        <a href="{{ article.url }}" class="blog-article-btn">READ MORE</a>
             <div class="blog__meta">
-                {% if article.comments_enabled? and show_comments %}
-                    <div class="blog__meta-comment blog__meta__item">
-                        <a href="{{ article.comment_post_url }}" class="blog__meta-comment__link">
-                            <div class="blog__meta-comment__icon">
-                                <i class="icon icon--comment" aria-hidden="true"></i>
-                            </div>
-                            <span class="blog__meta-comment__link-text">{{ article.comments_count }}</span>
-                        </a>
-                    </div>
-                {% endif %} 
+                
                 
                 {% if article.tags.size > 0 and show_tags %}
                     <div class="blog__meta-tags blog__meta__item">
