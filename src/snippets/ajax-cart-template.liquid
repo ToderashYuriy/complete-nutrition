@@ -95,23 +95,29 @@
                     {{/if}}
                 </div>
                 <div class="o-layout__item u-1/1 u-2/3@tab">
+                    <div class="inner_shipping_price_popup" style="display: none;">
+                        {% endraw %}
+                        {% assign number_shiping = settings.cart_free_shiping  %}
+                        {% raw %}
+                        <p class="hidden cart_subtotal_price">{% endraw %}{{ cart.total_price }}{% raw %}</p>
+                        <div class="cart_full_shipping hidden">
+                            <p><span>Qualified</span> for Free Shipping</p>
+                        </div>
+                        <p class="cart_free_shipping"><span>Add $</span><span data-price="{% endraw %}{{ number_shiping }}{% raw %}" class="number_shipping">{% endraw %}{{ number_shiping }}{% raw %}</span> & Get Free Shipping</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="ajaxcart__button">
-            {% endraw %}{% if settings.cart_continue %}{% raw %}
             <div class="o-layout o-layout--tiny o-layout--reverse"> 
                 <div class="o-layout__item u-1/1 u-1/2@tab">
-            {% endraw %}{% endif %}{% raw %}
-                    <button type="submit" class="c-btn c-btn--full c-btn--primary c-btn--arrow ajaxcart__checkout" name="checkout">{% endraw %}{{ 'cart.general.checkout' | t }}{% raw %}</button>  
-            {% endraw %}{% if settings.cart_continue %}{% raw %}
+                   <a href="/collections/all" class="btn continue_shipping">CONTINUE SHOPPING</a>
                 </div>
                 <div class="o-layout__item u-1/1 u-1/2@tab">
-                    <a href="/cart" class="c-btn c-btn--full c-btn--light my_cart_btn">VIEW MY CART</a>
+                    <button type="submit" class="c-btn c-btn--full c-btn--primary c-btn--arrow ajaxcart__checkout" name="checkout">PROCEED TO CHECKOUT</button>  
                 </div>
             </div>
-            {% endraw %}{% endif %}{% raw %}
         </div>
     </form>
 {% endraw %}
