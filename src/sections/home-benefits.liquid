@@ -1,17 +1,21 @@
 <section class="benefit-one">
   <div class="home-first-benefit" style="background-image: url('{{ section.settings.first_benefit_bg_img| img_url: '' }}');">
-    <h1>{{section.settings.first_benefit_header}}</h1>
-    <p>{{section.settings.first_benefit_text}}</p>
-    <button class="btn-home-product-one">
-      <a href="{{ section.settings.first_benefit_link_btn }}">
-        <h2>{{section.settings.first_benefit_text_btn}}</h2>
-      </a>
-    </button>
+    <div class="bg-opacity">
+      <div class="inner-benefit-one">
+        <h1>{{section.settings.first_benefit_header}}</h1>
+        <p>{{section.settings.first_benefit_text}}</p>
+        <button class="btn-home-first-benefit">
+          <a href="{{ section.settings.first_benefit_link_btn }}">
+            <h2>{{section.settings.first_benefit_text_btn}}</h2>
+          </a>
+        </button>
+      </div>
+    </div>
   </div>
   <div class="home-second-benefit">
     <h1>{{section.settings.second_benefit_header}}</h1>
     <p>{{section.settings.second_benefit_text}}</p>
-    <button class="btn-home-product-two">
+    <button class="btn-home-second-benefit">
       <a href="{{ section.settings.second_benefit_link_btn }}">
         <h2>{{section.settings.second_benefit_text_btn}}</h2>
       </a>
@@ -21,7 +25,7 @@
 
 {% schema %}
 {
-    "name": "Benefits one section",
+    "name": "Benefits first section",
     "settings": [
         {
         "type": "image_picker",
@@ -72,7 +76,7 @@
 
     "presets": [
         {
-            "name": "Benefits one section",
+            "name": "Benefits first section",
             "category": "Image",
             "settings": {
             }
