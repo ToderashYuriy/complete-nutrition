@@ -2209,8 +2209,68 @@ body {
 
 /******** END COLLECTION NEW TEMPLATE **********/
 
+body{
+	.content_block_product{
+		.product-single__qty {
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		}
+		.product-single__qty label.quantity-selector {
+		    display: none;
+		}
 
+		.product-single__qty .product-single__qty-input {
+		    float: unset;
+		}
+		label.rc_label {
+		    color: #b0acab;
+		}
+		label.rc_label.rc_label__deliver_every {
+		    padding-top: 0;
+		}
+		.rc_popup {
+		    display: none !important;
+		}
+		div.rc_block__type--active {
+		    background-color: #fff;
+		}
+		
+		div.rc_block__type--active .rc_label {
+		    font-weight: 900;
+		    font-size: 15px;
+		    color: #524a47;
+		    padding-top: 0;
+		}
 
+		span.rc_label__delivery {
+		    display: none;
+		}
+
+		div#rc_autodeliver_options {
+		    display: flex;
+		    width: 156px;
+		    height: 38px;
+		    border: 1px solid #bebebe;
+		    background-color: #ffffff;
+		    justify-content: flex-start;
+		    align-items: center;
+		    margin-left: 20px;
+		}
+		.rc_block.rc_block__type.rc_block__type__autodeliver {
+		    display: flex;
+		    justify-content: flex-start;
+		    align-items: center;
+		}
+
+		span.rc_label__frequency {
+		    color: #292929;
+		    font-size: 15px;
+		    line-height: 30px;
+		    font-weight: 400;
+		}
+	}
+}
 
 
 

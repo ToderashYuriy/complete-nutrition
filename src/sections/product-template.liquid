@@ -53,28 +53,6 @@
                                     </div>
                                         <div class="product-single__box js-product-single-box">
 
-                                            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product-single__price js-product-price">
-                                                <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
-                                                {% if product.available %}
-                                                    <link itemprop="availability" href="http://schema.org/InStock" />
-                                                {% else %}
-                                                    <link itemprop="availability" href="http://schema.org/OutOfStock" />
-                                                {% endif %}
-
-                                                <h3 class="product-single__price-text js-product-price-text">
-                                                    <span class="u-hidden-visually">{{ 'products.general.regular_price' | t }}</span>
-                                                    <span class="js-product-price-number">
-                                                        <span class="product-single__price-number{% if product.compare_at_price_max > product.price %} product-single__price-number--sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}"><span class="money">{{ current_variant.price | money }}</span></span>
-                                                    </span>
-                                                    {% if product.compare_at_price_max > product.price %}
-                                                        <span class="u-hidden-visually">{{ 'products.general.sale_price' | t }}</span>
-                                                        <span class="js-product-price-compare">
-                                                            <s class="product-single__price-compare"><span class="money">{{ current_variant.compare_at_price | money }}</span></s>
-                                                        </span>
-                                                    {% endif %}
-                                                </h3>
-                                            </div>
-
                                             {% capture 'product_id_attr' %}js-product-form--{{ product.id }}{% endcapture %}
                                             {% form 'product', product, class: "product-single__form js-product-form", id:product_id_attr , data-productid: product.id %}
                                                 {% if product.available %}{% include 'subscription-product' %}{% endif %}
@@ -97,6 +75,27 @@
                                                         <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
                                                         <div class="product-single__qty-input">
                                                             <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                                                        </div>
+                                                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product-single__price js-product-price">
+                                                            <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+                                                            {% if product.available %}
+                                                                <link itemprop="availability" href="http://schema.org/InStock" />
+                                                            {% else %}
+                                                                <link itemprop="availability" href="http://schema.org/OutOfStock" />
+                                                            {% endif %}
+
+                                                            <h3 class="product-single__price-text js-product-price-text">
+                                                                <span class="u-hidden-visually">{{ 'products.general.regular_price' | t }}</span>
+                                                                <span class="js-product-price-number">
+                                                                    <span class="product-single__price-number{% if product.compare_at_price_max > product.price %} product-single__price-number--sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}"><span class="money">{{ current_variant.price | money }}</span></span>
+                                                                </span>
+                                                                {% if product.compare_at_price_max > product.price %}
+                                                                    <span class="u-hidden-visually">{{ 'products.general.sale_price' | t }}</span>
+                                                                    <span class="js-product-price-compare">
+                                                                        <s class="product-single__price-compare"><span class="money">{{ current_variant.compare_at_price | money }}</span></s>
+                                                                    </span>
+                                                                {% endif %}
+                                                            </h3>
                                                         </div>
                                                     </div>
                                                 {% endif %}
@@ -297,6 +296,27 @@
                                     <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
                                     <div class="product-single__qty-input">
                                         <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                                    </div>
+                                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product-single__price js-product-price">
+                                        <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+                                        {% if product.available %}
+                                            <link itemprop="availability" href="http://schema.org/InStock" />
+                                        {% else %}
+                                            <link itemprop="availability" href="http://schema.org/OutOfStock" />
+                                        {% endif %}
+
+                                        <h3 class="product-single__price-text js-product-price-text">
+                                            <span class="u-hidden-visually">{{ 'products.general.regular_price' | t }}</span>
+                                            <span class="js-product-price-number">
+                                                <span class="product-single__price-number{% if product.compare_at_price_max > product.price %} product-single__price-number--sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}"><span class="money">{{ current_variant.price | money }}</span></span>
+                                            </span>
+                                            {% if product.compare_at_price_max > product.price %}
+                                                <span class="u-hidden-visually">{{ 'products.general.sale_price' | t }}</span>
+                                                <span class="js-product-price-compare">
+                                                    <s class="product-single__price-compare"><span class="money">{{ current_variant.compare_at_price | money }}</span></s>
+                                                </span>
+                                            {% endif %}
+                                        </h3>
                                     </div>
                                 </div>
                             {% endif %}
