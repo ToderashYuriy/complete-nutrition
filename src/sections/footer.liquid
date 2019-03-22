@@ -139,7 +139,7 @@
                                             {% unless settings.social_facebook_link == blank %}
                                                 <li class="footer-nav__social-item">
                                                     <a href="{{ settings.social_facebook_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                        <i class="icon icon--facebook" aria-hidden="true"></i>
+                                                        <i class="fa fa-facebook-f"></i>
                                                         <span class="icon-fallback__text">Facebook</span>
                                                     </a>
                                                 </li>
@@ -147,7 +147,7 @@
                                             {% unless settings.social_twitter_link == blank %}
                                                 <li class="footer-nav__social-item">
                                                     <a href="{{ settings.social_twitter_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                        <i class="icon icon--twitter" aria-hidden="true"></i>
+                                                        <i class="fa fa-twitter"></i>
                                                         <span class="icon-fallback__text">Twitter</span>
                                                     </a>
                                                 </li>
@@ -155,7 +155,7 @@
                                             {% unless settings.social_pinterest_link == blank %}
                                                 <li class="footer-nav__social-item">
                                                     <a href="{{ settings.social_pinterest_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                        <i class="icon icon--pinterest" aria-hidden="true"></i>
+                                                        <i class="fa fa-pinterest-p"></i>
                                                         <span class="icon-fallback__text">Pinterest</span>
                                                     </a>
                                                 </li>
@@ -163,8 +163,8 @@
                                             {% unless settings.social_instagram_link == blank %}
                                                 <li class="footer-nav__social-item">
                                                     <a href="{{ settings.social_instagram_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                        <i class="icon icon--instagram" aria-hidden="true"></i>
-                                                        <span class="icon-fallback__text">Instagram</span>
+                                                        <i class="fa fa-instagram"></i>
+                                                        <span class="icon-fallback__text">instagram</span>
                                                     </a>
                                                 </li>
                                             {% endunless %}
@@ -187,7 +187,7 @@
                                             {% unless settings.social_youtube_link == blank %}
                                                 <li class="footer-nav__social-item">
                                                     <a href="{{ settings.social_youtube_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                        <i class="icon icon--youtube" aria-hidden="true"></i>
+                                                        <i class="fa fa-youtube"></i>
                                                         <span class="icon-fallback__text">YouTube</span>
                                                     </a>
                                                 </li>
@@ -291,7 +291,7 @@
                                     {% unless settings.social_facebook_link == blank %}
                                         <li class="footer-nav__social-item">
                                             <a href="{{ settings.social_facebook_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                <i class="icon icon--facebook" aria-hidden="true"></i>
+                                                <i class="fa fa-facebook-f"></i>
                                                 <span class="icon-fallback__text">Facebook</span>
                                             </a>
                                         </li>
@@ -299,24 +299,25 @@
                                     {% unless settings.social_twitter_link == blank %}
                                         <li class="footer-nav__social-item">
                                             <a href="{{ settings.social_twitter_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                <i class="icon icon--twitter" aria-hidden="true"></i>
+                                                <i class="fa fa-twitter"></i>
                                                 <span class="icon-fallback__text">Twitter</span>
+                                            </a>
+                                        </li>
+                                    {% endunless %}
+                                    
+                                    {% unless settings.social_instagram_link == blank %}
+                                        <li class="footer-nav__social-item">
+                                            <a href="{{ settings.social_instagram_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
+                                                <i class="fa fa-instagram"></i>
+                                                <span class="icon-fallback__text">instagram</span>
                                             </a>
                                         </li>
                                     {% endunless %}
                                     {% unless settings.social_pinterest_link == blank %}
                                         <li class="footer-nav__social-item">
                                             <a href="{{ settings.social_pinterest_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                <i class="icon icon--pinterest" aria-hidden="true"></i>
+                                                <i class="fa fa-pinterest-p"></i>
                                                 <span class="icon-fallback__text">Pinterest</span>
-                                            </a>
-                                        </li>
-                                    {% endunless %}
-                                    {% unless settings.social_instagram_link == blank %}
-                                        <li class="footer-nav__social-item">
-                                            <a href="{{ settings.social_instagram_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                <i class="icon icon--instagram" aria-hidden="true"></i>
-                                                <span class="icon-fallback__text">Instagram</span>
                                             </a>
                                         </li>
                                     {% endunless %}
@@ -339,7 +340,7 @@
                                     {% unless settings.social_youtube_link == blank %}
                                         <li class="footer-nav__social-item">
                                             <a href="{{ settings.social_youtube_link }}" class="footer-nav__social-link icon-fallback" target="_blank">
-                                                <i class="icon icon--youtube" aria-hidden="true"></i>
+                                                <i class="fa fa-youtube"></i>
                                                 <span class="icon-fallback__text">YouTube</span>
                                             </a>
                                         </li>
@@ -619,17 +620,17 @@
         },
         {
             "type": "image",
-            "name": "Image",
+            "name": "image",
             "settings": [
                 {
                     "type": "image_picker",
                     "id": "image",
-                    "label": "Image"
+                    "label": "image"
                 },
                 {
                     "type": "range",
                     "id": "image_width",
-                    "label": "Image width",
+                    "label": "image width",
                     "unit": "px",
                     "min": 40,
                     "max": 400,

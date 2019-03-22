@@ -34,9 +34,13 @@
                             {% for block in section.blocks %}
                                 {% case block.type %}
                                     {% when 'image' %}
-                                    {% if block.settings.link != blank or block.settings.image != blank %}
+                                    {% if block.settings.image != blank %}
                                     <a href="{{ block.settings.link }}" class="item_announcement">
-                                        <img src="{{ block.settings.image | img_url: '150x' }}" alt="" class="item_inner">
+                                        <img src="{{ block.settings.image | img_url: '' }}" alt="" class="item_inner">
+                                    </a>
+                                    {% else %}
+                                    <a href="{{ block.settings.link }}" class="item_announcement">
+                                        <img src="https://cdn.shopify.com/s/files/1/0108/9572/0548/files/Main_Roast_logo.svg?81742" alt="" class="item_inner">
                                     </a>
                                     {% endif %}
                                 {% endcase %}
