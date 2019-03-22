@@ -1617,12 +1617,37 @@ p.blog__date-text.label__text {
   }
 }
 
-.label--brand {
-  background: none;
-  padding: 0;
-  margin: 0;
-  margin-left: 30px;
+.blog__date .blog__date-text span.comments-count {
+  color: #969696;
+  @include LatoRegular;
+  font-size: 15px;
+  line-height: 30px;
+  text-align: left;
+  position: relative;
+  padding-left: 40px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0108/9572/0548/files/comment-white-oval-bubble.png?74201');
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 9px;
+    top: -2px;
+  }
 }
+
+.blog-page {
+  .label--brand {
+    background: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 30px;
+  }
+}
+
 
 .article-tag {
   @include LatoRegular;
@@ -1664,6 +1689,71 @@ p.blog__date-text.label__text {
 
 .blog-page__list {
   padding-bottom: 0;
+}
+
+.section--article .container.container--mob-0 {
+  padding: 0;
+  background-color: #000000;
+
+  .article__featured-media {
+    height: 386px;
+
+    .article__featured-media__img {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 386px;
+      // opacity: .4;
+
+      h1.section__title-text.h2 {
+        width: 50%;
+        margin-left: 120px;
+        @include LatoBold(60px, 60px, left);
+        color: #FFFFFF;
+        text-transform: initial;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+    
+  }
+  .article-tag-list {
+    display: flex;
+    margin-left: 120px;
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+
+    .article-tags-item {
+      &:nth-child(n+2) {
+        margin-left: 5px;
+      }
+    }
+    
+    li, li a {
+      @include LatoRegular;
+      font-size: 16px;
+      line-height: 60px;
+      color: #FFFFFF;
+      list-style: none;
+      text-transform: uppercase;
+      margin-right: 5px;
+    }
+  }
+}
+.article-wrapper {
+  .article-date {
+    .article-date-text {
+      color: #969696;
+      @include LatoRegular;
+      font-size: 15px;
+      line-height: 30px;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+  }
 }
 
 // Blog Page
