@@ -56,6 +56,17 @@
                 <p class="blog__date-text label__text">{{ article.published_at | time_tag: '%B %e, %Y' }}</p>
             </div>
         {% endif %}
+
+                    <div class="blog__meta-comment blog__meta__item">
+                        <a href="{{ article.comment_post_url }}" class="blog__meta-comment__link">
+                            <div class="blog__meta-comment__icon">
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                            </div>
+                            <span class="blog__meta-comment__link-text">{{ article.comments_count }}</span>
+                        </a>
+                    </div>
+
+
         {% if show_author %}
             <div class="blog__author">
                 <p class="blog__author__text">{{ article.author }}</p>
@@ -79,7 +90,7 @@
                             <span class="blog__meta-comment__link-text">{{ article.comments_count }}</span>
                         </a>
                     </div>
-                {% endif %}
+                {% endif %} 
                 
                 {% if article.tags.size > 0 and show_tags %}
                     <div class="blog__meta-tags blog__meta__item">
