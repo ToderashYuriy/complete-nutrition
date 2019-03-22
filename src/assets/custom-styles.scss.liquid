@@ -1984,6 +1984,7 @@ section.section.section--cart.cart {
 	}
 
 	.product-single__add-btn {
+		visibility: visible !important;
 	    background-color: #e65525;
 	    border: solid 1px #e65525;
 	    color: #ffffff;
@@ -2036,6 +2037,7 @@ section.section.section--cart.cart {
     padding-left: 10px;
     padding-right: 10px;
     color: #fff;
+    margin-top: 20px;
     &.red{
 		background: #ff646b;
     }
@@ -2208,9 +2210,25 @@ body {
 
 
 /******** END COLLECTION NEW TEMPLATE **********/
-
+span.product-single__price-number .money {
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+.inner_flex_product .content_block_product .product-single__box .product-single__price {
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+}
 body{
 	.content_block_product{
+
+		div.rc_block__type--active div.rc_block__type__options{
+			opacity: 1;
+		}
+		div.rc_block__type__options{
+			opacity: 0;
+		}
 		.product-single__qty {
 		    display: flex;
 		    justify-content: space-between;
@@ -2237,7 +2255,7 @@ body{
 		}
 		
 		div.rc_block__type--active .rc_label {
-		    font-weight: 900;
+		    font-weight: 500;
 		    font-size: 15px;
 		    color: #524a47;
 		    padding-top: 0;

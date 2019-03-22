@@ -45,7 +45,7 @@
 	        {% capture 'product_id_attr' %}js-product-form--{{ product.id }}{% endcapture %}
 	        {% form 'product', product, class: "product-single__form js-product-form", id:product_id_attr %}
 
-	            
+	            {% if product.available %}{% include 'subscription-product' %}{% endif %}
 
 	            <div class="product-single__variant">
 	                <select name="id" id="productSelect-2" class="product-single__variant-select">
