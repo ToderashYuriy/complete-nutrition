@@ -1,0 +1,90 @@
+<section class="benefit-two">
+  <div class="home-third-benefit" style="background-image: url('{{ section.settings.third_benefit_bg_img| img_url: '' }}');">
+    <div class="inner-benefit-third">
+      <h1>{{section.settings.third_benefit_header}}</h1>
+      <p>{{section.settings.third_benefit_text}}</p>
+      <button class="btn-home-third-benefit">
+        <a href="{{ section.settings.third_benefit_link_btn }}">
+          <h2>{{section.settings.third_benefit_text_btn}}</h2>
+        </a>
+      </button>
+    </div>
+  </div>
+  <div class="home-fourth-benefit" style="background-image: url('{{ section.settings.fourth_benefit_bg_img| img_url: '' }}');">
+    <div class="inner-benefit-third">
+      <h1>{{section.settings.fourth_benefit_header}}</h1>
+      <p>{{section.settings.fourth_benefit_text}}</p>
+      <button class="btn-home-fourth-benefit">
+        <a href="{{ section.settings.fourth_benefit_link_btn }}">
+          <h2>{{section.settings.fourth_benefit_text_btn}}</h2>
+        </a>
+      </button>
+    </div>
+  </section>
+
+{% schema %}
+{
+    "name": "Benefits second section",
+    "settings": [
+        {
+        "type": "image_picker",
+        "id": "third_benefit_bg_img",
+        "label": "Benefit story image"
+        },
+        {
+           "type": "text",
+           "id": "third_benefit_header",
+           "label": "Third benefit header"
+        },
+        {
+           "type": "text",
+           "id": "third_benefit_text",
+           "label": "Third benefit story text"
+        },
+        {
+          "type": "url",
+          "id": "third_benefit_link_btn",
+          "label": "Third benefit link button"
+        },
+        {
+           "type": "text",
+           "id": "third_benefit_text_btn",
+           "label": "Third benefit text button"
+        },
+        {
+        "type": "image_picker",
+        "id": "fourth_benefit_bg_img",
+        "label": "Benefit story image"
+        },
+        {
+           "type": "text",
+           "id": "fourth_benefit_header",
+           "label": "Fourth benefit header"
+        },
+        {
+           "type": "text",
+           "id": "fourth_benefit_text",
+           "label": "Fourth product story text"
+        },
+        {
+          "type": "url",
+          "id": "fourth_benefit_link_btn",
+          "label": "Fourth product link button"
+        },
+        {
+           "type": "text",
+           "id": "fourth_benefit_text_btn",
+           "label": "Fourth product text button"
+        }
+    ],
+
+    "presets": [
+        {
+            "name": "Benefits second section",
+            "category": "Image",
+            "settings": {
+            }
+        }
+    ]
+}
+{% endschema %}

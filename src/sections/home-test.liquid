@@ -4,10 +4,13 @@
   </div>
   <div class="text-home-top">
     <p> {{ section.settings.top_text_one }} </p>
+    <div class="select-menu">
     <select>
-      <option>Пункт 1</option>
-      <option>Пункт 2</option>
+      <option>{{ section.settings.select_option_one }}</option>
+      <option>{{ section.settings.select_option_two }}</option>
+      <option>{{ section.settings.select_option_third }}</option>
     </select>
+  </div>
     <div class="link-home-top">
       <p> {{ section.settings.top_text_two }} 
         <a href="{{ section.settings.shop_now_home }}"><span>{{ section.settings.link_name_home }}</span>
@@ -39,6 +42,21 @@
            "id": "top_text_one",
            "label": "Top text one"
         },
+        {
+           "type": "text",
+           "id": "select_option_one",
+           "label": "Select option one"
+        },
+        {
+           "type": "text",
+           "id": "select_option_two",
+           "label": "Select option two"
+        }, 
+        {
+           "type": "text",
+           "id": "select_option_third",
+           "label": "Select option third"
+        },        
         {
            "type": "text",
            "id": "top_text_two",
