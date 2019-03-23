@@ -245,9 +245,11 @@
 					duplicate_to_price: { {% for variant in product.variants %}{{ variant.metafields.subscriptions.discount_variant_id }}: '{{ variant.metafields.subscriptions.discount_variant_price | replace: ".", "" }}', {% endfor %} },
 				};
 			if (document.readyState === "complete" || document.readyState === "loaded") {
+         		console.log('nice');
 				if (!window.ReCharge) { window.ReCharge = new rcWidget(options); }
 				ReCharge.addProduct(myProduct);
 			} else {
+              	console.log('bad');
 				document.addEventListener("DOMContentLoaded", function() {
 					if (!window.ReCharge) { window.ReCharge = new rcWidget(options); }
 					ReCharge.addProduct(myProduct);

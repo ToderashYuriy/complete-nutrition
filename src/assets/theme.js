@@ -712,7 +712,6 @@ theme.productSelect = function(sectionId, cssClass, historyState, productObj = n
       document.getElementById("ProductJson-" + sectionId).innerHTML
     );
   }
-  console.log(productObj);
   var sectionClass = cssClass;
 
   var selectCallback = function(variant, selector) {
@@ -736,7 +735,6 @@ theme.productSelect = function(sectionId, cssClass, historyState, productObj = n
           $('.js-product-' + productId + ' .stock_block').css('display','none').removeClass('red');
         }
         // Enabling add to cart button.
-        console.log(variant);
         $(".js-product-" + productId + " .js-product-add")
           .removeClass("disabled")
           .addClass("c-btn--plus")

@@ -85,6 +85,7 @@ $(document).ready(function(){
 				theme.productSelect('2','product-single__variant-select',true, productObj ? productObj : null);
 				SPR.initDomEls();
 				SPR.loadBadges();
+				ReCharge.addProduct(productObj);
 			});
 		});
 		return false;
