@@ -21,7 +21,7 @@
     "type_button_letterspace": 2,
     "type_button_capitalize": true,
     "product_grid_vendor": false,
-    "product_grid_second_hover": true,
+    "product_grid_second_hover": false,
     "product_grid_quick_buy": "hover",
     "product_grid_align": "center",
     "product_grid_image_size": "natural",
@@ -34,13 +34,14 @@
     "product_grid_label_new_days": 14,
     "product_grid_label_title": "Hot",
     "product_grid_label_collection": "",
-    "product_reviews": false,
+    "product_reviews": true,
     "product_grid_reviews": true,
-    "anim_load": true,
+    "anim_load": false,
     "anim_load_style": "interval",
     "anim_interval_style": "fade_down",
     "anim_fade": true,
-    "anim_zoom": true,
+    "anim_zoom": false,
+    "cart_free_shiping": "200",
     "cart_notes_enable": false,
     "cart_vendor_enable": false,
     "cart_continue": true,
@@ -54,13 +55,13 @@
     "share_pinterest": true,
     "share_fancy": true,
     "share_mail": true,
-    "social_facebook_link": "",
-    "social_twitter_link": "",
-    "social_pinterest_link": "",
-    "social_instagram_link": "",
+    "social_facebook_link": "https://www.facebook.com/completenutrition/",
+    "social_twitter_link": "https://twitter.com/CNHeadquarters",
+    "social_pinterest_link": "https://www.pinterest.com/getcomplete/",
+    "social_instagram_link": "https://www.instagram.com/completenutrition/",
     "social_tumblr_link": "",
     "social_snapchat_link": "",
-    "social_youtube_link": "",
+    "social_youtube_link": "https://www.youtube.com/user/completenutrition",
     "social_vimeo_link": "",
     "social_fancy_link": "",
     "social_untappd_link": "",
@@ -86,66 +87,109 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "1494343961341": {
-            "type": "linklist",
+          "1551272423631": {
+            "type": "image",
             "settings": {
-              "title": "Menu",
-              "linklist": "footer"
+              "image": "shopify://shop_images/logo_footer.png",
+              "image_width": 230,
+              "link": ""
             }
           },
           "1494463355206": {
             "type": "linklist",
             "settings": {
-              "title": "Menu",
               "linklist": "footer"
+            }
+          },
+          "1551272841278": {
+            "type": "linklist",
+            "settings": {
+              "linklist": "footer-about"
             }
           },
           "1494343958665": {
             "type": "contact",
             "settings": {
-              "title": "Contact",
-              "show_email": true,
-              "show_number": true,
-              "show_address": true,
+              "linklist": "footer-support",
+              "show_email": false,
+              "show_number": false,
+              "show_address": false,
               "show_social": true
-            }
-          },
-          "1494463348419": {
-            "type": "text",
-            "settings": {
-              "title": "Text area",
-              "text": "<p>Add some text such as a mini biography or your mission statement.</p>"
             }
           }
         },
         "block_order": [
-          "1494343961341",
+          "1551272423631",
           "1494463355206",
-          "1494343958665",
-          "1494463348419"
+          "1551272841278",
+          "1494343958665"
         ],
         "settings": {
           "footer_newsletter_enable": true,
           "footer_newsletter_home": false,
-          "newsletter_bg": "#f5f5f5",
-          "newsletter_style": "default",
-          "footer_newsletter_title": "Newsletter",
-          "footer_newsletter_desc": "<p>Let your customers know what to expect if they sign up to your mailing list.</p>",
-          "footer_bg": "#222222",
+          "newsletter_bg": "#ffc331",
+          "newsletter_style": "light",
+          "footer_newsletter_title": "Your first order ships free!",
+          "footer_newsletter_desc": "<p>Sign up to get the latest recipes, health and fitness tips plus promotions.</p>",
+          "footer_bg": "#3e3e3e",
           "footer_style": "light",
-          "show_payment_icons": true
+          "show_payment_icons": false
         }
       },
       "header": {
         "type": "header",
+        "blocks": {
+          "1550669439555": {
+            "type": "image",
+            "settings": {
+              "link": "#",
+              "image": "shopify://shop_images/Image_4203.png"
+            }
+          },
+          "1550669853198": {
+            "type": "image",
+            "settings": {
+              "link": "#",
+              "image": "shopify://shop_images/Image_4202.png"
+            }
+          },
+          "1550669877570": {
+            "type": "image",
+            "settings": {
+              "link": "#",
+              "image": "shopify://shop_images/Image_4201.png"
+            }
+          },
+          "1550669882142": {
+            "type": "image",
+            "settings": {
+              "link": "#",
+              "image": "shopify://shop_images/Image_4204.png"
+            }
+          },
+          "1550669886419": {
+            "type": "image",
+            "settings": {
+              "link": "#",
+              "image": "shopify://shop_images/Image_4199.png"
+            }
+          }
+        },
+        "block_order": [
+          "1550669439555",
+          "1550669853198",
+          "1550669877570",
+          "1550669882142",
+          "1550669886419"
+        ],
         "settings": {
-          "show_border": true,
+          "show_border": false,
           "header_bg": "#ffffff",
           "header_style": "dark",
-          "logo": "",
+          "logo": "shopify://shop_images/logo.png",
           "logo_max_width": 200,
           "main_linklist": "main-menu",
-          "style": "center",
+          "style": "left",
           "mega_nav": false,
           "mega_image": "",
           "mega_image_link": "",
@@ -153,23 +197,26 @@
           "mega_text": "",
           "mega_link_title": "Learn more",
           "mega_link": "",
-          "message_show": false,
+          "message_show": true,
           "home_page_only": false,
-          "message_text": "Use this announcement bar to share some news and link to page or product.",
+          "message_text": "Free shipping on orders over $50",
           "message_link": "",
-          "message_color_bg": "#111111",
-          "message_color_text": "#ffffff"
+          "message_color_bg": "#e9602a",
+          "message_color_text": "#ffffff",
+          "show_message_blocks": true
         }
       },
       "mobile-drawer": {
         "type": "mobile-drawer",
         "settings": {
           "main_linklist": "main-menu",
+          "linklist_log": "mobile-menu",
           "contact_title": "Contact",
-          "show_contact_number": true,
-          "show_contact_email": true,
+          "show_contact_number": false,
+          "show_contact_email": false,
           "show_social": true,
           "cta_image": "",
+          "message_text": "Free shipping on orders $45+",
           "cta_image_link": "",
           "cta_title": "",
           "cta_text": "",
@@ -205,6 +252,17 @@
       },
       "collection-template": {
         "type": "collection-template",
+        "blocks": {
+          "1551987130674": {
+            "type": "linklist",
+            "settings": {
+              "linklist": ""
+            }
+          }
+        },
+        "block_order": [
+          "1551987130674"
+        ],
         "settings": {
           "grid": 3,
           "rows": 3,
@@ -213,35 +271,24 @@
           "show_collection_image": true,
           "collection_image_height": "3:1",
           "image_alignment": "center",
-          "show_sidebar": false
+          "show_sidebar": true
         }
       },
       "product-template": {
         "type": "product-template",
-        "blocks": {
-          "1550005008038": {
-            "type": "text",
-            "settings": {
-              "tab_content": "tab-content"
-            }
-          }
-        },
-        "block_order": [
-          "1550005008038"
-        ],
         "settings": {
           "enable_zoom": true,
-          "layout": "full",
+          "layout": "classic",
           "bg_color": "#ffffff",
           "text_color": "default",
-          "bg_height": "default",
-          "image_size": "medium",
-          "show_breadcrumbs": false,
-          "show_vendor": false,
+          "bg_height": "full",
+          "image_size": "small",
+          "show_breadcrumbs": true,
+          "show_vendor": true,
           "show_quantity_selector": true,
-          "enable_payment_button": true,
+          "enable_payment_button": false,
           "image": "",
-          "show_share_buttons": true
+          "show_share_buttons": false
         }
       },
       "password-header": {
@@ -262,271 +309,1082 @@
           "show_social": true
         }
       },
-      "1494509767442": {
-        "type": "home-slideshow",
-        "blocks": {
-          "1494509767442-0": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "image_mobile": "",
-              "image_alignment": "center",
-              "alignment": "left",
-              "text_color": "default",
-              "title": "Image slide",
-              "text": "<p>Use these slides to tell the world about your brand. Use images or background video along with text and links.</p>",
-              "link_title": "More info",
-              "link": ""
-            }
-          },
-          "1494509767442-1": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "image_mobile": "",
-              "image_alignment": "center",
-              "alignment": "left",
-              "text_color": "default",
-              "title": "Image slide",
-              "text": "<p>Use these slides to tell the world about your brand. Use images or background video along with text and links.</p>",
-              "link_title": "More info",
-              "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "1494509767442-0",
-          "1494509767442-1"
-        ],
-        "settings": {
-          "slideshow_style": "default",
-          "title_size": 3,
-          "autoplay": true,
-          "autoplay_speed": 8,
-          "slideshow_height": "medium",
-          "slideshow_width": "contained",
-          "overlay_strength": 10
-        }
-      },
-      "1494509774149": {
-        "type": "home-collection",
-        "settings": {
-          "title": "Featured collection",
-          "collection": "",
-          "mobile_layout": "carousel",
-          "grid": 3,
-          "rows": 2,
-          "link_title": "View all",
-          "link": "",
-          "show_bg": false
-        }
-      },
-      "1494509783248": {
-        "type": "home-product",
-        "settings": {
-          "featured_product": "",
-          "show_vendor": false,
-          "enable_payment_button": true,
-          "show_quantity_selector": true,
-          "content_align": "default"
-        }
-      },
-      "1494509796124": {
-        "type": "home-collection-list",
-        "blocks": {
-          "1494509796124-0": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": "",
-              "image": ""
-            }
-          },
-          "1494509796124-1": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": "",
-              "image": ""
-            }
-          },
-          "1494509802489": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": "",
-              "image": ""
-            }
-          },
-          "1494509804670": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": "",
-              "image": ""
-            }
-          }
-        },
-        "block_order": [
-          "1494509796124-0",
-          "1494509796124-1",
-          "1494509802489",
-          "1494509804670"
-        ],
-        "settings": {
-          "title": "Collection list",
-          "grid": 2,
-          "mobile_layout": "carousel",
-          "link_title": "View all",
-          "link": "",
-          "show_bg": false,
-          "overlay_strength": 30
-        }
-      },
-      "1494509819006": {
-        "type": "home-content",
-        "blocks": {
-          "1494509819006-0": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "bg_color": "#f5f5f5",
-              "title": "Image with text",
-              "desc": "<p>Use these blocks to share your brand's story. You can focus on a particular collection, a product detail, or even embed a video.</p>",
-              "video": "",
-              "link_title": "More info",
-              "link": ""
-            }
-          },
-          "1494509819006-1": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "bg_color": "#ffde64",
-              "title": "Image with text",
-              "desc": "<p>Use these blocks to share your brand's story. You can focus on a particular collection, a product detail, or even embed a video.</p>",
-              "video": "",
-              "link_title": "More info",
-              "link": ""
-            }
-          },
-          "1494509829787": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "bg_color": "#f5f5f5",
-              "title": "Image with text",
-              "desc": "<p>Use these blocks to share your brand's story. You can focus on a particular collection, a product detail, or even embed a video.</p>",
-              "video": "",
-              "link_title": "More info",
-              "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "1494509819006-0",
-          "1494509819006-1",
-          "1494509829787"
-        ],
-        "settings": {}
-      },
-      "1494509840929": {
-        "type": "home-video",
-        "blocks": {
-          "1494509840929-0": {
-            "type": "video",
-            "settings": {
-              "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-              "image": ""
-            }
-          },
-          "1494509840929-1": {
-            "type": "video",
-            "settings": {
-              "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-              "image": ""
-            }
-          }
-        },
-        "block_order": [
-          "1494509840929-0",
-          "1494509840929-1"
-        ],
-        "settings": {
-          "title": "Video gallery",
-          "desc": "",
-          "link_title": "More videos",
-          "link": "",
-          "overlay_strength": 50
-        }
-      },
-      "1494509849281": {
-        "type": "home-instagram",
-        "settings": {
-          "title": "Follow us on Instagram",
-          "feed_token": "",
-          "posts_limit": "4",
-          "overlay_strength": 30
-        }
-      },
-      "1494509858233": {
-        "type": "home-map",
-        "blocks": {
-          "1494509858233-0": {
-            "type": "map",
-            "settings": {
-              "title": "Map",
-              "desc": "<p>273 Street Lane<br>San Francisco, CA 94102<br>(415) 557-4400<br>store@email.com</p>",
-              "sub_desc": "<p>Monday - Thursday, 12:00 to 23:00<br>Friday &amp; Saturday, 12:00 to 00:00<br>Sunday, Closed</p>",
-              "address": "100 Larkin St, San Francisco, CA 94102, USA",
-              "map_image": ""
-            }
-          }
-        },
-        "block_order": [
-          "1494509858233-0"
-        ],
-        "settings": {
-          "show_directions_btn": false,
-          "bg_color": "#f5f5f5",
-          "google_api_key": "",
-          "map_style": "light"
-        }
-      },
-      "1494509875565": {
-        "type": "home-image-text",
-        "settings": {
-          "bg_image": "",
-          "image_alignment": "center",
-          "text": "<p>Offer some insight into your brand and history. Use images, text and video to describe your value proposition.</p>",
-          "inline_image": "",
-          "inline_image_width": 200,
-          "video": "",
-          "link_title": "Learn more",
-          "link": "",
-          "section_height": "medium",
-          "overlay_color": "#000000",
-          "overlay_strength": 30,
-          "content_style": "light"
-        }
-      },
       "product-related": {
         "type": "product-related",
         "settings": {
-          "show_related_products": false,
+          "show_related_products": true,
           "related_title": "Related products",
           "related_mobile_layout": "carousel",
           "related_grid_num": 3,
           "related_grid_row": 1
         }
+      },
+      "header-new": {
+        "type": "header-new",
+        "blocks": {
+          "1551087899074": {
+            "type": "image",
+            "settings": {
+              "link": "#",
+              "image": "shopify://shop_images/Elite_Gold_logo.png"
+            }
+          },
+          "1551087906832": {
+            "type": "image",
+            "settings": {
+              "link": "#",
+              "image": "shopify://shop_images/Prime_Trim_logo.png"
+            }
+          },
+          "1551087912390": {
+            "type": "image",
+            "settings": {
+              "link": "#",
+              "image": "shopify://shop_images/Green_d_Logo.png"
+            }
+          },
+          "1551087917063": {
+            "type": "image",
+            "settings": {
+              "link": "#",
+              "image": ""
+            }
+          }
+        },
+        "block_order": [
+          "1551087899074",
+          "1551087906832",
+          "1551087912390",
+          "1551087917063"
+        ],
+        "settings": {
+          "cart_enabled": true,
+          "logo": "shopify://shop_images/logo.png",
+          "logo_phone": "shopify://shop_images/Image_4765.png",
+          "main_nav": "main-menu",
+          "message_show": true,
+          "home_page_only": false,
+          "message_text": "FREE SHIPPING ON ORDERS $45+",
+          "message_link": "",
+          "message_color_bg": "#e9602a",
+          "message_color_text": "#fff",
+          "show_message_blocks": true
+        }
+      },
+      "footer-mobile": {
+        "type": "footer-mobile",
+        "blocks": {
+          "1551276573162": {
+            "type": "linklist",
+            "settings": {
+              "linklist": "footer"
+            }
+          },
+          "1551276587559": {
+            "type": "linklist",
+            "settings": {
+              "linklist": "footer-about"
+            }
+          },
+          "1551276592198": {
+            "type": "linklist",
+            "settings": {
+              "linklist": "footer-support"
+            }
+          }
+        },
+        "block_order": [
+          "1551276573162",
+          "1551276587559",
+          "1551276592198"
+        ],
+        "settings": {
+          "background_color": "#343434",
+          "show_social_links": true
+        }
+      },
+      "1551790082569": {
+        "type": "home-advantages",
+        "blocks": {
+          "1551790107529": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/quality_icon_1.png",
+              "title": "Trust",
+              "content": "Complete Nutrition is an ever evolving online supplement retailer looking for talented individuals to join us."
+            }
+          },
+          "1551790221869": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/quality_icon_1.png",
+              "title": "Customer Service",
+              "content": "Complete Nutrition is a ever evolving online supplement retailer looking for talented individuals to join us in our mission."
+            }
+          },
+          "1551790242753": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/quality_icon_1.png",
+              "title": "Commitment to Qualify",
+              "content": "Complete Nutrition is an ever evolving online supplement retailer looking for talented individuals tome."
+            }
+          }
+        },
+        "block_order": [
+          "1551790107529",
+          "1551790221869",
+          "1551790242753"
+        ],
+        "settings": {
+          "title_content": "Complete Nutrition is an ever evolving online supplement retailer looking for talented individuals to join us in our mission to exceed product and customer needs. Below is a list of open positions. Browse a position below, to bring to your local Complete Nutrition store."
+        }
+      },
+      "1551796293998": {
+        "type": "home-proposition",
+        "blocks": {
+          "1551796492438": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/Greend_Bundle.png",
+              "title": "Give Complete Nutrition a Try!",
+              "content": "Save 30% off your first order + free shipping.<br> Use Code: <b>Welcome2019</b>",
+              "btn_text": "SHOP NOW",
+              "btn_url": "https://complete-nutrition-inc.myshopify.com/collections/all"
+            }
+          },
+          "1551796606037": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/subs_icon_image_PH.png",
+              "title": "Already have a favorite?",
+              "content": "<p>Subscribe to your favorite product(s) and save up to 16%. <a href=\"#\">Learn More</a></p>",
+              "btn_text": "SHOP NOW",
+              "btn_url": "https://complete-nutrition-inc.myshopify.com/collections/all"
+            }
+          }
+        },
+        "block_order": [
+          "1551796492438",
+          "1551796606037"
+        ],
+        "settings": {}
+      },
+      "1551865327599": {
+        "type": "home-brands",
+        "blocks": {
+          "1551865426251": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/EG_logo_B_W_2x_45bb32bd-1676-43b8-96b7-80f225ea88b9.png",
+              "logo_hover": "",
+              "url": "#"
+            }
+          },
+          "1551865434537": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/Greend_logo_B_W_2x_29d520b3-7f8e-43b1-b7c5-bcbbeaa8d2da.png",
+              "logo_hover": "",
+              "url": "#"
+            }
+          },
+          "1551865439692": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/IS_logo_B_W_2x_d5ea82c0-bf56-435c-a4a9-0248516809e0.png",
+              "logo_hover": "shopify://shop_images/IS_logo_B_W_2x_e45a1d9a-05ff-4911-8dae-aad331397fc6.png",
+              "url": "#"
+            }
+          },
+          "1551865444357": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/LLL_logo_B_W_2x_54583c0f-2e96-4777-828c-593ce9f4cd1d.png",
+              "logo_hover": "",
+              "url": "#"
+            }
+          },
+          "1551865450154": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/Mancore_logo_B_W_2x_acb14d1e-8c08-4c03-b07c-eb54ebfdb625.png",
+              "logo_hover": "",
+              "url": "#"
+            }
+          },
+          "1551865454833": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/MR_logo_B_W_2x_f116c745-2b3c-47eb-86fd-3e3b4ca6402d.png",
+              "logo_hover": "",
+              "url": "#"
+            }
+          },
+          "1551865459260": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/PD_logo_B_W_2x_aa699ffb-7805-45fc-aaec-7845c7e3059a.png",
+              "logo_hover": "",
+              "url": "#"
+            }
+          },
+          "1551865474708": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/Reclaim_logo_B_W_2x_60212840-0a72-4dd5-9eab-7655ac99a451.png",
+              "logo_hover": "",
+              "url": "#"
+            }
+          },
+          "1551865480221": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/PT_logo_B_W_2x_5e1828fe-87ee-42ba-b0be-5f0d439daca4.png",
+              "logo_hover": "",
+              "url": "#"
+            }
+          },
+          "1551865483988": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify://shop_images/Tone_logo_B_W_2x_6dd92152-056f-4c68-ac99-cd025ef7237e.png",
+              "logo_hover": "",
+              "url": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1551865426251",
+          "1551865434537",
+          "1551865439692",
+          "1551865444357",
+          "1551865450154",
+          "1551865454833",
+          "1551865459260",
+          "1551865474708",
+          "1551865480221",
+          "1551865483988"
+        ],
+        "settings": {
+          "title_content": "Meet Our Brands!",
+          "after_title": "Complete Nutrition has brands for all your health & nutrition needs.",
+          "btn_text": "SHOP ALL BRANDS",
+          "btn_url": "https://complete-nutrition-inc.myshopify.com/collections/all"
+        }
+      },
+      "product-info": {
+        "type": "product-info",
+        "settings": {}
+      },
+      "collection-top": {
+        "type": "collection-top",
+        "settings": {
+          "bg_image": "shopify://shop_images/42f2798c687953240400dc213ff30e56.png",
+          "title": "Hormone Support",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum."
+        }
+      },
+      "collection-grid": {
+        "type": "collection-grid",
+        "blocks": {
+          "1551993282069": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/2-layers.png",
+              "date": "10 June 2019",
+              "image_alignment": "center",
+              "text_alignment": "bottom",
+              "title": "Green that beats kale in health points: Watercress",
+              "text": "",
+              "btn_text": "READ MORE",
+              "link_btn": ""
+            }
+          },
+          "1551993297822": {
+            "type": "text",
+            "settings": {
+              "bg_color": "#ffc331",
+              "text_color": "white",
+              "title": "15% OFF SALE",
+              "text": "<p>Use code EXTRA15 to save even more on our summer sale. Plus free shipping on orders over $50.</p>",
+              "link_text": "SHOP NOW",
+              "link": "#"
+            }
+          },
+          "1551993305002": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/2-layers_1.png",
+              "date": "",
+              "image_alignment": "center",
+              "text_alignment": "bottom",
+              "title": "About Us",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum.",
+              "btn_text": "READ MORE",
+              "link_btn": ""
+            }
+          },
+          "1551993310651": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/2-layers_2.png",
+              "date": "",
+              "image_alignment": "center",
+              "text_alignment": "bottom",
+              "title": "Watch Nancy’s incredible Transformation Video.",
+              "text": "",
+              "btn_text": "PLAY VIDEO",
+              "link_btn": ""
+            }
+          }
+        },
+        "block_order": [
+          "1551993282069",
+          "1551993297822",
+          "1551993305002",
+          "1551993310651"
+        ],
+        "settings": {
+          "featured": true,
+          "height": "medium",
+          "overlay_strength": 30
+        }
+      },
+      "contact-us-top": {
+        "type": "contact-us-top",
+        "settings": {
+          "bg_image": "shopify://shop_images/bike_banner_w-_drk_overlay_ac9f0674-2077-40db-a384-35934b05c0db.png",
+          "title": "Contact Us",
+          "after_title": "Fill out the form below to ask a question or send us your feedback.",
+          "form_title": "Send us a Message"
+        }
+      },
+      "contact-us-main": {
+        "type": "contact-us-main",
+        "blocks": {
+          "1552310164921": {
+            "type": "text",
+            "settings": {
+              "custom_title": "Complete Nutrition Address",
+              "html_area": "<p>P.O. BOX 17220 Postal St. <br> Omaha, Nebraska 68130 <br>United States <br> <a href=\"tel:8005551212\">(800) 555-1212</a></p>"
+            }
+          },
+          "1552311854516": {
+            "type": "text",
+            "settings": {
+              "custom_title": "Customer Support",
+              "html_area": "<p>We work hard to answer everyones questions and archive the most frequent.<br>\nCheck out our <a href=\"#\">FAQs page!</a>\n</p><br>\n<p>\n<a href=\"tel:8005551212\">(800) 555-1212<br>\n Monday - Friday, 7am - 5pm CT</a></p>"
+            }
+          }
+        },
+        "block_order": [
+          "1552310164921",
+          "1552311854516"
+        ],
+        "settings": {
+          "form_title": "Send us a Message",
+          "aside_title": "About Complete Nutrition",
+          "after_title_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in urna libero. Proin auctor auctor volutpat. Nulla vestibulum vehicula elementum.",
+          "aside_address_title": "Headquarters",
+          "form_button": "Send Message"
+        }
+      },
+      "error-page": {
+        "type": "error-page",
+        "settings": {
+          "bg_image": "shopify://shop_images/bike_banner_w-_drk_overlay_ac9f0674-2077-40db-a384-35934b05c0db.png",
+          "title": "404",
+          "after_title": "The page you requested does not exist…",
+          "shop_button_title": "CONTINUE SHOPPING",
+          "button_link": "shopify://collections/all"
+        }
+      },
+      "privacy-top": {
+        "type": "privacy-top",
+        "settings": {
+          "bg_image": "shopify://shop_images/bike_banner_w-_drk_overlay_ac9f0674-2077-40db-a384-35934b05c0db.png",
+          "title": "Legal Policies"
+        }
+      },
+      "privacy-side": {
+        "type": "privacy-side",
+        "settings": {
+          "side_title_first": "Term of Use",
+          "side_link_first": "shopify://pages/term-of-use",
+          "side_title_second": "Privacy Policy",
+          "side_link_second": ""
+        }
+      },
+      "term-of-use-top": {
+        "type": "term-of-use-top",
+        "settings": {
+          "bg_image": "shopify://shop_images/bike_banner_w-_drk_overlay_ac9f0674-2077-40db-a384-35934b05c0db.png",
+          "title": "Legal Policies",
+          "term_text_btn": "More Legal Policies",
+          "side_title_first": "Term of Use",
+          "side_link_first": "",
+          "side_title_second": "Privacy Policy",
+          "legal_policies_responsive": "Legal Policies"
+        }
+      },
+      "term-of-use-side": {
+        "type": "term-of-use-side",
+        "settings": {
+          "side_title_first": "Term of Use",
+          "side_link_first": "",
+          "side_title_second": "Privacy Policy",
+          "side_link_second": "shopify://pages/legal-policies"
+        }
+      },
+      "career-top": {
+        "type": "career-top",
+        "settings": {
+          "bg_image": "shopify://shop_images/bike_banner_w-_drk_overlay_ac9f0674-2077-40db-a384-35934b05c0db.png",
+          "title": "Career Opportunities"
+        }
+      },
+      "career-location": {
+        "type": "career-location",
+        "blocks": {
+          "1552576509402": {
+            "type": "text",
+            "settings": {
+              "left_text": "Nutrition Consultant",
+              "right_text": "Columbus, GA"
+            }
+          },
+          "1552576536349": {
+            "type": "text",
+            "settings": {
+              "left_text": "Product Regulatory Specialist",
+              "right_text": "Omaha, NE"
+            }
+          },
+          "1552576551880": {
+            "type": "text",
+            "settings": {
+              "left_text": "Fitness Consultant",
+              "right_text": "Madison, WI"
+            }
+          },
+          "1552576561233": {
+            "type": "text",
+            "settings": {
+              "left_text": "Fitness Consultant",
+              "right_text": "Columbia, MO"
+            }
+          },
+          "1552576580488": {
+            "type": "text",
+            "settings": {
+              "left_text": "Sales Consultant",
+              "right_text": "College Station, TX"
+            }
+          },
+          "1552576592736": {
+            "type": "text",
+            "settings": {
+              "left_text": "Assistent Store Manager",
+              "right_text": "Rapid City, SD"
+            }
+          },
+          "1552576615318": {
+            "type": "text",
+            "settings": {
+              "left_text": "Retail Sales Consultant",
+              "right_text": "Madison, WI"
+            }
+          }
+        },
+        "block_order": [
+          "1552576509402",
+          "1552576536349",
+          "1552576551880",
+          "1552576561233",
+          "1552576580488",
+          "1552576592736",
+          "1552576615318"
+        ],
+        "settings": {
+          "top_content": "<p class=\"career-title-text\">Complete Nutrition is an ever evolving online supplement retailer \n      looking for talented individuals to join us in our mission to exceed product and customer needs. \n      Below is a list of open positions. Browse a position below, <a href=\"#submit-resume\">submit your resume</a>, or <a href=\"#download-resume\">download an application</a> \n      to bring to your local Complete Nutrition store.</p>",
+          "left_title": "Position",
+          "right_title": "Location"
+        }
+      },
+      "career-join": {
+        "type": "career-join",
+        "settings": {
+          "join_title": "Interested in joining the Complete Nutrition team?",
+          "join_after_title": "Submit your resume by filling out the below form or Download our PDF application to bring to your local Complete Nutrition.",
+          "submit_title": "SUBMIT RESUME",
+          "submit_button": "",
+          "download_title": "DOWNLOAD APPLICATION",
+          "download_button": "https://cdn.shopify.com/s/files/1/0108/9572/0548/files/bike_banner_w-_drk_overlay_ac9f0674-2077-40db-a384-35934b05c0db.png?v=1552303285"
+        }
+      },
+      "career-form": {
+        "type": "career-form",
+        "settings": {
+          "form_title": "Submit your Resume",
+          "choose_button_title": "CHOOSE FILE",
+          "form_button": "SUBMIT RESUME"
+        }
+      },
+      "career-gallery": {
+        "type": "career-gallery",
+        "settings": {
+          "gallery_img_1": "shopify://shop_images/img-1_eab12a82-3cba-46ee-aaf1-5fa61b751c50.png",
+          "gallery_img_2": "shopify://shop_images/img-2.png",
+          "gallery_img_3": "shopify://shop_images/img-3_9955a5df-1c64-4600-9d33-b2a13050ebf5.png",
+          "gallery_img_4": "shopify://shop_images/img-4_95652ccc-cef2-446b-987c-d67829ca243d.png",
+          "gallery_img_5": "shopify://shop_images/img-5_03e8bc4c-c8f8-454a-8e18-7cf7002b18d9.png"
+        }
+      },
+      "login-page": {
+        "type": "login-page",
+        "settings": {
+          "login_img": "",
+          "login_title": "Customer Login"
+        }
+      },
+      "page-faq": {
+        "type": "page-faq",
+        "blocks": {
+          "1552637726318": {
+            "type": "category",
+            "settings": {
+              "title": "Shipping & Returns"
+            }
+          },
+          "1552637713458": {
+            "type": "article",
+            "settings": {
+              "title": "When will my order ship?",
+              "text": "<p>Use these articles to answer questions that customers have about your products and services. You can use text, links and images and also group articles into categories.</p>",
+              "image": ""
+            }
+          },
+          "1552646272993": {
+            "type": "article",
+            "settings": {
+              "title": "What method is used for shipping?",
+              "text": "<p>Use these articles to answer questions that customers have about your products and services. You can use text, links and images and also group articles into categories.</p>",
+              "image": ""
+            }
+          },
+          "1552646363749": {
+            "type": "article",
+            "settings": {
+              "title": "What if I didn’t receive an email confirmation for my order?",
+              "text": "<p>Green&rsquo;d&reg; is pure plant-based nutrition. green&rsquo;d.&reg; Fat Burning Meal Replacement Shake is filling and easy to digest - so you feel satisfied, not bloated. With 21 grams of plant protein to support lean muscle, 28 whole fruits, vegetables, &amp; herbs, plus 18 vitamins &amp; minerals, this low-fat meal replacement is ultra-nutritious, delicious &amp; low calorie. green&rsquo;d&reg; provides the key nutrients your body needs to burn fat and boost metabolism.</p>",
+              "image": ""
+            }
+          },
+          "1552646387027": {
+            "type": "article",
+            "settings": {
+              "title": "How long will it take my order to arrive?",
+              "text": "<p>Use these articles to answer questions that customers have about your products and services. You can use text, links and images and also group articles into categories.</p>",
+              "image": ""
+            }
+          },
+          "1552646404034": {
+            "type": "article",
+            "settings": {
+              "title": "Do you ship to APO/FPO addresses?",
+              "text": "<p>Use these articles to answer questions that customers have about your products and services. You can use text, links and images and also group articles into categories.</p>",
+              "image": ""
+            }
+          },
+          "1552648644041": {
+            "type": "category",
+            "settings": {
+              "title": "Online Returns"
+            }
+          },
+          "1552648648859": {
+            "type": "article",
+            "settings": {
+              "title": "30-Day Money Back Guarantee",
+              "text": "<p>Use these articles to answer questions that customers have about your products and services. You can use text, links and images and also group articles into categories.</p>",
+              "image": ""
+            }
+          },
+          "1552648664990": {
+            "type": "article",
+            "settings": {
+              "title": "Refund Process",
+              "text": "<p>Use these articles to answer questions that customers have about your products and services. You can use text, links and images and also group articles into categories.</p>",
+              "image": ""
+            }
+          },
+          "1552648674787": {
+            "type": "article",
+            "settings": {
+              "title": "Damaged Items",
+              "text": "<p>Use these articles to answer questions that customers have about your products and services. You can use text, links and images and also group articles into categories.</p>",
+              "image": ""
+            }
+          }
+        },
+        "block_order": [
+          "1552637726318",
+          "1552637713458",
+          "1552646272993",
+          "1552646363749",
+          "1552646387027",
+          "1552646404034",
+          "1552648644041",
+          "1552648648859",
+          "1552648664990",
+          "1552648674787"
+        ],
+        "settings": {
+          "fq_bg_image": "shopify://shop_images/Bike_bannr_w_lite_overlay.png",
+          "title": "Frequenty Asked Questions",
+          "side_title_1": "Company",
+          "side_link_1": "",
+          "side_title_2": "Product Related",
+          "side_link_2": "",
+          "side_title_3": "Shipping & Returns",
+          "side_link_3": "",
+          "side_title_4": "Other Questions",
+          "side_link_4": "",
+          "enable_search": true,
+          "enable_sidebar": false,
+          "cta_link_title": "Contact us",
+          "cta_link": "",
+          "bottom-left-img": "shopify://shop_images/ABout_PH.png",
+          "bottom-right-img": "shopify://shop_images/2-layers_2_ad94feb5-2c95-47c8-b926-2483da7c4945.png",
+          "left_gallery_title": "About Us",
+          "left_gallery_p": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum.",
+          "right_gallery_title": "Watch Nancy’s incredible Transformation Video.",
+          "gallery_button_title_left": "READ MORE",
+          "gallery_button_link_left": "",
+          "gallery_button_title_right": "PLAY VIDEO",
+          "gallery_button_link_right": ""
+        }
+      },
+      "brand-page-top": {
+        "type": "brand-page-top",
+        "blocks": {
+          "1552901564088": {
+            "type": "text",
+            "settings": {
+              "slider_image": "shopify://shop_images/Green_Banner.png",
+              "slider_logo_image": "shopify://shop_images/greend-loog-color.png",
+              "slider_title": "100% Plant Based. 100% You.",
+              "button_link": "shopify://collections/all",
+              "btn_title": "SHOP NOW"
+            }
+          },
+          "1552908770182": {
+            "type": "text",
+            "settings": {
+              "slider_image": "shopify://shop_images/Bike_bannr_w_lite_overlay.png",
+              "slider_logo_image": "shopify://shop_images/greend-loog-color.png",
+              "slider_title": "test",
+              "button_link": "",
+              "btn_title": "SHOP NOW"
+            }
+          }
+        },
+        "block_order": [
+          "1552901564088",
+          "1552908770182"
+        ],
+        "settings": {}
+      },
+      "about-top": {
+        "type": "about-top",
+        "settings": {
+          "title_block": "Taste whisky from world famous brands",
+          "logo": "shopify://shop_images/bike_banner_w-_drk_overlay.png",
+          "top-text": "Helping you look better, feel better and perform better."
+        }
+      },
+      "about-second-block": {
+        "type": "about-second-block",
+        "settings": {
+          "text_info": "Complete Nutrition® is a network of high-quality nutritional supplement retail stores whose mission is to create safe and effective weight management, sports nutrition, fitness and general health programs to help customers look better, feel better and perform better.",
+          "man_img": "shopify://shop_images/About_founder_placeholder_2x_1b62c8f7-bb13-4a79-9226-64f62e1b941b.png",
+          "title": "We raiseded the bar so you can reach higher.",
+          "description": "Since 2004, we have been obsessed with creating the most effective and safe weight management, sports nutrition, fitness and general health products and programs to take the guesswork and gruntwork out of looking and feeling your best. But this type of success doesn’t just happen…It all starts with our core beliefs:"
+        }
+      },
+      "about-advantages-first": {
+        "type": "about-advantages-first",
+        "settings": {
+          "benefit_title_one": "Customers come first",
+          "benefit_one": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in urna libero. Proin auctor auctor volutpat. Nulla vestibulum vehicula elementum. Nullam posuere, odio id convallis congue, nisi tellus rhoncus odio, a luctus metus puru.",
+          "benefit_img_one": "shopify://shop_images/about_image_1_PH_2x_c94a672f-4b94-4a51-b139-eae661379dfa.png"
+        }
+      },
+      "about-advantages-second": {
+        "type": "about-advantages-second",
+        "settings": {
+          "benefit_title_two": "Wellness for everyone",
+          "benefit_two": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in urna libero. Proin auctor auctor volutpat. Nulla vestibulum vehicula elementum. Nullam posuere, odio id convallis congue, nisi tellus rhoncus odio, a luctus metus puru.",
+          "benefit_img_two": "shopify://shop_images/about_image_PH_2.png"
+        }
+      },
+      "about-advantages-third": {
+        "type": "about-advantages-third",
+        "settings": {
+          "benefit_title_third": "No short cuts",
+          "benefit_third": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in urna libero. Proin auctor auctor volutpat. Nulla vestibulum vehicula elementum. Nullam posuere, odio id convallis congue, nisi tellus rhoncus odio, a luctus metus puru.",
+          "benefit_img_third": "shopify://shop_images/About_image_PH_3.png"
+        }
+      },
+      "about-value": {
+        "type": "about-value",
+        "settings": {
+          "header_value": "Our Values",
+          "value_img_one": "shopify://shop_images/quality_icon_1_64419ddb-ab95-4827-ad45-7b6ea9702b75.png",
+          "title_value_one": "Trust",
+          "info_value_one": "Complete Nutrition is an ever evolving online supplement retailer looking for talented individuals to join us.",
+          "value_img_two": "shopify://shop_images/quality_icon_1_64419ddb-ab95-4827-ad45-7b6ea9702b75.png",
+          "title_value_two": "Customer Service",
+          "info_value_two": "Complete Nutrition is an ever evolving online supplement retailer looking for talented individuals to join us in our mission.",
+          "value_img_three": "shopify://shop_images/quality_icon_1_64419ddb-ab95-4827-ad45-7b6ea9702b75.png",
+          "title_value_three": "Commitment to Qualify",
+          "info_value_three": "Complete Nutrition is an ever evolving online supplement retailer looking for talented individuals tome."
+        }
+      },
+      "about-shop-now": {
+        "type": "about-shop-now",
+        "settings": {
+          "header_contact": "Ready to be better you?",
+          "text_contact": "Try our products in a variety of shapes and sizes",
+          "shop_now": "",
+          "info_value_one": "SHOP NOW"
+        }
+      },
+      "brand-page-about": {
+        "type": "brand-page-about",
+        "blocks": {
+          "1552991589277": {
+            "type": "text",
+            "settings": {
+              "advantage_ico": "shopify://shop_images/leaf_icon_-_green.png",
+              "advantage_title": "100% Vegan",
+              "advantage_text": "Naturally flavored and sweetened with stevia and monk fruit."
+            }
+          },
+          "1552991987082": {
+            "type": "text",
+            "settings": {
+              "advantage_ico": "shopify://shop_images/no_dairy_icon_-_green.png",
+              "advantage_title": "Dairy Free",
+              "advantage_text": "Helps improve digestive health by restoring equilibrium."
+            }
+          },
+          "1552992783419": {
+            "type": "text",
+            "settings": {
+              "advantage_ico": "shopify://shop_images/leaf_icon_-_green.png",
+              "advantage_title": "Gluten Free",
+              "advantage_text": "Naturally flavored and sweetened with stevia and monk fruit."
+            }
+          },
+          "1552993716201": {
+            "type": "text",
+            "settings": {
+              "advantage_ico": "shopify://shop_images/no_dairy_icon_-_green.png",
+              "advantage_title": "Non-GMO",
+              "advantage_text": "Mauris at sapien sed tellus pharetra vulputate fringilla at."
+            }
+          },
+          "1552993761174": {
+            "type": "text",
+            "settings": {
+              "advantage_ico": "shopify://shop_images/leaf_icon_-_green.png",
+              "advantage_title": "Soy Free",
+              "advantage_text": "Helps improve digestive health by restoring equilibrium."
+            }
+          },
+          "1552993783709": {
+            "type": "text",
+            "settings": {
+              "advantage_ico": "shopify://shop_images/no_dairy_icon_-_green.png",
+              "advantage_title": "Digestive Support",
+              "advantage_text": "Naturally flavored and sweetened with stevia and monk fruit."
+            }
+          }
+        },
+        "block_order": [
+          "1552991589277",
+          "1552991987082",
+          "1552992783419",
+          "1552993716201",
+          "1552993761174",
+          "1552993783709"
+        ],
+        "settings": {
+          "about_title": "What is Green’d?",
+          "about_after_title": "A line of plant-based nutritionals that provide your body with a potent blend of proteins, phytonutrients, healthy fats, probiotics, antioxidants, vitamins, and minerals to help you lose weight and support optimal health."
+        }
+      },
+      "brand-page-article": {
+        "type": "brand-page-article",
+        "settings": {
+          "left_img": "shopify://shop_images/recipe_1_thumb.png",
+          "date_left": "10 June 2019",
+          "article_title_left": "Almond Butter & Banana Protein Smoothie",
+          "btn_left": "VIEW RECIPE",
+          "btn-left-link": "",
+          "right_img": "shopify://shop_images/recipe_2_thumb.png",
+          "date_right": "10 June 2019",
+          "article_title_right": "Gingerbread Protein Shake Recipe",
+          "btn_right": "VIEW RECIPE",
+          "btn-right-link": ""
+        }
+      },
+      "1553068814665": {
+        "type": "home-test",
+        "settings": {
+          "top_bg_img": "shopify://shop_images/Bike_bannr_w_lite_overlay.png",
+          "top_header": "Your Home for Complete Nutrition!",
+          "top_text_one": "Don’t know where to start? Try starting with your Nutrition Goal:",
+          "select_option_one": "First",
+          "select_option_two": "Second",
+          "select_option_third": "Third",
+          "top_text_two": "Already know?",
+          "shop_now_home": "https://complete-nutrition-inc.myshopify.com/collections/all",
+          "link_name_home": "Shop Now"
+        }
+      },
+      "brand-page-bottom-slider": {
+        "type": "brand-page-bottom-slider",
+        "blocks": {
+          "1553071478820": {
+            "type": "text",
+            "settings": {
+              "slider_article_image": "shopify://shop_images/before-after_image.png",
+              "slider_article_text": "“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in urna libero. Proin auctor auctor volutpat. Nulla vestibulum vehicula elementum. Nullam posuere, odio id convallis”",
+              "slider_article_author": "-Anna Pelign"
+            }
+          },
+          "1553071947195": {
+            "type": "text",
+            "settings": {
+              "slider_article_image": "shopify://shop_images/before-after_image.png",
+              "slider_article_text": "“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in urna libero. Proin auctor auctor volutpat. Nulla vestibulum vehicula elementum. Nullam posuere, odio id convallis”",
+              "slider_article_author": "-Anna Pelign"
+            }
+          }
+        },
+        "block_order": [
+          "1553071478820",
+          "1553071947195"
+        ],
+        "settings": {}
+      },
+      "brand-page-bottom-gallery": {
+        "type": "brand-page-bottom-gallery",
+        "blocks": {
+          "1553077545783": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/1.png"
+            }
+          },
+          "1553077558014": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/2.png"
+            }
+          },
+          "1553077568191": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/3.png"
+            }
+          },
+          "1553078025263": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/4.png"
+            }
+          },
+          "1553078036264": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/5.png"
+            }
+          },
+          "1553078045162": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/6.png"
+            }
+          }
+        },
+        "block_order": [
+          "1553077545783",
+          "1553077558014",
+          "1553077568191",
+          "1553078025263",
+          "1553078036264",
+          "1553078045162"
+        ],
+        "settings": {}
+      },
+      "1553078081584": {
+        "type": "home-story",
+        "settings": {
+          "story_img": "shopify://shop_images/about_image_PH_2.png",
+          "story_header": "Our Story",
+          "story_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum […]",
+          "link_btn": "https://complete-nutrition-inc.myshopify.com/pages/about",
+          "text_btn": "READ MORE"
+        }
+      },
+      "1553089071333": {
+        "type": "home-product-one",
+        "settings": {
+          "product_img_one": "shopify://shop_images/PT_bundle_PH_2x_15eff9c9-a5a2-4112-8385-590a2ab5cecf.png",
+          "product_header_one": "Prime Trim",
+          "product_text_one": "This system is specifically designed for individuals seeking a complete body transformation. It is time to get back to your Prime, and there is no better time than now!",
+          "product_link_btn": "https://complete-nutrition-inc.myshopify.com/collections/all",
+          "product_text_btn": "SHOP NOW"
+        }
+      },
+      "1553089141862": {
+        "type": "home-product-two",
+        "settings": {
+          "product_img_two": "shopify://shop_images/Greend_Bundle_79d9dc67-0824-4a92-8993-3e781ff49283.png",
+          "product_header_two": "Green’d",
+          "product_text_two": "A line of plant-based nutritionals that provide your body with a potent blend of proteins, phytonutrients, healthy fats, probiotics, antioxidants, vitamins, and minerals to help you lose weight and support optimal health.",
+          "product_link_btn": "https://complete-nutrition-inc.myshopify.com/collections/all",
+          "product_text_btn": "SHOP NOW"
+        }
+      },
+      "1553091457431": {
+        "type": "home-benefits",
+        "settings": {
+          "first_benefit_bg_img": "shopify://shop_images/2019Resolutions-v2.png",
+          "first_benefit_header": "Sports Nutrition & Fitness",
+          "first_benefit_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum.",
+          "first_benefit_link_btn": "https://complete-nutrition-inc.myshopify.com/collections/all",
+          "first_benefit_text_btn": "SHOP NOW",
+          "second_benefit_header": "Clearance",
+          "second_benefit_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum.",
+          "second_benefit_link_btn": "https://complete-nutrition-inc.myshopify.com/collections/all",
+          "second_benefit_text_btn": "SHOP NOW"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "blocks": {
+          "1553178398301": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/3.png"
+            }
+          },
+          "1553178411153": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/5.png"
+            }
+          },
+          "1553178418277": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/6.png"
+            }
+          },
+          "1553178425844": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/4.png"
+            }
+          },
+          "1553178433585": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/1.png"
+            }
+          },
+          "1553178441481": {
+            "type": "text",
+            "settings": {
+              "gallery_image": "shopify://shop_images/2.png"
+            }
+          }
+        },
+        "block_order": [
+          "1553178398301",
+          "1553178411153",
+          "1553178418277",
+          "1553178425844",
+          "1553178433585",
+          "1553178441481"
+        ],
+        "settings": {
+          "bg_image": "shopify://shop_images/bike_banner_w-_drk_overlay_ac9f0674-2077-40db-a384-35934b05c0db.png",
+          "show_tags": true,
+          "show_rss": false,
+          "show_bg": true,
+          "crop": true,
+          "show_blog_date": true,
+          "show_blog_author": false,
+          "show_blog_comments": true,
+          "show_blog_tags": false,
+          "coll": "",
+          "coll_title": "Featured collection",
+          "coll_mobile_layout": "carousel",
+          "coll_grid": 3,
+          "coll_rows": 1,
+          "coll_link_title": "View all",
+          "coll_link": ""
+        }
+      },
+      "1553166071890": {
+        "type": "home-second-benefits",
+        "settings": {
+          "third_benefit_bg_img": "shopify://shop_images/category_thumb.png",
+          "third_benefit_header": "Weight Management",
+          "third_benefit_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum.",
+          "third_benefit_link_btn": "https://complete-nutrition-inc.myshopify.com/collections/all",
+          "third_benefit_text_btn": "SHOP NOW",
+          "fourth_benefit_bg_img": "shopify://shop_images/category_thumb_2.png",
+          "fourth_benefit_header": "General Health",
+          "fourth_benefit_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare accumsan rutrum.",
+          "fourth_benefit_link_btn": "https://complete-nutrition-inc.myshopify.com/collections/all",
+          "fourth_benefit_text_btn": "SHOP NOW"
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "show_img": true,
+          "show_date": true,
+          "show_author": true,
+          "show_tags": true,
+          "show_sharing": true,
+          "coll": "greend",
+          "coll_title": "Featured collection",
+          "coll_mobile_layout": "carousel",
+          "coll_grid": 3,
+          "coll_rows": 1,
+          "coll_link_title": "View all",
+          "coll_link": ""
+        }
       }
     },
     "content_for_index": [
-      "1494509767442",
-      "1494509774149",
-      "1494509783248",
-      "1494509796124",
-      "1494509819006",
-      "1494509840929",
-      "1494509849281",
-      "1494509858233",
-      "1494509875565"
+      "1553068814665",
+      "1551790082569",
+      "1551796293998",
+      "1551865327599",
+      "1553078081584",
+      "1553089071333",
+      "1553089141862",
+      "1553091457431",
+      "1553166071890"
     ]
   },
   "presets": {

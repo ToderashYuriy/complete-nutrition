@@ -1,0 +1,39 @@
+<section class="login-page">
+  <div class="container">
+    <div class="login-wrapper">
+      <div class="login-form-wrapper">
+        <h2 class="login-title"> {{ section.settings.login_title}} </h2>
+          <div class="login-input">
+              <label for="ContactFormEmail" class=""></label>
+              <input type="email" placeholder="Email" id="ContactFormEmail">
+          </div>
+          <a href="{{ section.settings.submit_button}}" class="submit-button" name="submit-resume"> {{ section.settings.submit_title }} </a>
+          <a href="{{ section.settings.download_button}}" class="download-button" name="download-resume"> {{ section.settings.download_title }} </a>
+      </div>
+      <div class="image-wrapper">
+        <div class="side-bg-image">
+          <img src=" {{ section.settings.login_img }} " alt="Side Background Image">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Log In Page",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "login_img",
+        "label": "Gallery Image 1"
+      },
+      {
+        "type": "text",
+        "id": "login_title",
+        "label": "Log In Title",
+        "default": "Customer Login"
+      }
+    ]
+  }
+{% endschema %}
