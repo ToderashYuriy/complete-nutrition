@@ -66,7 +66,28 @@ theme.homeMaps = function() {
       });
     }
   };
-
+  theme.runQuickShop = function(){
+    $('a.quick_shop_btn').on('click',function(e){
+      var that = $(this),
+        href_product = that.attr('href'),
+        href = href_product+'?view=quick_view',
+        quickParent = $('.quick-view-parent'),
+        body = $('body');
+      console.log(href_product);
+      $.get(href, function(data){
+        var content = quickParent.find('.quick_content');
+        quickParent.addClass('show');
+        body.addClass('quick_shop');
+        content.append(data);
+        setTimeout(function () {
+          theme.productSelect('2','product-single__variant-select',true, productObj ? productObj : null);
+          SPR.initDomEls();
+          SPR.loadBadges();
+        });
+      });
+      return false;
+    });
+  }
   theme.runMap = function(map) {
     var thisMap = $("#" + map);
 

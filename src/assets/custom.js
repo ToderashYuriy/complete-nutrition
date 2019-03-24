@@ -21,7 +21,10 @@ $(document).ready(function(){
     });
 
 
-
+	$('a.open_burger_partner').on('click',function(e){
+		e.preventDefault();
+		$('.hidden_parent_partners').toggle( "slide" );
+	});
 
 	$('.border_tab .title_tab_product').on('click',function(){
 		var that = $(this),
