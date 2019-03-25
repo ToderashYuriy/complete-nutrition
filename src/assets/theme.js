@@ -2607,8 +2607,8 @@ $(document).ready(function() {
   //cart popup trigger click
   if (theme.cart_ajax) {
     $(document).on("click", ".js-cart-trigger", function(e) {
-      theme.mfpOpen("cart");
       e.preventDefault();
+      theme.mfpOpen("cart");
     });
   }
   //mobile menu drawer trigger click
