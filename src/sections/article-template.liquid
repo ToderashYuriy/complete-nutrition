@@ -105,7 +105,11 @@
 
                             <div class="article-comments__comments">
                                 {% if number_of_comments > 0 %}
+                                <div class="comment-title-wrapper">
                                     <h2 class="article-comments__title h4">{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h2>
+                                    <p class="write-comment">Write A Comment</p>
+                                </div>
+                                    
                                 {% endif %}
                                 {% paginate article.comments by 3 %}
                                     {% if comment and comment.created_at %}
@@ -188,6 +192,50 @@
 
             <div class="blog-article-side">
                 <div class="article-side-wrapper">
+                    <div class="blog__form-wrapper">
+                        <div class="side-title-text">
+                            <h3 class="side-title"> {{ section.settings.article_side_title }} </h3>
+                            <p class="side-text"> {{ section.settings.article_side_text }} </p>
+                        </div>
+                        {% form 'customer', id: 'newsletter' %}
+                            {{ form.errors | default_errors }}
+                            {% if form.posted_successfully? %}
+                                <div class="blog__form-message">
+                                    <h4 class="blog__form-message__text">{{ 'general.newsletter_form.confirmation' | t }}</h4>
+                                </div>
+                            {% else %}
+                                <div class="o-layout o-layout--flush blog-newsletter-form">
+                                    <div class="o-layout__item u-1/1 u-2/3@tab input-button-wrapper">
+                                        <input type="hidden" name="contact[tags]" value="newsletter">
+                                        <label for="Email" class="u-hidden-visually">Email</label>
+                                        <input type="email"
+                                                name="contact[email]"
+                                                id="Email"
+                                                class="blog-input"
+                                                value="{% if customer %}{{ customer.email }}{% endif %}"
+                                                placeholder="Email"
+                                                autocorrect="off"
+                                                autocapitalize="off">
+                                    </div>
+                                    <div class="o-layout__item u-1/1 u-1/3@tab input-button-wrapper">
+                                        <button type="submit" class="c-btn c-btn--full c-btn--primary c-btn--arrow newsletter__btn newsletter-blog-btn" name="commit" id="Subscribe"> {{ section.settings.article_side_button_title }} </button>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endform %}
+                        <div class="side-categories-wrapper">
+                            <h3 class="side-categories-title"> Categories </h3>
+                                <p class="all-blog-tags">
+                                    <a href=" {{ blog.url }} "> All </a>
+                                </p>
+                                {% for tag in blog.all_tags %}
+                                    <p class="all-blog-tags">
+                                        <a href=" {{ article.url }} "> {{ tag | link_to_tag: tag }} </a>
+                                    </p>
+                                {% endfor %}
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -429,6 +477,24 @@
             "type": "url",
             "id": "coll_link",
             "label": "Link"
+        },
+        {
+            "type": "text",
+            "id": "article_side_title",
+            "label": "Article Side Title",
+            "default": "Stay Updated!"
+        },
+        {
+            "type": "text",
+            "id": "article_side_text",
+            "label": "Article Side Text",
+            "default": "Keep up to date on the latest recipes, promotions and fitness tips!"
+        },
+        {
+            "type": "text",
+            "id": "article_side_button_title",
+            "label": "Side Button Title",
+            "default": "SUBSCRIBE"
         }
     ]
 }
