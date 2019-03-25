@@ -26,6 +26,60 @@
         {% unless section.settings.message_link == blank %}
         <a href="{{ section.settings.message_link }}" class="announcement__link">
         {% endunless %}
+        {% if page_title == 'Green’d' %}
+            {% if section.settings.show_message_blocks %}
+            <div class="announcement green_d">
+                <div class="container">
+                    <div class="flex_inner_announcement">
+                        <div class="left_announcement">
+                            {% for block in section.blocks %}
+                                {% case block.type %}
+                                    {% when 'image' %}
+                                    {% if block.settings.link == '/pages/brand-green-d' %}
+                                    <div class="icon_partner_header">
+                                        <a href="#" class="open_burger_partner">
+                                            {% include  'burder-icon-partner' %}
+                                        </a>
+                                    </div>
+                                    <a href="{{ block.settings.link }}" class="item_announcement">
+                                        <img src="{{ block.settings.image | img_url: '' }}" alt="" class="item_inner_burger">
+                                    </a>
+                                    {% endif %}
+                                {% endcase %}
+                            {% endfor %}
+                            <div class="hidden_parent_partners">
+                                <div class="hidden_images_icons_partners">
+                                {% for block in section.blocks %}
+                                    {% case block.type %}
+                                        {% when 'image' %}
+                                        {% unless block.settings.link == '/pages/brand-green-d' %}
+                                            {% if block.settings.image != blank %}
+                                            <a href="{{ block.settings.link }}" class="item_announcement">
+                                                <img src="{{ block.settings.image | img_url: '' }}" alt="" class="item_inner">
+                                            </a>
+                                            {% else %}
+                                            <a href="{{ block.settings.link }}" class="item_announcement">
+                                                <img src="https://cdn.shopify.com/s/files/1/0108/9572/0548/files/Main_Roast_logo.svg?81742" alt="" class="item_inner">
+                                            </a>
+                                            {% endif %}
+                                        {% endunless %}
+                                    {% endcase %}
+                                {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_announcement">
+                            <p class="announcement__text">{{ section.settings.message_text | escape }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="announcement">
+                <p class="announcement__text">{{ section.settings.message_text | escape }}</p>
+            </div>
+            {% endif %}
+        {% else %}
             {% if section.settings.show_message_blocks %}
             <div class="announcement">
                 <div class="container">
@@ -34,9 +88,13 @@
                             {% for block in section.blocks %}
                                 {% case block.type %}
                                     {% when 'image' %}
-                                    {% if block.settings.link != blank or block.settings.image != blank %}
+                                    {% if block.settings.image != blank %}
                                     <a href="{{ block.settings.link }}" class="item_announcement">
-                                        <img src="{{ block.settings.image | img_url: '150x' }}" alt="" class="item_inner">
+                                        <img src="{{ block.settings.image | img_url: '' }}" alt="" class="item_inner">
+                                    </a>
+                                    {% else %}
+                                    <a href="{{ block.settings.link }}" class="item_announcement">
+                                        <img src="https://cdn.shopify.com/s/files/1/0108/9572/0548/files/Main_Roast_logo.svg?81742" alt="" class="item_inner">
                                     </a>
                                     {% endif %}
                                 {% endcase %}
@@ -53,6 +111,7 @@
                 <p class="announcement__text">{{ section.settings.message_text | escape }}</p>
             </div>
             {% endif %}
+        {% endif %}
         {% unless section.settings.message_link == blank %}
         </a>
         {% endunless %}

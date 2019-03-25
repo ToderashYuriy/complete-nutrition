@@ -148,6 +148,26 @@ ShopifyAPI.changeItem = function(line, quantity, callback) {
         ShopifyAPI.onCartUpdate(cart);
       }
       $body.trigger('afterChangeItem.ajaxCart', [line, quantity, cart]);
+      $('.inner_shipping_price_popup').css('opacity',0);
+      setTimeout(function(){
+        var full_price_html_1 = $('.inner_shipping_price_popup .cart_free_shipping span.number_shipping').data('price'),
+            full_price_1 = parseInt(full_price_html_1),
+            price_html_1 = $('body p.ajaxcart__footer-total span.money').html().replace('$',''),
+            price_1 = parseInt(price_html_1),
+            price_inner_1 = full_price_1 - price_1;
+            console.log(price_1);
+            console.log(full_price_1);
+        if (price_1 > full_price_1){
+          $('.inner_shipping_price_popup p.cart_free_shipping').addClass('hidden');
+          $('.inner_shipping_price_popup .cart_full_shipping').removeClass('hidden');
+        }else{
+          $('.inner_shipping_price_popup p.cart_free_shipping span.number_shipping').html(price_inner_1);
+          $('.inner_shipping_price_popup .cart_full_shipping').addClass('hidden');
+          $('.inner_shipping_price_popup p.cart_free_shipping').removeClass('hidden');
+        }
+        $('.inner_shipping_price_popup').css('display','block');
+        $('.inner_shipping_price_popup').css('opacity',1);
+      },1500);
     },
     error: function(XMLHttpRequest, textStatus) {
       $body.trigger('errorChangeItem.ajaxCart', [XMLHttpRequest, textStatus]);

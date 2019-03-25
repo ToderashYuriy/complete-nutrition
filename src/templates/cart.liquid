@@ -79,15 +79,15 @@
                                 <p class="cart_free_shipping"><span>Add $</span><span class="number_shipping">{{ number_shiping }}</span> & Get Free Shipping</p>
                             </div>
                             <div class="right_block_flex">
-                                <p class="cart__footer-message">{{ 'cart.general.shipping_at_checkout' | t }}</p>
                                 <p class="cart__footer-total">{{ 'cart.general.subtotal' | t }} <span class="money">{{ cart.total_price | money }}</span></p>
                                 {% if cart.total_discounts > 0 %}
                                     {% assign savings = cart.total_discounts | money %}
                                     <p class="cart__savings"><em><span class="money">{{ 'cart.general.savings_html' | t: price: savings }}</span></em></p>
                                 {% endif %}
                                 <div class="cart__button">
+                                    <a href="/collections/all" class="shopping_con">CONTINUE SHOPPING</a>
                                     <button type="submit" name="update" class="c-btn c-btn--light cart__button-update update-cart">{{ 'cart.general.update' | t }}</button>
-                                    <button type="submit" class="c-btn c-btn--full c-btn--arrow c-btn--primary cart__checkout" name="checkout">{{ 'cart.general.checkout' | t }}</button>
+                                    <button type="submit" class="c-btn c-btn--full c-btn--arrow c-btn--primary cart__checkout" name="checkout">PROCEED TO CHECKOUT</button>
                                     <a href="" class="checkout_recharge"></a>
                                 </div>
                             </div>
@@ -124,5 +124,7 @@
             console.log(shipping_free);
             console.log(subtotal);
         }
+
+
     });
 </script>

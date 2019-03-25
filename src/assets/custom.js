@@ -1,4 +1,31 @@
 $(document).ready(function(){
+	$('body .ajaxcart__products .ajaxcart__qty-adjust').on('click',function(){
+		$('.inner_shipping_price_popup').css('opacity',0);
+		console.log('nice');
+	    setTimeout(function(){
+	      var full_price_html_1 = $('.inner_shipping_price_popup .cart_free_shipping span.number_shipping').data('price'),
+	          full_price_1 = parseInt(full_price_html_1),
+	          price_html_1 = $('p.cart__footer-total span.money').html().replace('$',''),
+	          price_1 = parseInt(price_html_1),
+	          price_inner_1 = full_price_1 - price_1;
+	      if (price_1 > full_price_1){
+	        $('.inner_shipping_price_popup p.cart_free_shipping').addClass('hidden');
+	        $('.inner_shipping_price_popup .cart_full_shipping').removeClass('hidden');
+	      }else{
+	        $('.inner_shipping_price_popup p.cart_free_shipping span.number_shipping').html(price_inner_1);
+	        $('.inner_shipping_price_popup .cart_full_shipping').addClass('hidden');
+	        $('.inner_shipping_price_popup p.cart_free_shipping').removeClass('hidden');
+	      }
+	      $('.inner_shipping_price_popup').css('opacity',1);
+	    },2000);
+    });
+
+
+	$('a.open_burger_partner').on('click',function(e){
+		e.preventDefault();
+		$('.hidden_parent_partners').toggle( "slide" );
+	});
+
 	$('.border_tab .title_tab_product').on('click',function(){
 		var that = $(this),
 			type = that.parent().parent('.tab_product').data('type'),
@@ -61,6 +88,7 @@ $(document).ready(function(){
 				theme.productSelect('2','product-single__variant-select',true, productObj ? productObj : null);
 				SPR.initDomEls();
 				SPR.loadBadges();
+				ReCharge.addProduct(productObj);
 			});
 		});
 		return false;
@@ -135,9 +163,18 @@ $('a.magnific_popup_items.product-single__photo-zoom.js-no-transition').each(fun
 });
 
 
-
-
-
+$(window).on('load',function(){
+	$('.js-qty__adjust').on('click',function(){
+        setTimeout(function(){
+            $('button.c-btn.c-btn--light.cart__button-update.update-cart').click();
+        },500);
+    });
+    $('input.js-qty__num').on('change',function(){
+    	setTimeout(function(){
+            $('button.c-btn.c-btn--light.cart__button-update.update-cart').click();
+        },500);
+    });
+});
 
 
 

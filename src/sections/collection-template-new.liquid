@@ -11,11 +11,55 @@
     <div class="collection{% if collection.image and section.settings.show_collection_image %} collection--img{% endif %}{% if section.settings.center_title %} collection--center{% endif %}">
 
         <div class="container">
-            <div class="collection-main-new" id="collection-main">
+            <div class="collection__header{% if collection.image and section.settings.show_collection_image %} collection__header--img{% endif %}">
+                {% if collection.image and section.settings.show_collection_image %}
+                    <div class="collection__header-media o-ratio o-ratio--{{ section.settings.collection_image_height }}" style="background-image: url('{{ collection.image | img_url: '1x1' }}')">
+                        <div class="collection__header-img collection__header-img--{{ section.id }} u-bg-cover u-bg-grey img-lazyload lazyload js"
+                            data-bgset="{% include 'bgset', image: collection.image %}"
+                            data-sizes="auto"
+                            data-parent-fit="cover"
+                            style="background-position: center {{ section.settings.image_alignment }};"></div>
+                        <noscript>
+                            <div class="collection__header-img collection__header-img--{{ section.id }} u-bg-cover u-bg-grey"
+                                style="background-position: center {{ section.settings.image_alignment }};background-image: url('{{ collection.image | img_url: '1400x' }});">
+                            </div>
+                        </noscript>
+                    </div>
+                {% endif %}
+                <div class="collection__header-info">
+                    <div class="section__title collection__header-info__title{% if section.settings.center_title %} section__title--center{% endif %}">
+                        <h1 class="section__title-text collection__header-info__title-text">{{ collection.title }}</h1>
+                    </div>
+                    {% if collection.description != blank %}
+                        <div class="collection__header-info__text rte rte--header">
+                            {{ collection.description }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% case section.settings.grid %}
+                {% when 2 %}
+                    {%- assign grid_item_width = 'u-1/1 u-1/2@phab' -%}
+                    {%- assign sort_width = 'u-1/1 u-1/2@tab' -%}
+                    {%- assign image_size = '740x' -%}
+                {% when 3 %}
+                    {%- assign grid_item_width = 'u-1/1 u-1/2@phab u-1/3@tab' -%}
+                    {%- assign sort_width = 'u-1/1 u-1/2@tab u-1/3@desk' -%}
+                    {%- assign image_size = '520x' -%}
+                {% when 4 %}
+                    {%- assign grid_item_width = 'u-1/2 u-1/3@tab u-1/4@desk' -%}
+                    {%- assign sort_width = 'u-1/1 u-1/2@tab' -%}
+                    {%- assign image_size = '380x' -%}
+            {% endcase %}
+
+            <div class="collection-main" id="collection-main">
                 <div class="collection-products">
                     {% include 'searchanise-navigation' %}
                 </div>
+
             </div>
+
         </div>
 
     </div>    

@@ -66,7 +66,28 @@ theme.homeMaps = function() {
       });
     }
   };
-
+  theme.runQuickShop = function(){
+    $('a.quick_shop_btn').on('click',function(e){
+      var that = $(this),
+        href_product = that.attr('href'),
+        href = href_product+'?view=quick_view',
+        quickParent = $('.quick-view-parent'),
+        body = $('body');
+      console.log(href_product);
+      $.get(href, function(data){
+        var content = quickParent.find('.quick_content');
+        quickParent.addClass('show');
+        body.addClass('quick_shop');
+        content.append(data);
+        setTimeout(function () {
+          theme.productSelect('2','product-single__variant-select',true, productObj ? productObj : null);
+          SPR.initDomEls();
+          SPR.loadBadges();
+        });
+      });
+      return false;
+    });
+  }
   theme.runMap = function(map) {
     var thisMap = $("#" + map);
 
@@ -712,7 +733,6 @@ theme.productSelect = function(sectionId, cssClass, historyState, productObj = n
       document.getElementById("ProductJson-" + sectionId).innerHTML
     );
   }
-  console.log(productObj);
   var sectionClass = cssClass;
 
   var selectCallback = function(variant, selector) {
@@ -736,7 +756,6 @@ theme.productSelect = function(sectionId, cssClass, historyState, productObj = n
           $('.js-product-' + productId + ' .stock_block').css('display','none').removeClass('red');
         }
         // Enabling add to cart button.
-        console.log(variant);
         $(".js-product-" + productId + " .js-product-add")
           .removeClass("disabled")
           .addClass("c-btn--plus")
@@ -2365,6 +2384,20 @@ theme.mfpOpen = function(popup) {
           removalDelay: 200
         });
       }
+      var full_price_html = $('.inner_shipping_price_popup .cart_free_shipping span.number_shipping').data('price'),
+          full_price = parseInt(full_price_html),
+          price_html = $('body p.ajaxcart__footer-total span.money').html().replace('$',''),
+          price = parseInt(price_html),
+          price_inner = full_price - price;
+      if (price > full_price){
+        $('.inner_shipping_price_popup p.cart_free_shipping').addClass('hidden');
+        $('.inner_shipping_price_popup .cart_full_shipping').removeClass('hidden');
+      }else{
+        $('.inner_shipping_price_popup p.cart_free_shipping span.number_shipping').html(price_inner);
+        $('.inner_shipping_price_popup .cart_full_shipping').addClass('hidden');
+        $('.inner_shipping_price_popup p.cart_free_shipping').removeClass('hidden');
+      }
+      $('.inner_shipping_price_popup').css('display','block');
       break;
 
     case "search":
