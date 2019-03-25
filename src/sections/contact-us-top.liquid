@@ -1,13 +1,13 @@
 <section class="contact_us_top">
-  <div class="test">
-  <div class="contact-bg-img">
-    <img src="{{ section.settings.bg_image | img_url: '' }}" alt="">
+  <div class="contact-position">
+    <div class="contact-bg-img">
+      <img src="{{ section.settings.bg_image | img_url: '' }}" alt="">
+    </div>
+    <div class="top-content">
+      <h1 class="title">{{ section.settings.title }}</h1>
+      <p class="title-p">{{ section.settings.after_title }}</p>
+    </div>
   </div>
-      <div class="top-content">
-        <h1 class="title">{{ section.settings.title }}</h1>
-        <p class="title-p">{{ section.settings.after_title }}</p>
-  </div>
-</div>
 </section>
 
 {% schema %}
