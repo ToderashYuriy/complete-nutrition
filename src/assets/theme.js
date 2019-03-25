@@ -74,7 +74,8 @@ theme.homeMaps = function() {
         quickParent = $('.quick-view-parent'),
         body = $('body');
       console.log(href_product);
-      $.get(href, function(data){
+      if($('.product-quick_image').length < 2){
+        $.get(href, function(data){
         var content = quickParent.find('.quick_content');
         quickParent.addClass('show');
         body.addClass('quick_shop');
@@ -83,9 +84,10 @@ theme.homeMaps = function() {
           theme.productSelect('2','product-single__variant-select',true, productObj ? productObj : null);
           SPR.initDomEls();
           SPR.loadBadges();
+          });
         });
-      });
-      return false;
+        return false;
+      }
     });
   }
   theme.runMap = function(map) {
@@ -797,6 +799,7 @@ theme.productSelect = function(sectionId, cssClass, historyState, productObj = n
           $(".js-product-" + productId + " .js-product-price-compare").empty();
         }
       } else {
+        $('body button.c-btn.c-btn--full.c-btn--arrow.c-btn--primary.cart__checkout.checkout_product_btn').css('display','none');
         $('.js-product-' + productId + ' .stock_block span.inner_stock').html('Out of Stock');
         $('.js-product-' + productId + ' .stock_block').css('display','flex').addClass('red');
         // Variant is sold out.

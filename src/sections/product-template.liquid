@@ -108,7 +108,7 @@
                                                         <span class="js-product-add-text">{{ 'products.product.add_to_cart' | t }}</span>
                                                     </button>
                                                     {% if section.settings.enable_payment_button %}
-                                                        {{ form | payment_button }}
+                                                        <button type="submit" class="c-btn c-btn--full c-btn--arrow c-btn--primary cart__checkout checkout_product_btn" name="checkout">BUY IT NOW</button>
                                                     {% endif %}
 
                                                 </div>

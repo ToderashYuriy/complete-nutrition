@@ -19,7 +19,15 @@ $(document).ready(function(){
 	      $('.inner_shipping_price_popup').css('opacity',1);
 	    },2000);
     });
-
+	var width = window.innerWidth; 
+	if(width < 980){
+		$('body #bc-sf-filter-options-wrapper .bc-sf-filter-option-block .bc-sf-filter-block-title h3').click();
+	}
+	$(window).resize(function(){
+		if(width < 980){
+			$('body #bc-sf-filter-options-wrapper .bc-sf-filter-option-block .bc-sf-filter-block-title h3').click();
+		}
+	});
 
 	$('a.open_burger_partner').on('click',function(e){
 		e.preventDefault();
