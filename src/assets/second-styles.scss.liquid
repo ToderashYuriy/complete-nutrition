@@ -47,7 +47,7 @@
 		padding-top: 35px;
 		font-size: 15px;
 		line-height: 30px;
-		margin-bottom: 170px;
+		margin-bottom: 140px;
 	}
 }
 
@@ -992,18 +992,6 @@
 	position: relative;
 }
 
-.privacy-content{
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	top: 0;
-	bottom: 0;
-	margin-top: 15%;
-	margin-left: 5%;
-	width: 400px;
-	max-width: 100%;
-}
-
 .term-btn-wrap{
 	display: none;
 }
@@ -1022,6 +1010,10 @@
 	.product-description-one{
 		padding-left: 70px;
 		padding-right: 70px;
+	}
+
+	.first-benefit-img,.second-benefit-img, .third-benefit-img{
+		height: 400px;
 	}
 }
 
@@ -1255,6 +1247,15 @@
 		}
 
 	.privacy-content{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		top: 0;
+		bottom: 0;
+		margin-top: 15%;
+		margin-left: 5%;
+		width: 400px;
+		max-width: 100%;
 
 		h1{
 			font-size: 30px;
@@ -1409,9 +1410,20 @@
 }
 
 
+@media screen and (max-width: 1900px){
+	.first-benefit-img,.second-benefit-img, .third-benefit-img{
+		height: 750px;
+	}
+}
 
 
 
+
+@media screen and (max-width: 1366px){
+	.first-benefit-img,.second-benefit-img, .third-benefit-img{
+		height: 542px;
+	}
+}
 
 @media screen and (max-width: 1024px){
 
@@ -1445,6 +1457,10 @@
 		margin-top: -65px;
 	}
 
+	.first-benefit-img,.second-benefit-img, .third-benefit-img{
+		height: 400px;
+	}
+
 	/*ABOUT ADVANTAGES */
 
 	.first-benefit,.second-benefit, .third-benefit{
@@ -1458,7 +1474,7 @@
 	/*ABOUT TOP*/
 
 	.bg-top{
-		height: 289px;
+		height: 265px;
 		display: -webkit-flex;
 		display: -moz-flex;
 		display: -ms-flex;
@@ -1468,12 +1484,13 @@
 	    align-items: center;
 	}
 	.text-top{
-		width: 500px;
 		max-width: 100%;
 
 		h1{
 			font-size: 36px;
 			line-height: 36px;
+			width: 265px;
+			letter-spacing: 0;
 		}
 	}
 	
@@ -1490,7 +1507,12 @@
 	.box-img{
 		flex-basis: 100%;
 		text-align: center;
-		margin-top: -130px;
+		margin-top: -80px;
+	}
+
+	.box-img img {
+		height: auto;
+		object-fit: cover;
 	}
 
 	.box-description{
@@ -1530,9 +1552,9 @@
 	}
 
 	.first-benefit-img,.second-benefit-img, .third-benefit-img{
-		height: 100%;
+		height: 255px;
 		width: 100%;
-		min-height: 480px;
+		background-size: cover;
 	}
 
 	/*VALUE*/
@@ -1591,3 +1613,88 @@
 }
 
 
+
+
+
+
+/*ACCOUNT PAGE -------------------------->*/
+
+.section.section--account .container--tiny, .section.section--account .login-side-image{
+	width: 290px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: flex-start;
+}
+.container--tiny{
+	background-color: #F7F7F7;
+	text-align: left;
+}
+
+.section__title--desc{
+	text-align: left;
+} 
+.section__title {
+	h4{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 900;
+		font-size: 15px;
+		line-height: 20px;
+		border-bottom: 1px solid #ffd161;
+		text-transform: none;
+		width: 75px;
+		letter-spacing: 1px;
+	}
+
+	h5{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 20px;
+		text-transform: none;
+		letter-spacing: 1px;
+	}
+}
+
+
+.overview{
+	width: 100%;
+	h1{
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 24px;
+		line-height: 29px;
+		text-transform: none;
+	}
+	p{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 20px;
+		text-transform: none;
+		letter-spacing: 1px;
+	}
+}
+
+.orders-none{
+	h2{
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 18px;
+		line-height: 29px;
+		text-transform: none;
+		letter-spacing: 1px;
+	}
+	p{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 27px;
+		text-transform: none;
+		letter-spacing: 1px;
+		background-color: #FF5A5F;
+		color: #fff;
+	}
+}

@@ -4,18 +4,32 @@
 <!--EndRechargeCode-->
 {% endif %}<br>
 <section class="section section--account account account--main">
+
     <div class="container container--tiny">
         <div class="section__title section__title--center section__title--desc">
-            <h1 class="section__title-text h2">{{ 'customer.account.title' | t }}</h1>
-            <p class="section__title-desc"><a href="/account/logout" class="link">{{ 'layout.customer.log_out' | t }}</a></p>
+            <!-- <h1 class="section__title-text h2">{{ 'customer.account.title' | t }}</h1> -->
+            <h4><a href="#">Overview</a></h4>
+            <h5><a href="#">Account Settings</a></h5>
+            <h5><a href="#">Addresses</a></h5>
+            <h5><a href="#">Order History</a></h5>
+            <h5><a href="#">Manange Subscriptions</a></h5>
+            <h5 ><a href="/account/logout" >{{ 'layout.customer.log_out' | t }}</a></h5>
         </div>
     </div>
 
+
+
     <div class="container">
         <div class="o-layout">
-            <div class="o-layout__item u-1/1 u-2/3@tab">
+            <div class="o-layout__item">
 
-                <h2 class="h3">{{ 'customer.orders.title' | t }}</h2>
+                <div class="overview">
+                    <h1>Account Overview</h1>
+                    <p>Welcome to MyAccount, Chris! Here you can see your purchase history, adjust your Subscription orders, update your billing information, and more!</p>
+                </div>
+
+                <!-- <h2 class="h3">{{ 'customer.orders.title' | t }}</h2> -->
+
 
                 {% paginate customer.orders by 20 %}
                     {% if customer.orders.size != 0 %}
@@ -44,7 +58,11 @@
                             </tbody>
                         </table>
                     {% else %}
+                    <div class="orders-none">
+                        <h2>Recent Orders</h2>
+
                         <p>{{ 'customer.orders.none' | t }}</p>
+                    </div>
                     {% endif %}
                     {% if paginate.pages > 1 %}
                         <div class="account__pagination">
@@ -61,7 +79,8 @@
             </div>
             <div class="o-layout__item u-1/1 u-1/3@tab">
 
-                <h2 class="h3">{{ 'customer.account.details' | t }}</h2>
+                <!-- <h2 class="h3">{{ 'customer.account.details' | t }}</h2> -->
+                <h1>Addresses</h1>
 
                 {{ customer.default_address | format_address }}
 
