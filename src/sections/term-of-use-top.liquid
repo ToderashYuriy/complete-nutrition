@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <section class="privacy-background">
   <div class="privacy-position">
     <div class="privacy-bg-img">
@@ -8,19 +7,23 @@
       <div class="privacy-content">
         <h1 class="privacy-title">{{ section.settings.title}} </h1>
         <button class="term-btn-wrap" id="term-btn-wrap">
-          <a href="#">
             <h2>{{section.settings.term_text_btn}}</h2>
-          </a>
         </button>
       </div>
 
       <div class="wrap-links" id="term-wrap-links">
         <div class="close-btn">
           <h2>{{ section.settings.legal_policies_responsive }}</h2>
-          <button id="btn-close">x</button>
+          <button id="btn-close">
+            <i class="icon icon--close"></i>
+          </button>
         </div>
         <div class="privacy-aside">
+
+          <a href="section.settings.term_of_use_link_responsive">
           <span class="privacy-link-first"> {{ section.settings.side_title_first }} </span>
+        </a>
+
           <a class="privacy-link-second" href="{{ section.settings.side_link_second }}"> 
             <p>{{ section.settings.side_title_second }} </p>
           </a>
@@ -71,93 +74,8 @@
       },
       {
         "type": "url",
-        "id": "side_link_first",
-        "label": "Term of Use Link"
-      },
-      {
-        "type": "text",
-        "id": "side_title_second",
-        "default": "Privacy Policy",
-        "label": "Privacy Policy"
-      },
-      {
-        "type": "text",
-        "id": "legal_policies_responsive",
-        "label": "Legal policies responsive"
-      }
-
-    ]
-  }
-=======
-<section class="privacy-background">
-  <div class="privacy-position">
-    <div class="privacy-bg-img">
-      <img src="{{ section.settings.bg_image | img_url: '' }}" alt="">
-    </div>
-    <div class="container">
-      <div class="privacy-content">
-        <h1 class="privacy-title">{{ section.settings.title}} </h1>
-        <button class="term-btn-wrap" id="term-btn-wrap">
-          <a href="#">
-            <h2>{{section.settings.term_text_btn}}</h2>
-          </a>
-        </button>
-      </div>
-
-      <div class="wrap-links" id="term-wrap-links">
-        <div class="close-btn">
-          <h2>{{ section.settings.legal_policies_responsive }}</h2>
-          <button id="btn-close">x</button>
-        </div>
-        <div class="privacy-aside">
-          <span class="privacy-link-first"> {{ section.settings.side_title_first }} </span>
-          <a class="privacy-link-second" href="{{ section.settings.side_link_second }}"> 
-            <p>{{ section.settings.side_title_second }} </p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded",function(){
-    $('#term-btn-wrap').on('click', function(){
-      $('#term-wrap-links').slideDown(700);
-    });
-    $('#btn-close').on('click', function(){
-      $('#term-wrap-links').slideUp(700);
-
-    })
-  });
-</script>
-
-{% schema %}
-  {
-    "name": "Term of Use Top",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "bg_image",
-        "label": "Background image"
-      },
-      {
-        "type": "text",
-        "id": "title",
-        "default": "Legal Policies",
-        "label": "Legal Privacy Title"
-      },
-      {
-        "type": "text",
-        "id": "term_text_btn",
-        "label": "Term button text"
-      },
-      {
-        "type": "text",
-        "id": "side_title_first",
-        "default": "Term of Use",
-        "label": "Term of Use"
+        "id": "term_of_use_link_responsive",
+        "label": "Term of Use Link Responsive"
       },
       {
         "type": "url",
@@ -178,5 +96,4 @@
 
     ]
   }
->>>>>>> 3cf508e60cead44e8c21b0941597e662d820e4a1
 {% endschema %}
